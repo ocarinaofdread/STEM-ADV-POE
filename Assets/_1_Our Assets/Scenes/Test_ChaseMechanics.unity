@@ -1522,12 +1522,12 @@ PrefabInstance:
     - target: {fileID: 1950071256380442064, guid: 62c8bc523ec0f6a45ab78441f35bed00,
         type: 3}
       propertyPath: m_UpdateMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1950071256380442064, guid: 62c8bc523ec0f6a45ab78441f35bed00,
         type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1967592998394274286, guid: 62c8bc523ec0f6a45ab78441f35bed00,
         type: 3}
