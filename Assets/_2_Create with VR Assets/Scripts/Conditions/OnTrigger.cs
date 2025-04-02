@@ -1,50 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 using UnityEngine.Events;
 
-/// <summary>
-/// Calls functionality when a trigger occurs
-/// </summary>
-public class OnTrigger : MonoBehaviour
+namespace UnityEngine.XR.Content.Interaction
 {
-    public string requiredTag = string.Empty;
-
-    [Serializable] public class TriggerEvent : UnityEvent<Collider> { }
-
-    // When the object enters a collision
-    public TriggerEvent OnEnter = new TriggerEvent();
-
-    // When the object exits a collision
-    public TriggerEvent OnExit = new TriggerEvent();
-
-    private void OnTriggerEnter(Collider other)
+    /// <summary>
+    /// Calls functionality when a physics trigger occurs
+    /// </summary>
+    public class OnTrigger : MonoBehaviour
     {
-        if (CanTrigger(other.gameObject))
-            OnEnter?.Invoke(other);
-    }
+        [Serializable] public class TriggerEvent : UnityEvent<GameObject> { }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (CanTrigger(other.gameObject))
-            OnExit?.Invoke(other);
-    }
+        [SerializeField]
+        [Tooltip("If set, this trigger will only fire if the other gameobject has this tag.")]
+        string m_RequiredTag = string.Empty;
 
-    private bool CanTrigger(GameObject otherGameObject)
-    {
-        if(requiredTag != string.Empty)
+        [SerializeField]
+        [Tooltip("Events to fire when a matcing object collides with this trigger.")]
+        TriggerEvent m_OnEnter = new TriggerEvent();
+
+        [SerializeField]
+        [Tooltip("Events to fire when a matching object stops colliding with this trigger.")]
+        TriggerEvent m_OnExit = new TriggerEvent();
+
+        /// <summary>
+        /// If set, this trigger will only fire if the other gameobject has this tag.
+        /// </summary>
+        public string requiredTag => m_RequiredTag;
+
+        /// <summary>
+        /// Events to fire when a matching object collides with this trigger.
+        /// </summary>
+        public TriggerEvent onEnter => m_OnEnter;
+
+        /// <summary>
+        /// Events to fire when a matching object stops colliding with this trigger.
+        /// </summary>
+        public TriggerEvent onExit => m_OnExit;
+
+        void OnTriggerEnter(Collider other)
         {
-            return otherGameObject.CompareTag(requiredTag);
+            if (CanTrigger(other.gameObject))
+                m_OnEnter?.Invoke(other.gameObject);
         }
-        else
-        {
-            return true;
-        }
-    }
 
-    private void OnValidate()
-    {
-        if (TryGetComponent(out Collider collider))
-            collider.isTrigger = true;
+        void OnTriggerExit(Collider other)
+        {
+            if (CanTrigger(other.gameObject))
+                m_OnExit?.Invoke(other.gameObject);
+        }
+
+        void OnParticleCollision(GameObject other)
+        {
+            if (CanTrigger(other.gameObject))
+                m_OnEnter?.Invoke(other);
+        }
+
+        bool CanTrigger(GameObject otherGameObject)
+        {
+            if (m_RequiredTag != string.Empty)
+                return otherGameObject.CompareTag(m_RequiredTag);
+            else
+                return true;
+        }
     }
 }

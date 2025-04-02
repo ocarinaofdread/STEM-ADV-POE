@@ -1,15 +1,17 @@
-﻿using UnityEngine;
-
-/// <summary>
-/// Destroys object after a few seconds
-/// </summary>
-public class DestroyObject : MonoBehaviour
+namespace UnityEngine.XR.Content.Interaction
 {
-    [Tooltip("Time before destroying in seconds")]
-    public float lifeTime = 5.0f;
-
-    private void Start()
+    /// <summary>
+    /// Destroys GameObject after a few seconds.
+    /// </summary>
+    public class DestroyObject : MonoBehaviour
     {
-        Destroy(gameObject, lifeTime);
+        [SerializeField]
+        [Tooltip("Time before destroying in seconds.")]
+        float m_Lifetime = 5f;
+
+        void Start()
+        {
+            Destroy(gameObject, m_Lifetime);
+        }
     }
 }

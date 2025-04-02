@@ -23,22 +23,22 @@ namespace Hands.Scripts
 
         private void TriggerHash_performed(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
+            handAnimator.SetFloat(TriggerHash, 1);
         }
         
         private void TriggerHash_canceled(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
+            handAnimator.SetFloat(TriggerHash, 0);
         }
         
         private void GripHash_performed(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
+            handAnimator.SetFloat(GripHash, 1);
         }
         
         private void GripHash_canceled(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
+            handAnimator.SetFloat(GripHash, 0);
         }
 
         private void OnDisable()

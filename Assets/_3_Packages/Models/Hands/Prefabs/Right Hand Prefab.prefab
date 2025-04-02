@@ -937,6 +937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5686134208185136530}
   - component: {fileID: 2643321339358677538}
+  - component: {fileID: 7078403813415346635}
   m_Layer: 11
   m_Name: Right Hand Prefab
   m_TagString: RightHand
@@ -982,6 +983,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7078403813415346635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686134208185362930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e122e054736e5ac43b3b5eaeaea461d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handAnimator: {fileID: 2643321339358677538}
+  triggerActionRef: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  gripActionRef: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &5686134208185362932
 GameObject:
   m_ObjectHideFlags: 0
