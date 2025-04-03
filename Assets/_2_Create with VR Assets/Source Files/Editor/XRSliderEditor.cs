@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEditor.XR.Interaction.Toolkit;
+using UnityEngine.XR.Content.Interaction;
 
 [CustomEditor(typeof(XRSlider))]
 public class XRSliderEditor : XRBaseInteractableEditor
