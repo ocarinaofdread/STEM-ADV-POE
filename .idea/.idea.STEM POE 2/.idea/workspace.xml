@@ -13,6 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_1_Our Assets/Scripts/Spells/LaunchForwardSpell.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -89,6 +92,8 @@
       <workItem from="1742585881315" duration="402000" />
       <workItem from="1743536346733" duration="641000" />
       <workItem from="1743618877723" duration="1575000" />
+      <workItem from="1744052484035" duration="826000" />
+      <workItem from="1744136903091" duration="3862000" />
     </task>
     <servers />
   </component>
