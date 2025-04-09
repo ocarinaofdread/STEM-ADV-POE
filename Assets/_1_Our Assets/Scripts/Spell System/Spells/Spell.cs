@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    [SerializeField] private bool hasDuration;
     [SerializeField] private float damage;
     [SerializeField] private float manaCost;
+    [SerializeField] private bool hasDuration;
     [SerializeField] private float duration;
+    
 
     private void Awake()
     {

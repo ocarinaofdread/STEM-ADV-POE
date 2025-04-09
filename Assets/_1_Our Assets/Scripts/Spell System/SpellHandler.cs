@@ -10,7 +10,10 @@ public class SpellHandler : MonoBehaviour
     public List<GameObject> spellPrefabList;
     
     [SerializeField] private GameObject attachPoint;
-    [SerializeField] private InputActionReference castAction;
+    [SerializeField] private InputActionReference[] castActionList;
+    [SerializeField] private InputActionReference[] exemptedActionList;
+
+    private int exemptedButtonsPressed;
 
     void Start()
     {
@@ -21,13 +24,28 @@ public class SpellHandler : MonoBehaviour
     // Input References
     void OnEnable()
     {
-        castAction.action.performed += OnCastAction;
+        for (int i = 0; i < castActionList.Length; i++)
+        {
+            castActionList[i].action.performed += OnCastAction;
+        }
+
+        for (int i = 0; i < exemptedActionList.Length; i++)
+        {
+            exemptedActionList[i].action.performed += AddExemptions;
+            exemptedActionList[i].action.canceled += SubtractExemptions;
+        }
     }
 
     void OnCastAction(InputAction.CallbackContext obj)
     {
-        Instantiate(currentSpellPrefab, attachPoint.transform);
+        if (exemptedButtonsPressed < 1)
+        {
+            Instantiate(currentSpellPrefab, attachPoint.transform);
+        }
     }
+
+    void AddExemptions(InputAction.CallbackContext obj) { exemptedButtonsPressed += 1;}
+    void SubtractExemptions(InputAction.CallbackContext obj) { exemptedButtonsPressed -= 1;}
     
     // Get/Set Functions
     public void SetCurrentSpell(GameObject spell) { currentSpellPrefab = spell; }
