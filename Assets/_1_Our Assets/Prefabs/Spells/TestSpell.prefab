@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6794657463672255306}
   - component: {fileID: 4402854141191491279}
   - component: {fileID: 2205314126684194681}
+  - component: {fileID: -8424883506891777614}
   m_Layer: 0
   m_Name: TestSpell
   m_TagString: Untagged
@@ -133,3 +134,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8424883506891777614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970737749199969720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d28d19893bc97e4c9d2c4c6c1c4b604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  manaCost: 0
+  hasDuration: 1
+  duration: 4
+  launchSpeed: 5

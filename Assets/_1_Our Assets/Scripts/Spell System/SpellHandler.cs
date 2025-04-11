@@ -40,7 +40,7 @@ public class SpellHandler : MonoBehaviour
     {
         if (exemptedButtonsPressed < 1)
         {
-            Instantiate(currentSpellPrefab, attachPoint.transform);
+            Instantiate(currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
         }
     }
 
