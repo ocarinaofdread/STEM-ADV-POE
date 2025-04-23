@@ -1967,6 +1967,18 @@ MonoBehaviour:
     m_Reference: {fileID: -1636515391019944688, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &978937027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5325518150197197848, guid: b4f659b79b1dfb444a4fdc82d45483bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6292061697843511056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &982680696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6639168411808550601, guid: b4f659b79b1dfb444a4fdc82d45483bd,
@@ -4177,8 +4189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67371f54099c5b4895eae826c132534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftPageTMPro: {fileID: 0}
-  rightPageTMPro: {fileID: 0}
+  leftPageTMPro: {fileID: 978937027}
+  rightPageTMPro: {fileID: 1829717636}
   selectedDominantHand: 0
   spellNames:
   - Blue
@@ -4197,7 +4209,7 @@ MonoBehaviour:
 
 
     Shoot Yellow'
-  controlsText: 
+  controlsText: Controls!!!!!!!!!!!!!!
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
