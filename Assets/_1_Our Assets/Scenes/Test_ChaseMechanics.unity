@@ -608,6 +608,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &393651357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 393651358}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &393651358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393651357}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.2400468, y: 0.5115523, z: 0.3745586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545281217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1096,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675006556}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e40ff7aa71b9744a95ce8c95b6f011e, type: 3}
   m_Name: 
@@ -1079,6 +1110,7 @@ MonoBehaviour:
   exemptedActionList:
   - {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   - {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  grimoire: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2767,7 @@ MonoBehaviour:
   exemptedActionList:
   - {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   - {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  grimoire: {fileID: 6292061697843511064}
 --- !u!1 &1829717634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,7 +2780,7 @@ GameObject:
   - component: {fileID: 1829717637}
   - component: {fileID: 1829717636}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RightPageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3755,7 +3788,7 @@ PrefabInstance:
     - target: {fileID: 3934469338855600849, guid: b4f659b79b1dfb444a4fdc82d45483bd,
         type: 3}
       propertyPath: m_Name
-      value: Text
+      value: LeftPageText
       objectReference: {fileID: 0}
     - target: {fileID: 5325518150197197848, guid: b4f659b79b1dfb444a4fdc82d45483bd,
         type: 3}
@@ -4144,11 +4177,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67371f54099c5b4895eae826c132534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftPageTMPro: {fileID: 0}
-  RightPageTMPro: {fileID: 0}
+  leftPageTMPro: {fileID: 0}
+  rightPageTMPro: {fileID: 0}
   selectedDominantHand: 0
-  spellNames: []
-  spellDescriptions: []
+  spellNames:
+  - Blue
+  - Red
+  - Yellow
+  spellDescriptions:
+  - 'Blue Spell
+
+
+    Shoot Blue'
+  - 'Red Spell
+
+
+    Shoot Red'
+  - 'Yellow Spell
+
+
+    Shoot Yellow'
+  controlsText: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4162,6 +4211,7 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1985259582}
   - {fileID: 1555383974}
+  - {fileID: 393651358}
   - {fileID: 855596114}
   - {fileID: 6292061697843511056}
   - {fileID: 2093820573}

@@ -11,47 +11,72 @@ public enum DominantHand
 
 public class GrimoireHandler : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI LeftPageTMPro;
-    [SerializeField] private TextMeshProUGUI RightPageTMPro;
+    // Dominant Hand: Controls
+    // Non-Dominant Hand: Spells
+    [SerializeField] private TextMeshProUGUI leftPageTMPro;
+    [SerializeField] private TextMeshProUGUI rightPageTMPro;
     
     [SerializeField] private DominantHand selectedDominantHand;
     [SerializeField] private string[] spellNames;
-    [TextArea(3, 5)]
-    [SerializeField] string[] spellDescriptions;
+    [TextArea(1, 3)] [SerializeField] string[] spellDescriptions;
+    [TextArea(1, 3)] [SerializeField] private string controlsText;
 
     // <Name, Description>
     private Dictionary<string, string> _spellDictionary;
-    private int _currentSpellValue;
-    
-    void Start()
+
+    private void Start()
     {
-        
-        if (CreateSpellDictionary())
+        ChangeControlsPage();
+    }
+    
+    
+    public void ChangeSpellPage(string newSpellName)
+    {
+        if (_spellDictionary == null){ CreateSpellDictionary(newSpellName); }
+        else
         {
-            
+            var newSpellDescription = _spellDictionary[newSpellName];
+
+            if (selectedDominantHand == DominantHand.RightHanded)
+            {
+                leftPageTMPro.text = newSpellDescription;
+            }
+            else
+            {
+                rightPageTMPro.text = newSpellDescription;
+            }
         }
     }
 
-    public void ChangeSpellDescription(string spellName)
-    {
-        
-    }
-
-    public bool CreateSpellDictionary()
+    private void CreateSpellDictionary(string firstSpell)
     {
         if (spellNames.Length != spellDescriptions.Length)
         {
             Debug.Log("Spell dictionary could not be initialized: SpellNames " +
                       "and SpellDescriptions arrays are not of equal length.");
-            return false;
+            return;
         }
         
+        Debug.Log("Initializing spell dictionary...");
         for (int i = 0; i < spellNames.Length; i++)
         {
+            Debug.Log(spellNames[i] + " with description " + spellDescriptions[i] +
+                      " is about to be added.");
+            Debug.Log(_spellDictionary + " exists.");
             _spellDictionary.Add(spellNames[i], spellDescriptions[i]);
+            Debug.Log("Spell Dictionary slot " + i + " has been added.");
         }
+        
+        Debug.Log("Spell dictionary has been initialized.");
+        ChangeSpellPage(firstSpell);
+    }
 
-        return true;
+    private void ChangeControlsPage()
+    {
+        if (selectedDominantHand == DominantHand.RightHanded) 
+        { rightPageTMPro.text = controlsText; }
+        else 
+        { leftPageTMPro.text = controlsText; }
     }
     
     

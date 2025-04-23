@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
+    [SerializeField] private string spellName;
     [SerializeField] private float damage;
     [SerializeField] private float manaCost;
     [SerializeField] private bool hasDuration;
@@ -44,7 +45,7 @@ public class Spell : MonoBehaviour
             // Enter Code Here
         }
     }
-    
-    
-    
+
+    public string GetName() => name;
+
 }

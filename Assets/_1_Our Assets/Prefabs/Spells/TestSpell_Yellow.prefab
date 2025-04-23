@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d28d19893bc97e4c9d2c4c6c1c4b604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellName: Yellow
   damage: 0
   manaCost: 0
   hasDuration: 1

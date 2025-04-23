@@ -12,12 +12,14 @@ public class SpellHandler : MonoBehaviour
     [SerializeField] private GameObject attachPoint;
     [SerializeField] private InputActionReference[] castActionList;
     [SerializeField] private InputActionReference[] exemptedActionList;
+    [SerializeField] private GrimoireHandler grimoire;
 
-    private int exemptedButtonsPressed;
+    private int _exemptedButtonsPressed;
 
     void Start()
     {
         currentSpellPrefab = spellPrefabList[0];
+        grimoire.ChangeSpellPage(currentSpellPrefab.GetComponent<Spell>().GetName());
     }
     
     
@@ -38,14 +40,14 @@ public class SpellHandler : MonoBehaviour
 
     void OnCastAction(InputAction.CallbackContext obj)
     {
-        if (exemptedButtonsPressed < 1)
+        if (_exemptedButtonsPressed < 1)
         {
             Instantiate(currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
         }
     }
 
-    void AddExemptions(InputAction.CallbackContext obj) { exemptedButtonsPressed += 1;}
-    void SubtractExemptions(InputAction.CallbackContext obj) { exemptedButtonsPressed -= 1;}
+    void AddExemptions(InputAction.CallbackContext obj) { _exemptedButtonsPressed += 1;}
+    void SubtractExemptions(InputAction.CallbackContext obj) { _exemptedButtonsPressed -= 1;}
     
     // Get/Set Functions
     public void SetCurrentSpell(GameObject spell) { currentSpellPrefab = spell; }
