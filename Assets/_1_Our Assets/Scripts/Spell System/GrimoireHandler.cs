@@ -17,69 +17,66 @@ public class GrimoireHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rightPageTMPro;
     
     [SerializeField] private DominantHand selectedDominantHand;
-    [SerializeField] private string[] spellNames;
-    [TextArea(1, 3)] [SerializeField] string[] spellDescriptions;
     [TextArea(1, 3)] [SerializeField] private string controlsText;
 
     // <Name, Description>
     private Dictionary<string, string> _spellDictionary;
+    private GameManager _gameManager;
 
-    private void Start()
+    private TextMeshProUGUI _currentSpellPage;
+    private TextMeshProUGUI _currentControlsPage;
+
+    private void Awake()
     {
-        ChangeControlsPage();
+        _gameManager = FindObjectOfType<GameManager>();
+        _spellDictionary = _gameManager.GetSpellDictionary();
+        UpdateGrimoirePages(null, 2);
     }
     
     
-    public void ChangeSpellPage(string newSpellName)
+    public void UpdateGrimoirePages(string newSpellName, int changeType)
     {
-        if (_spellDictionary == null){ CreateSpellDictionary(newSpellName); }
-        else
-        {
-            var newSpellDescription = _spellDictionary[newSpellName];
+        _spellDictionary ??= _gameManager.GetSpellDictionary();
 
+        switch (changeType)
+        {
+            // 1 = Change Spell Page
+            case 1:
+                var newSpellDescription = _spellDictionary[newSpellName];
+                _currentSpellPage.text = newSpellDescription;
+                break;
+            // 2 = Change Controls Page
+            case 2:
+                _currentControlsPage.text = controlsText;
+                break;
+            // 3 = Swap Pages
+            case 3:
+                _currentSpellPage.text = _currentControlsPage.text;
+                _currentControlsPage.text = controlsText;
+                break;
+        }
+    }
+
+
+    public void ChangeDominantHand(DominantHand dominantHand, bool swapAfter)
+    {
+        if (selectedDominantHand != dominantHand)
+        {
+            selectedDominantHand = dominantHand;
             if (selectedDominantHand == DominantHand.RightHanded)
             {
-                leftPageTMPro.text = newSpellDescription;
+                _currentSpellPage = leftPageTMPro;
+                _currentControlsPage = rightPageTMPro;
             }
             else
             {
-                rightPageTMPro.text = newSpellDescription;
+                _currentSpellPage = rightPageTMPro;
+                _currentControlsPage = leftPageTMPro;
             }
+            
+            if (swapAfter) { UpdateGrimoirePages(null, 3); }
         }
     }
 
-    private void CreateSpellDictionary(string firstSpell)
-    {
-        if (spellNames.Length != spellDescriptions.Length)
-        {
-            Debug.Log("Spell dictionary could not be initialized: SpellNames " +
-                      "and SpellDescriptions arrays are not of equal length.");
-            return;
-        }
-        
-        Debug.Log("Initializing spell dictionary...");
-        for (int i = 0; i < spellNames.Length; i++)
-        {
-            Debug.Log(spellNames[i] + " with description " + spellDescriptions[i] +
-                      " is about to be added.");
-            Debug.Log(_spellDictionary + " exists.");
-            _spellDictionary.Add(spellNames[i], spellDescriptions[i]);
-            Debug.Log("Spell Dictionary slot " + i + " has been added.");
-        }
-        
-        Debug.Log("Spell dictionary has been initialized.");
-        ChangeSpellPage(firstSpell);
-    }
-
-    private void ChangeControlsPage()
-    {
-        if (selectedDominantHand == DominantHand.RightHanded) 
-        { rightPageTMPro.text = controlsText; }
-        else 
-        { leftPageTMPro.text = controlsText; }
-    }
-    
-    
-    public void SetDominantHand(DominantHand dominantHand) => selectedDominantHand = dominantHand;
     public DominantHand GetDominantHand() => selectedDominantHand;
 }

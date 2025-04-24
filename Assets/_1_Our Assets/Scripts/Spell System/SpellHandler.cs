@@ -6,43 +6,59 @@ using UnityEngine.InputSystem;
 
 public class SpellHandler : MonoBehaviour
 {
-    public GameObject currentSpellPrefab;
-    public List<GameObject> spellPrefabList;
-    
     [SerializeField] private GameObject attachPoint;
+    [SerializeField] private GrimoireHandler grimoire;
     [SerializeField] private InputActionReference[] castActionList;
     [SerializeField] private InputActionReference[] exemptedActionList;
-    [SerializeField] private GrimoireHandler grimoire;
 
+    [SerializeField] private InputActionReference positiveNavigationAction;
+    [SerializeField] private InputActionReference negativeNavigationAction;
+
+    private GameManager _gameManager;
+    private GameObject _currentSpellPrefab;
+    private GameObject[] _spellPrefabList;
     private int _exemptedButtonsPressed;
 
     void Start()
     {
-        currentSpellPrefab = spellPrefabList[0];
-        grimoire.ChangeSpellPage(currentSpellPrefab.GetComponent<Spell>().GetName());
+        _gameManager = FindObjectOfType<GameManager>();
+        _spellPrefabList = _gameManager.GetSpellPrefabList();
     }
-    
-    
+
+    void Awake()
+    {
+
+
+        _currentSpellPrefab = _spellPrefabList[0];
+        grimoire.UpdateGrimoirePages(_currentSpellPrefab.GetComponent<Spell>().GetName(), 1);
+    }
+
+
     // Input References
     void OnEnable()
     {
-        for (int i = 0; i < castActionList.Length; i++)
+        foreach (var thisCastAction in castActionList)
         {
-            castActionList[i].action.performed += OnCastAction;
+            thisCastAction.action.performed += OnCastAction;
         }
 
-        for (int i = 0; i < exemptedActionList.Length; i++)
+        foreach (var thisExemptedAction in exemptedActionList)
         {
-            exemptedActionList[i].action.performed += AddExemptions;
-            exemptedActionList[i].action.canceled += SubtractExemptions;
+            thisExemptedAction.action.performed += AddExemptions;
+            thisExemptedAction.action.canceled += SubtractExemptions;
         }
+    }
+
+    void OnDisable()
+    {
+        
     }
 
     void OnCastAction(InputAction.CallbackContext obj)
     {
         if (_exemptedButtonsPressed < 1)
         {
-            Instantiate(currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
+            Instantiate(_currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
         }
     }
 
@@ -50,6 +66,6 @@ public class SpellHandler : MonoBehaviour
     void SubtractExemptions(InputAction.CallbackContext obj) { _exemptedButtonsPressed -= 1;}
     
     // Get/Set Functions
-    public void SetCurrentSpell(GameObject spell) { currentSpellPrefab = spell; }
-    public GameObject GetCurrentSpell() { return currentSpellPrefab; }
+    public void SetCurrentSpell(GameObject spell) { _currentSpellPrefab = spell; }
+    public GameObject GetCurrentSpell() { return _currentSpellPrefab; }
 }

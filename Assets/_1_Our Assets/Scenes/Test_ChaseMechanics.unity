@@ -617,6 +617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 393651358}
+  - component: {fileID: 393651359}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -639,6 +640,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393651359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393651357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa50e20e74c99a49b06097c74a1eedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellPrefabList:
+  - {fileID: 970737749199969720, guid: 334b2bfe1006b794daa15b71f8210648, type: 3}
+  - {fileID: 970737749199969720, guid: 71ccb165234b0334a9e27313a991ab18, type: 3}
+  - {fileID: 970737749199969720, guid: ae81df84ce8b70d4db50230095fab57b, type: 3}
 --- !u!1 &545281217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,16 +1118,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e40ff7aa71b9744a95ce8c95b6f011e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpellPrefab: {fileID: 0}
-  spellPrefabList:
-  - {fileID: 970737749199969720, guid: 334b2bfe1006b794daa15b71f8210648, type: 3}
   attachPoint: {fileID: 1254730462}
+  grimoire: {fileID: 0}
   castActionList:
   - {fileID: 3810944836171913165, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   exemptedActionList:
   - {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   - {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  grimoire: {fileID: 0}
+  positiveNavigationAction: {fileID: 0}
+  negativeNavigationAction: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,18 +2784,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e40ff7aa71b9744a95ce8c95b6f011e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpellPrefab: {fileID: 0}
-  spellPrefabList:
-  - {fileID: 970737749199969720, guid: 334b2bfe1006b794daa15b71f8210648, type: 3}
-  - {fileID: 970737749199969720, guid: 71ccb165234b0334a9e27313a991ab18, type: 3}
-  - {fileID: 970737749199969720, guid: ae81df84ce8b70d4db50230095fab57b, type: 3}
   attachPoint: {fileID: 761206602}
+  grimoire: {fileID: 6292061697843511064}
   castActionList:
   - {fileID: 8407260395879055367, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   exemptedActionList:
   - {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   - {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  grimoire: {fileID: 6292061697843511064}
+  positiveNavigationAction: {fileID: 0}
+  negativeNavigationAction: {fileID: 0}
 --- !u!1 &1829717634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,23 +4205,6 @@ MonoBehaviour:
   leftPageTMPro: {fileID: 978937027}
   rightPageTMPro: {fileID: 1829717636}
   selectedDominantHand: 0
-  spellNames:
-  - Blue
-  - Red
-  - Yellow
-  spellDescriptions:
-  - 'Blue Spell
-
-
-    Shoot Blue'
-  - 'Red Spell
-
-
-    Shoot Red'
-  - 'Yellow Spell
-
-
-    Shoot Yellow'
   controlsText: Controls!!!!!!!!!!!!!!
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
