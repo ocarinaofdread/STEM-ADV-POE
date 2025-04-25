@@ -147,6 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellName: Yellow
+  spellDescription: 'Yellow
+
+
+    Cast Yellow Spell'
   damage: 0
   manaCost: 0
   hasDuration: 1

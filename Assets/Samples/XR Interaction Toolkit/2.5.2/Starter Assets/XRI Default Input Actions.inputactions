@@ -337,6 +337,24 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Position: Left",
+                    "type": "Button",
+                    "id": "c443f84d-03f8-4df3-a363-4b087acc1480",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Position: Right",
+                    "type": "Button",
+                    "id": "9a6624fd-3bfa-49d3-9a73-08ea447589c7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Rotation",
                     "type": "Value",
                     "id": "cb6b7130-2bac-4ef7-abe4-6991ae7d419d",
@@ -676,6 +694,28 @@
                     "action": "Grip Rotation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5014b6fa-1ea1-4532-8573-2fcaa2fdcb71",
+                    "path": "<XRController>{LeftHand}/thumbstickDpadLeft",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position: Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77313437-ac89-4b14-833e-cbcbd2f8773a",
+                    "path": "<XRController>{LeftHand}/thumbstickDpadRight",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position: Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -960,17 +1000,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9adf85c2-3dc8-40a9-ba58-d9137f6f650c",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "A Button",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "59e8c177-f528-4344-8bf5-37418b99e867",
                     "path": "<XRController>{LeftHand}/primaryButton",
                     "interactions": "",
@@ -1162,6 +1191,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Position: Left",
+                    "type": "Button",
+                    "id": "c49f7b41-b683-4672-816c-b6e4f9223f44",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Position: Right",
+                    "type": "Button",
+                    "id": "15da7998-6259-4540-a31f-5ea97feffc64",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Rotation",
@@ -1501,6 +1548,28 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Grip Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a4c4a5c-4c32-4b1a-b025-fc2ef07f181f",
+                    "path": "<XRController>{RightHand}/thumbstickDpadLeft",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position: Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5800efe4-0a5d-4b6f-b345-2f02334d9d95",
+                    "path": "<XRController>{RightHand}/thumbstickDpadRight",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position: Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

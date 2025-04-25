@@ -11,14 +11,15 @@ public class GameManager : MonoBehaviour
     private string[] _spellDescriptions;
     private Dictionary<string, string> _spellDictionary = new();
 
-    void Start()
+    private void Awake()
     {
-        InitializeSpellLists();
+        InitializeSpellListsAndDictionary();
     }
 
     // Spell initialization & management
-    private void InitializeSpellLists()
+    private void InitializeSpellListsAndDictionary()
     {
+        // Initialize Lists
         _spellNames = new string[spellPrefabList.Length];
         _spellDescriptions = new string[spellPrefabList.Length];
         
@@ -28,11 +29,7 @@ public class GameManager : MonoBehaviour
             _spellDescriptions[i] = spellPrefabList[i].GetComponent<Spell>().GetDescription();
         }
 
-        InitializeSpellDictionary();
-    }
-
-    void InitializeSpellDictionary()
-    {
+        // Initialize Dictionary
         if (_spellNames.Length != _spellDescriptions.Length)
         {
             Debug.Log("Spell dictionary could not be initialized: SpellNames " +
@@ -50,6 +47,13 @@ public class GameManager : MonoBehaviour
 
     // Get methods
     public GameObject[] GetSpellPrefabList() => spellPrefabList;
-    public Dictionary<string, string> GetSpellDictionary() => _spellDictionary;
+    public Dictionary<string, string> GetSpellDictionary()
+    {
+        if (_spellDictionary == null)
+        {
+            InitializeSpellListsAndDictionary();
+        }
+        return _spellDictionary;
+    }
     
 }

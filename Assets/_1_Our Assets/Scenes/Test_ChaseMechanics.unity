@@ -1125,6 +1125,7 @@ MonoBehaviour:
   exemptedActionList:
   - {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   - {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  navigationEnableAction: {fileID: 0}
   positiveNavigationAction: {fileID: 0}
   negativeNavigationAction: {fileID: 0}
 --- !u!1 &705507993
@@ -2791,8 +2792,12 @@ MonoBehaviour:
   exemptedActionList:
   - {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   - {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  positiveNavigationAction: {fileID: 0}
-  negativeNavigationAction: {fileID: 0}
+  navigationEnableAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  positiveNavigationAction: {fileID: 3332098614357230372, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  negativeNavigationAction: {fileID: 8256538584758581235, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &1829717634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,8 +4223,8 @@ SceneRoots:
   - {fileID: 1506473190}
   - {fileID: 705507995}
   - {fileID: 1985259582}
-  - {fileID: 1555383974}
   - {fileID: 393651358}
+  - {fileID: 1555383974}
   - {fileID: 855596114}
   - {fileID: 6292061697843511056}
   - {fileID: 2093820573}

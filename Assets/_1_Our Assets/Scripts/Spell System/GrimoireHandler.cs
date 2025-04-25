@@ -26,23 +26,28 @@ public class GrimoireHandler : MonoBehaviour
     private TextMeshProUGUI _currentSpellPage;
     private TextMeshProUGUI _currentControlsPage;
 
-    private void Awake()
+    private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _spellDictionary = _gameManager.GetSpellDictionary();
-        UpdateGrimoirePages(null, 2);
+        SetPages(selectedDominantHand);
+        UpdateGrimoirePages("", 2);
     }
     
     
     public void UpdateGrimoirePages(string newSpellName, int changeType)
     {
         _spellDictionary ??= _gameManager.GetSpellDictionary();
+        if (_spellDictionary == null) { Debug.Log("Dictionary is null!");}
+        if (_gameManager == null) { Debug.Log("Manager is null!");}
 
         switch (changeType)
         {
             // 1 = Change Spell Page
             case 1:
+                if (_spellDictionary[newSpellName] == null) { Debug.Log("Dictionary[SpellName] is null!");}
                 var newSpellDescription = _spellDictionary[newSpellName];
+                if (_currentSpellPage == null) { Debug.Log("Spell page is null!");}
                 _currentSpellPage.text = newSpellDescription;
                 break;
             // 2 = Change Controls Page
@@ -63,18 +68,23 @@ public class GrimoireHandler : MonoBehaviour
         if (selectedDominantHand != dominantHand)
         {
             selectedDominantHand = dominantHand;
-            if (selectedDominantHand == DominantHand.RightHanded)
-            {
-                _currentSpellPage = leftPageTMPro;
-                _currentControlsPage = rightPageTMPro;
-            }
-            else
-            {
-                _currentSpellPage = rightPageTMPro;
-                _currentControlsPage = leftPageTMPro;
-            }
+            SetPages(selectedDominantHand);
             
             if (swapAfter) { UpdateGrimoirePages(null, 3); }
+        }
+    }
+
+    private void SetPages(DominantHand dominantHand)
+    {
+        if (dominantHand == DominantHand.RightHanded)
+        {
+            _currentSpellPage = leftPageTMPro;
+            _currentControlsPage = rightPageTMPro;
+        }
+        else
+        {
+            _currentSpellPage = rightPageTMPro;
+            _currentControlsPage = leftPageTMPro;
         }
     }
 
