@@ -26,10 +26,7 @@ public class SpellHandler : MonoBehaviour
     {
         _gameManager = FindObjectOfType<GameManager>();
         _spellPrefabList = _gameManager.GetSpellPrefabList();
-        if (_spellPrefabList == null) { Debug.Log("Prefab list is null!");}
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
-        if (_currentSpellPrefab == null) { Debug.Log("Current prefab is null!");}
-        grimoire.UpdateGrimoirePages(_currentSpellPrefab.GetComponent<Spell>().GetName(), 1);
     }
 
 
