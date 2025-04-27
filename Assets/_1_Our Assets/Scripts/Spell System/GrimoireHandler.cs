@@ -89,6 +89,6 @@ public class GrimoireHandler : MonoBehaviour
             _currentControlsPage = leftPageTMPro;
         }
     }
-
+    
     public DominantHand GetDominantHand() => selectedDominantHand;
 }
