@@ -337,24 +337,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Position: Left",
-                    "type": "Button",
-                    "id": "c443f84d-03f8-4df3-a363-4b087acc1480",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Position: Right",
-                    "type": "Button",
-                    "id": "9a6624fd-3bfa-49d3-9a73-08ea447589c7",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Rotation",
                     "type": "Value",
                     "id": "cb6b7130-2bac-4ef7-abe4-6991ae7d419d",
@@ -458,6 +440,15 @@
                     "type": "Value",
                     "id": "41873a55-b316-4dbe-96e6-93477eef5e47",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Position : RIght",
+                    "type": "Value",
+                    "id": "b578627e-9f32-4d74-87a9-12e7e5f60e1c",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -697,23 +688,12 @@
                 },
                 {
                     "name": "",
-                    "id": "5014b6fa-1ea1-4532-8573-2fcaa2fdcb71",
-                    "path": "<XRController>{LeftHand}/thumbstickDpadLeft",
+                    "id": "9bec403a-6345-4682-985e-9d93f501532f",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Position: Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "77313437-ac89-4b14-833e-cbcbd2f8773a",
-                    "path": "<XRController>{LeftHand}/thumbstickDpadRight",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Position: Right",
+                    "action": "Position : RIght",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1073,7 +1053,7 @@
                     "name": "Grab Move",
                     "type": "Button",
                     "id": "c5a6d766-d487-42ae-b293-da4749469e18",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1082,6 +1062,15 @@
                     "name": "Snap Turn",
                     "type": "Value",
                     "id": "8c14e969-a054-4f12-840c-4e0bd85173d9",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Horizontal Movement",
+                    "type": "Value",
+                    "id": "99517a6e-1e6a-4e2c-bd53-ffb5d60e6cdd",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -1174,6 +1163,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad233f0e-e39b-4385-8b29-e26ef850a0ab",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
+                    "interactions": "Sector(directions=12,sweepBehavior=1)",
+                    "processors": "NormalizeVector2",
+                    "groups": "",
+                    "action": "Horizontal Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
