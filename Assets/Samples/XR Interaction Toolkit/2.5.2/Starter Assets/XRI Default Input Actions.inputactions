@@ -803,7 +803,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "A Button",
+                    "name": "Y Button",
                     "type": "Button",
                     "id": "4568bdd5-8cf7-4b15-bb28-ab8abd783617",
                     "expectedControlType": "",
@@ -981,11 +981,11 @@
                 {
                     "name": "",
                     "id": "59e8c177-f528-4344-8bf5-37418b99e867",
-                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "A Button",
+                    "action": "Y Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1679,7 +1679,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "A Button",
+                    "name": "B Button",
                     "type": "Button",
                     "id": "aa2f8e98-31dd-4ead-a3b5-514661906c6a",
                     "expectedControlType": "",
@@ -1857,11 +1857,11 @@
                 {
                     "name": "",
                     "id": "52a9753d-8793-497a-97e1-9560876ed8b7",
-                    "path": "<XRController>{RightHand}/primaryButton",
+                    "path": "<XRController>{RightHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "A Button",
+                    "action": "B Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
