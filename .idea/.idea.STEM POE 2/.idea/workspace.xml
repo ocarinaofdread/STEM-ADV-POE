@@ -14,6 +14,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_1_Our Assets/Scripts/Systems/AI System/AIAgentConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_1_Our Assets/Scripts/Systems/AI System/States/AIChasePlayerState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_1_Our Assets/Scripts/Systems/AI System/States/AIIdleState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.8/Scripts/Runtime/TMP_InputField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.8/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.8/Scripts/Runtime/Unity.TextMeshPro.asmdef" root0="SKIP_HIGHLIGHTING" />
@@ -104,6 +107,8 @@
       <workItem from="1745433593739" duration="3940000" />
       <workItem from="1745519217073" duration="4305000" />
       <workItem from="1745605969070" duration="3492000" />
+      <workItem from="1745951272667" duration="2488000" />
+      <workItem from="1746039294052" duration="2303000" />
     </task>
     <servers />
   </component>
