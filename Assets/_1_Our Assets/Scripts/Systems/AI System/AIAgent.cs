@@ -25,4 +25,9 @@ public class AIAgent : MonoBehaviour
     {
         stateMachine.Update();
     }
+
+    public void ChangeState(AIStateID newState)
+    {
+        stateMachine.ChangeState(newState);
+    }
 }

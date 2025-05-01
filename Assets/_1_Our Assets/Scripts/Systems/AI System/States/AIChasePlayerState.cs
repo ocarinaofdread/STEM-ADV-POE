@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class AIChasePlayerState : AIState
 {
     private Transform _playerTransform;
+    private Enemy _agentEnemy;
     private float _timer;
     
     public AIStateID GetID()
@@ -15,6 +17,13 @@ public class AIChasePlayerState : AIState
 
     public void EnterState(AIAgent agent)
     {
+        // Skeleton
+        _agentEnemy = agent.gameObject.GetComponent<Enemy>();
+        if (_agentEnemy is Skeleton agentSkeleton)
+        {
+            agentSkeleton.ChangeSpeed(0.5f);
+        }
+        
         _playerTransform ??= GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -38,6 +47,9 @@ public class AIChasePlayerState : AIState
             if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial) {
                 agent.navMeshAgent.destination = _playerTransform.position;
             }
+        }
+        else {
+            agent.ChangeState(AIStateID.Idle);    
         }
         _timer = agent.config.maxTime;
     }

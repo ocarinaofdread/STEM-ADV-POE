@@ -4,5 +4,16 @@ using UnityEngine;
 
 public class Skeleton : Enemy
 {
-    private int idleAnimHash = Animator.StringToHash("Idle");
+    private Animator _animator;
+    private readonly int _speedAnimHash = Animator.StringToHash("Speed");
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
+    
+    public void ChangeSpeed(float speed)
+    {
+        _animator.SetFloat(_speedAnimHash, speed);
+    }
 }
