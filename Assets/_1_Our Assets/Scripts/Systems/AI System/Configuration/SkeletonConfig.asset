@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: SkeletonConfig
   m_EditorClassIdentifier: 
   maxDistance: 2
-  maxTime: 0.1
+  maxSightRange: 4
+  minRoamDeviation: 3
+  maxRoamDeviation: 5
+  minRoamWaitTime: 3
+  maxRoamWaitTime: 6
+  idleLookSpeed: 4
+  maxNavMeshRefreshTime: 0.01
+  minAttackWaitTime: 2
+  maxAttackWaitTime: 4

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIIdleState : AIState
+public class AIRangedAttackState : AIState
 {
     private Transform _playerTransform;
     private float _timer;
@@ -12,7 +12,7 @@ public class AIIdleState : AIState
     
     public AIStateID GetID()
     {
-        return AIStateID.Idle;
+        return AIStateID.RangedAttack;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis

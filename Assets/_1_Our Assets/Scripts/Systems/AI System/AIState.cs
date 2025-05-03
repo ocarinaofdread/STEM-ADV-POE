@@ -4,8 +4,12 @@ using UnityEngine;
 
 public enum AIStateID
 {
+    Roam,
+    Idle,
     ChasePlayer,
-    Idle
+    Attack,
+    RangedAttack,
+    Death
 }
 
 public interface AIState

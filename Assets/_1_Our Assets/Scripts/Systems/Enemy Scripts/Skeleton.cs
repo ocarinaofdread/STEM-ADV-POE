@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Skeleton : Enemy
 {
-    private Animator _animator;
+    [SerializeField] private Collider attackCollider;
+    
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
-
-    private void Start()
-    {
-        _animator = GetComponent<Animator>();
-    }
     
     public void ChangeSpeed(float speed)
     {
-        _animator.SetFloat(_speedAnimHash, speed);
+        animator ??= GetComponent<Animator>();
+        animator.SetFloat(_speedAnimHash, speed);
     }
+    
+    public void EnableAttackCollider() { attackCollider.enabled = true; }
+    public void DisableAttackCollider() { attackCollider.enabled = false; }
 }

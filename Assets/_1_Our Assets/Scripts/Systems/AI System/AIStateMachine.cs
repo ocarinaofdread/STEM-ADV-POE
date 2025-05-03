@@ -30,9 +30,10 @@ public class AIStateMachine
     }
     
     // State Machine Utility
+    // ReSharper disable Unity.PerformanceAnalysis
     public void Update()
     {
-        GetState(currentState)?.Update(agent );
+        GetState(currentState)?.Update(agent);
     }
 
     public void ChangeState(AIStateID newState)
