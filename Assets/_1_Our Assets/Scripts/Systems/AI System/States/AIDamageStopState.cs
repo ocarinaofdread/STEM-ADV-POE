@@ -1,29 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AIAttackState : AIState
+public class AIDamageStopState : AIState
 {
-    private Transform _playerTransform;
-    private float _timer;
-    private readonly int _attackHash = Animator.StringToHash("Attack");
+    private readonly int _damageHash = Animator.StringToHash("DamageStop");
     
     public AIStateID GetID()
     {
-        return AIStateID.Attack;
+        return AIStateID.DamageStop;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
     public void EnterState(AIAgent agent)
     {
-        _playerTransform ??= GameObject.FindGameObjectWithTag("Player").transform;
-        
         if (agent.enemy is Skeleton agentSkeleton)
         {
-            agentSkeleton.animator.SetTrigger(_attackHash);
+            agentSkeleton.animator.SetTrigger(_damageHash);    
         }
-
-        agent.enemy.isAttacking = true;
 
         agent.StartCoroutine(WaitThenIdle(agent));
     }
@@ -32,14 +25,13 @@ public class AIAttackState : AIState
     public void Update(AIAgent agent)
     {
         
-        
     }
 
     public void ExitState(AIAgent agent)
     {
-        agent.enemy.isAttacking = false;
+        
     }
-
+    
     private IEnumerator WaitThenIdle(AIAgent agent)
     {
         var animLength = agent.enemy.animator.GetCurrentAnimatorStateInfo(0).length;

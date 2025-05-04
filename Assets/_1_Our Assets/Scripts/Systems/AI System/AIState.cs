@@ -9,6 +9,7 @@ public enum AIStateID
     ChasePlayer,
     Attack,
     RangedAttack,
+    DamageStop,
     Death
 }
 

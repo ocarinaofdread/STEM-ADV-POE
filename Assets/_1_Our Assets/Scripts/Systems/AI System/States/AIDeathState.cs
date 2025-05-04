@@ -16,6 +16,10 @@ public class AIDeathState : AIState
     public void EnterState(AIAgent agent)
     {
         agent.enemy.animator.SetTrigger(deathHash);
+        if (agent.enemy is Skeleton agentSkeleton)
+        {
+            agentSkeleton.animator.SetLayerWeight(agentSkeleton.animator.GetLayerIndex("Damage"),0);    
+        }
     }
 
     // ReSharper disable Unity.PerformanceAnalysis

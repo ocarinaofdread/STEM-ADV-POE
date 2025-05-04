@@ -28,7 +28,7 @@ public class AIChasePlayerState : AIState
         _timer = -0.1f;
         _sqrMaxDistance = agent.config.maxDistance * agent.config.maxDistance;
         
-        Debug.Log("Player Object: " + GameObject.FindGameObjectWithTag("Player").name);
+        //Debug.Log("Player Object: " + GameObject.FindGameObjectWithTag("Player").name);
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -90,9 +90,8 @@ public class AIChasePlayerState : AIState
             NavMesh.SamplePosition(testingPosition, out var hit, _navMeshCheckDistance, NavMesh.AllAreas);
 
         if (isOnNavMesh && Vector3.Distance(testingPosition, hit.position) < _navMeshCheckDistance)
-        {
             return false;
-        }
+        
         
         agent.ChangeState(AIStateID.Roam);
         return true;

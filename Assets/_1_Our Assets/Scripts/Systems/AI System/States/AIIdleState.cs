@@ -42,7 +42,7 @@ public class AIIdleState : AIState
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
-            Debug.Log("Changing to Attack state");
+            //Debug.Log("Changing to Attack state");
             agent.ChangeState(AIStateID.Attack);
         }
 

@@ -28,6 +28,7 @@ public class AIAgent : MonoBehaviour
             stateMachine.RegisterState(new AIRangedAttackState());
             stateMachine.RegisterState(new AIDeathState());
             stateMachine.RegisterState(new AIRoamState());
+            // stateMachine.RegisterState(new AIDamageStopState());
         }
         
         stateMachine.ChangeState(initialState);
