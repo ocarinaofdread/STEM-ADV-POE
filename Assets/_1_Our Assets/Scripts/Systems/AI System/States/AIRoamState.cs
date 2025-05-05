@@ -30,7 +30,7 @@ public class AIRoamState : AIState
         _minWaitTime = agent.config.minRoamWaitTime;
         _maxWaitTime = agent.config.maxRoamWaitTime;
 
-        _waitTimer = -0.01f;
+        _waitTimer = Random.Range(_minWaitTime, _maxWaitTime);
         
         agent.navMeshAgent.stoppingDistance = 0;
     }
@@ -82,6 +82,8 @@ public class AIRoamState : AIState
         
         return new Vector3(randomX, _centerPoint.y, randomY);
     }
+    
+    
 
     private static void ChangeSpeed(AIAgent agent, float newSpeed)
     {
