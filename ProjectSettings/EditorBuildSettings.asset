@@ -12,8 +12,17 @@ EditorBuildSettings:
     path: Assets/_1_Our Assets/Scenes/Test_ChaseMechanics.unity
     guid: 5c06a021afc22e942bf3ee4aa0f12039
   - enabled: 1
+    path: Assets/_1_Our Assets/Scenes/Title sceen.unity
+    guid: 2f0d69862f5b56b44a1eefbafe3e175f
+  - enabled: 1
     path: Assets/_1_Our Assets/Scenes/alex.unity
     guid: 0794936f178d3114188581789c5b7ddd
+  - enabled: 1
+    path: Assets/_1_Our Assets/Scenes/Death screen.unity
+    guid: a510c8d1147acc04d9133c173f08f66c
+  - enabled: 1
+    path: Assets/_1_Our Assets/Scenes/End Screen.unity
+    guid: 737626ec9a784d24ca3a00d65d7bb647
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ed72be55522c8448bae8b0d66fa21adf,
       type: 2}
