@@ -21,4 +21,4 @@ MonoBehaviour:
   idleLookSpeed: 4
   maxNavMeshRefreshTime: 0.1
   minAttackWaitTime: 0.5
-  maxAttackWaitTime: 1.5
+  maxAttackWaitTime: 8

@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     private AIAgent _agent;
     private int _additiveDamages = 0;
-    private int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
+    private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
 
     private void Start()
     {
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         {
             case 0 when damageWeight > 0.0f:
                 animator.SetLayerWeight(animator.GetLayerIndex("Damage"), 0);
-                Debug.Log("damage weight set to 0");
+                //Debug.Log("damage weight set to 0");
                 break;
             case > 0 when damageWeight < 1.0f:
                 animator.SetLayerWeight(animator.GetLayerIndex("Damage"), 1);
