@@ -30,6 +30,16 @@ public class AIAgent : MonoBehaviour
             stateMachine.RegisterState(new AIRoamState());
             // stateMachine.RegisterState(new AIDamageStopState());
         }
+        else if (enemy is Goblin)
+        {
+            stateMachine.RegisterState(new AIChasePlayerState());
+            stateMachine.RegisterState(new AIIdleState());
+            stateMachine.RegisterState(new AIAttackState());
+            stateMachine.RegisterState(new AIDeathState());
+            stateMachine.RegisterState(new AIRoamState());
+            stateMachine.RegisterState(new AIDamageStopState());
+        }
+        
         
         stateMachine.ChangeState(initialState);
     }

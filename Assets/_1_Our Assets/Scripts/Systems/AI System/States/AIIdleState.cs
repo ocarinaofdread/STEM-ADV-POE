@@ -21,9 +21,14 @@ public class AIIdleState : AIState
         _playerTransform ??= GameObject.FindGameObjectWithTag("Player").transform;
         _sqrMaxDistance = agent.config.maxDistance * agent.config.maxDistance;
         
-        if (agent.enemy is Skeleton agentSkeleton)
+        switch (agent.enemy)
         {
-            agentSkeleton.ChangeSpeed(0.0f);
+            case Skeleton agentSkeleton:
+                agentSkeleton.ChangeSpeed(0.0f);
+                break;
+            case Goblin agentGoblin:
+                agentGoblin.ChangeSpeed(0.0f);
+                break;
         }
 
         _timer = Random.Range(agent.config.minAttackWaitTime, agent.config.maxAttackWaitTime);

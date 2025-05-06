@@ -13,9 +13,14 @@ public class AIDamageStopState : AIState
     // ReSharper disable Unity.PerformanceAnalysis
     public void EnterState(AIAgent agent)
     {
-        if (agent.enemy is Skeleton agentSkeleton)
+        switch (agent.enemy)
         {
-            agentSkeleton.animator.SetTrigger(_damageHash);    
+            case Skeleton agentSkeleton:
+                agentSkeleton.animator.SetTrigger(_damageHash);
+                break;
+            case Goblin agentGoblin:
+                agentGoblin.animator.SetTrigger(_damageHash);
+                break;
         }
 
         agent.StartCoroutine(WaitThenIdle(agent));

@@ -19,10 +19,15 @@ public class AIChasePlayerState : AIState
     // ReSharper disable Unity.PerformanceAnalysis
     public void EnterState(AIAgent agent)
     {
-        // Skeleton
-        if (agent.enemy is Skeleton agentSkeleton)
+        switch (agent.enemy)
         {
-            agentSkeleton.ChangeSpeed(0.5f);
+            // Skeleton
+            case Skeleton agentSkeleton:
+                agentSkeleton.ChangeSpeed(0.5f);
+                break;
+            case Goblin agentGoblin:
+                agentGoblin.ChangeSpeed(0.5f);
+                break;
         }
 
         _timer = -0.1f;

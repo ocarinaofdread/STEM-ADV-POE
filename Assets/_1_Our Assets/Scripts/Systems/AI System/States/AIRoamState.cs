@@ -87,9 +87,14 @@ public class AIRoamState : AIState
 
     private static void ChangeSpeed(AIAgent agent, float newSpeed)
     {
-        if (agent.enemy is Skeleton agentSkeleton)
+        switch (agent.enemy)
         {
-            agentSkeleton.ChangeSpeed(newSpeed);
+            case Skeleton agentSkeleton:
+                agentSkeleton.ChangeSpeed(newSpeed);
+                break;
+            case Goblin agentGoblin:
+                agentGoblin.ChangeSpeed(newSpeed);
+                break;
         }
     }
     

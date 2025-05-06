@@ -18,9 +18,14 @@ public class AIAttackState : AIState
     {
         _playerTransform ??= GameObject.FindGameObjectWithTag("Player").transform;
         
-        if (agent.enemy is Skeleton agentSkeleton)
+        switch (agent.enemy)
         {
-            agentSkeleton.animator.SetTrigger(_attackHash);
+            case Skeleton agentSkeleton:
+                agentSkeleton.animator.SetTrigger(_attackHash);
+                break;
+            case Goblin agentGoblin:
+                agentGoblin.animator.SetTrigger(_attackHash);
+                break;
         }
 
         agent.enemy.isAttacking = true;
