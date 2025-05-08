@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject, deathDestroyDelay);
         }
 
-        if (isDead) return;
+        if (isDead || !damagesAdditive) return;
         
         var damageWeight = animator.GetLayerWeight(animator.GetLayerIndex("Damage"));
         

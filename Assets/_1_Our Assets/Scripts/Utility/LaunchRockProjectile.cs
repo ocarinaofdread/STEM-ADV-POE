@@ -5,23 +5,25 @@ using UnityEngine.XR.Content.Interaction;
 
 public class LaunchRockProjectile : MonoBehaviour
 {
-    [SerializeField] private float launchAngle;
-    [SerializeField] private Transform targetTransform;
+    //[SerializeField] private Transform targetTransform;
     // [SerializeField] private Transform playerTransform;
     [SerializeField] private bool launchLocal;
+    [SerializeField] private Vector3 launchDirection;
+    [SerializeField] private float launchSpeed;
 
     private Rigidbody _rigidbody;
     
-    private void Start()
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
 
         Launch();
     }
 
-    private void Launch()
+    public void Launch()//float launchAngle, Transform targetTransform)
     {
-        _rigidbody.velocity = BallisticVel(targetTransform, launchAngle);
+        //_rigidbody.velocity = BallisticVel(targetTransform, launchAngle);
+        _rigidbody.AddForce(launchDirection * launchSpeed, ForceMode.VelocityChange);
     }
     
     

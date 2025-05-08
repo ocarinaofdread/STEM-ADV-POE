@@ -5,9 +5,12 @@ using UnityEngine;
 public class Golem : Enemy
 {
     [SerializeField] private Collider attackCollider;
-    [SerializeField] private GameObject rockObject;
+    [SerializeField] private GameObject animRockObject;
+    [SerializeField] private GameObject throwRockPrefab;
+    [SerializeField] private float throwAngle = 45.0f;
     
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
+    
     
     public void ChangeSpeed(float speed)
     {
@@ -18,7 +21,17 @@ public class Golem : Enemy
     public void EnableAttackCollider() { attackCollider.enabled = true; }
     public void DisableAttackCollider() { attackCollider.enabled = false; }
     
-    public void EnableAnimationRock() { rockObject.SetActive(true); }
-    public void DisableAnimationRock() { rockObject.SetActive(false); }
+    public void EnableAnimationRock() { animRockObject.SetActive(true); }
+    public void DisableAnimationRock() { animRockObject.SetActive(false); }
+
+    public void LaunchRock()
+    {
+        var projectile = Instantiate(throwRockPrefab, animRockObject.transform.position, 
+                                            animRockObject.transform.rotation);
+        projectile.GetComponent<LaunchRockProjectile>().Launch(); //throwAngle, 
+        //    GameObject.FindGameObjectWithTag("Player").transform);
+    }
+    
+    
     
 }
