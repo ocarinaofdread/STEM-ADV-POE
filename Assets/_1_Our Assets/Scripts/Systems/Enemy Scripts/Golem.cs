@@ -5,6 +5,7 @@ using UnityEngine;
 public class Golem : Enemy
 {
     [SerializeField] private Collider attackCollider;
+    [SerializeField] private GameObject rockObject;
     
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
     
@@ -16,4 +17,8 @@ public class Golem : Enemy
     
     public void EnableAttackCollider() { attackCollider.enabled = true; }
     public void DisableAttackCollider() { attackCollider.enabled = false; }
+    
+    public void EnableAnimationRock() { rockObject.SetActive(true); }
+    public void DisableAnimationRock() { rockObject.SetActive(false); }
+    
 }
