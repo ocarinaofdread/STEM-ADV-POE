@@ -7,6 +7,7 @@ public class Golem : Enemy
     [SerializeField] private Collider attackCollider;
     [SerializeField] private GameObject animRockObject;
     [SerializeField] private GameObject throwRockPrefab;
+    [SerializeField] private Transform throwStartPoint;
     [SerializeField] private float throwAngle = 45.0f;
     
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
@@ -27,8 +28,8 @@ public class Golem : Enemy
     public void LaunchRock()
     {
         var projectile = Instantiate(throwRockPrefab, animRockObject.transform.position, 
-                                            animRockObject.transform.rotation);
-        projectile.GetComponent<LaunchRockProjectile>().Launch(); //throwAngle, 
+                                                animRockObject.transform.rotation);
+        projectile.GetComponent<LaunchRockProjectile>().Launch(throwStartPoint); //throwAngle, 
         //    GameObject.FindGameObjectWithTag("Player").transform);
     }
     
