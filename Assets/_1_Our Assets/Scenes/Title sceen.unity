@@ -565,6 +565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817591630328071921, guid: 27cf232fb5481624c8aaee0efd2a5854,
         type: 3}
+      propertyPath: m_text
+      value: The Vengance of a Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817591630328071921, guid: 27cf232fb5481624c8aaee0efd2a5854,
+        type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
