@@ -6,14 +6,19 @@ public class Golem : Enemy
 {
     [SerializeField] private Collider attackCollider;
     [SerializeField] private Collider footAttackCollider;
+    
     [SerializeField] private GameObject animRockObject;
     [SerializeField] private GameObject throwRockPrefab;
     [SerializeField] private Transform throwStartPoint;
     [SerializeField] private Transform throwTarget;
+    
     // [ID of attack animation, number of chances to be selected at random]
     [SerializeField] private Vector2Int[] attackAnimationRates;
     [SerializeField] private Vector2Int[] rangedAnimationRates;
 
+    public float jumpAttackDistance = 5.19f;
+    public float jumpAttackDeviation = 0.10f;
+    
     private List<int> _attackAnimRatePool;
     private List<int> _rangedAnimRatePool;
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");

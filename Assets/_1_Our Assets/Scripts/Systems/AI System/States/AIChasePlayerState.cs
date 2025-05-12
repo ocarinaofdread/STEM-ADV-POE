@@ -10,6 +10,9 @@ public class AIChasePlayerState : AIState
     private float _timer;
     private float _sqrMaxDistance;
     private readonly float _navMeshCheckDistance = 0.1f;
+
+    private bool _doRanged;
+    private float _rangedTimer;
     
     public AIStateID GetID()
     {
@@ -29,6 +32,8 @@ public class AIChasePlayerState : AIState
                 agentGoblin.ChangeSpeed(0.5f);
                 break;
             case Golem agentGolem:
+                _doRanged = true;
+                _rangedTimer = Random.Range(agent.config.minRangedWaitTime, agent.config.maxRangedWaitTime);
                 agentGolem.ChangeSpeed(0.5f);
                 break;
         }
@@ -47,18 +52,31 @@ public class AIChasePlayerState : AIState
         _timer -= Time.deltaTime;
         if (!agent.navMeshAgent.hasPath)
         {
-            //Debug.Log("Agent Destination: " + agent.navMeshAgent.destination);
-            //Debug.Log("Player transform: " + _playerTransform.position);
             if (!SwitchRoamIfNotOnNavMesh(agent, _playerTransform.position))
             {
                 agent.navMeshAgent.destination = _playerTransform.position;
             }
 
         }
-        var sqrTFDistance = CalculateSqrTFDistance(agent);
 
+        // Ranged Attack Waiting - Only works on Golem
+        if (_doRanged)
+        {
+            if (_rangedTimer <= 0)
+            {
+                _timer = 1.0f;
+                agent.ChangeState(AIStateID.RangedAttack);
+            }
+            else
+            {
+                _rangedTimer -= Time.deltaTime;
+            }
+        }
+
+        // Delays in between destination setting + checks for Idle
         if (_timer >= 0.0f) { return; }
         
+        var sqrTFDistance = CalculateSqrTFDistance(agent);
         if (sqrTFDistance > _sqrMaxDistance) {
             //Debug.Log("NMDistance is greater than max distance");
             if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial) {

@@ -23,4 +23,8 @@ public class AIAgentConfig : ScriptableObject
     // Attack Settings
     public float minAttackWaitTime = 1.0f;
     public float maxAttackWaitTime = 5.0f;
+    
+    // Ranged Attack Settings
+    public float minRangedWaitTime = 4.0f;
+    public float maxRangedWaitTime = 6.0f;
 }

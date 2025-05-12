@@ -8,19 +8,19 @@ public class Enemy : MonoBehaviour
     public int health;
     public bool isDead;
     public bool isAttacking;
-    
+
     [SerializeField] float deathDestroyDelay = 5.0f;
     [SerializeField] private bool damagesAdditive;
 
     private AIAgent _agent;
-    private int _additiveDamages = 0;
+    private int _additiveDamages;
     private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
 
     private void Start()
     {
         _agent = GetComponent<AIAgent>();
     }
-    
+
     private void Update()
     {
         if (health <= 0 && !isDead)
@@ -31,9 +31,9 @@ public class Enemy : MonoBehaviour
         }
 
         if (isDead || !damagesAdditive) return;
-        
+
         var damageWeight = animator.GetLayerWeight(animator.GetLayerIndex("Damage"));
-        
+
         switch (_additiveDamages)
         {
             case 0 when damageWeight > 0.0f:
@@ -46,9 +46,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Damage()
+    public void Damage(bool animate)
     {
         if (_agent.enemy.isDead) return;
+
+        // Health management insert here
+        
+        if (!animate) return;
         
         if (damagesAdditive)
         {
@@ -62,12 +66,12 @@ public class Enemy : MonoBehaviour
 
     private void DamageAdditive()
     {
-        if (!isAttacking && !isDead)
-        {
-            _additiveDamages++;
-            animator.SetTrigger(_damageAdditiveHash);
-            StartCoroutine(WaitThenReduce(_agent));
-        }
+        if (isAttacking || isDead) { return; }
+        
+        
+        _additiveDamages++;
+        animator.SetTrigger(_damageAdditiveHash);
+        StartCoroutine(WaitThenReduce(_agent));
     }
     
     private IEnumerator WaitThenReduce(AIAgent agent)
@@ -79,5 +83,10 @@ public class Enemy : MonoBehaviour
         
         _additiveDamages--;
         //agent.ChangeState(AIStateID.Idle);
+    }
+
+    public void LogPosition()
+    {
+        Debug.Log(transform.position);
     }
 }

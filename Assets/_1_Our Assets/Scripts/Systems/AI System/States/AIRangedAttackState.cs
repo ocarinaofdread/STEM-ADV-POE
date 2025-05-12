@@ -19,15 +19,24 @@ public class AIRangedAttackState : AIState
     public void EnterState(AIAgent agent)
     {
         _playerTransform ??= GameObject.FindGameObjectWithTag("Player").transform;
-        _sqrMaxDistance = agent.config.maxDistance * agent.config.maxDistance;
-        
-        if (agent.enemy is Skeleton agentSkeleton)
+
+        if (agent.enemy is Golem agentGolem)
         {
-            agentSkeleton.ChangeSpeed(0.0f);
+            var distanceToJump = Random.Range(agentGolem.jumpAttackDistance - agentGolem.jumpAttackDeviation,
+                                              agentGolem.jumpAttackDistance + agentGolem.jumpAttackDeviation);
+
+            if (CalculateSqrDistance(agent) >= (agentGolem.jumpAttackDistance - agentGolem.jumpAttackDeviation) ||
+                CalculateSqrDistance(agent) >= (agentGolem.jumpAttackDistance - agentGolem.jumpAttackDeviation))
+            {
+                // Jump
+            }
+            else
+            {
+                // Boulder
+            }
         }
 
-        _timer = Random.Range(agent.config.minAttackWaitTime, agent.config.maxAttackWaitTime);
-        _lookAtSpeed = agent.config.idleLookSpeed;
+        agent.enemy.isAttacking = true;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
