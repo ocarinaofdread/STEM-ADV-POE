@@ -5,13 +5,24 @@ using UnityEngine;
 public class Golem : Enemy
 {
     [SerializeField] private Collider attackCollider;
+    [SerializeField] private Collider footAttackCollider;
     [SerializeField] private GameObject animRockObject;
     [SerializeField] private GameObject throwRockPrefab;
     [SerializeField] private Transform throwStartPoint;
-    [SerializeField] private float throwAngle = 45.0f;
-    
+    [SerializeField] private Transform throwTarget;
+    // [ID of attack animation, number of chances to be selected at random]
+    [SerializeField] private Vector2Int[] attackAnimationRates;
+    [SerializeField] private Vector2Int[] rangedAnimationRates;
+
+    private List<int> _attackAnimRatePool;
+    private List<int> _rangedAnimRatePool;
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
     
+    private void Start()
+    {
+        _attackAnimRatePool = CreateAnimationPool(attackAnimationRates);
+        _rangedAnimRatePool = CreateAnimationPool(rangedAnimationRates);
+    }
     
     public void ChangeSpeed(float speed)
     {
@@ -22,17 +33,47 @@ public class Golem : Enemy
     public void EnableAttackCollider() { attackCollider.enabled = true; }
     public void DisableAttackCollider() { attackCollider.enabled = false; }
     
+    public void EnableFootAttackCollider() { footAttackCollider.enabled = true; }
+    public void DisableFootAttackCollider() { footAttackCollider.enabled = false; }
+    
     public void EnableAnimationRock() { animRockObject.SetActive(true); }
     public void DisableAnimationRock() { animRockObject.SetActive(false); }
 
     public void LaunchRock()
     {
         var projectile = Instantiate(throwRockPrefab, animRockObject.transform.position, 
-                                                animRockObject.transform.rotation);
-        projectile.GetComponent<LaunchRockProjectile>().Launch(throwStartPoint); //throwAngle, 
-        //    GameObject.FindGameObjectWithTag("Player").transform);
+                                                throwStartPoint.transform.rotation);
+        projectile.GetComponent<LaunchRockProjectile>().Launch(animRockObject.transform, 
+                                                            throwTarget); 
     }
-    
-    
-    
+
+    private List<int> CreateAnimationPool(Vector2Int[] rates)
+    {
+        var animationPool = new List<int>();
+        
+        foreach (var attackAnimRate in rates)
+        {
+            var thisAnim = new int[attackAnimRate.y];
+            for (var i = 0; i < thisAnim.Length; i++) {
+                thisAnim[i] = attackAnimRate.x;
+            }
+            animationPool.AddRange(thisAnim);
+        }
+        
+        return animationPool;
+    }
+
+    public int GetRandomAttackType()
+    {
+        var index = Random.Range(0, _attackAnimRatePool.Count - 1);
+
+        return _attackAnimRatePool[index];
+    }
+
+    public int GetRandomRangedType()
+    {
+        var index = Random.Range(0, _rangedAnimRatePool.Count - 1);
+
+        return _rangedAnimRatePool[index];
+    }
 }

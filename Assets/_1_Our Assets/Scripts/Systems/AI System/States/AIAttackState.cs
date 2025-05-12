@@ -7,6 +7,7 @@ public class AIAttackState : AIState
     private Transform _playerTransform;
     private float _timer;
     private readonly int _attackHash = Animator.StringToHash("Attack");
+    private readonly int _attackTypeHash = Animator.StringToHash("AttackType");
     
     public AIStateID GetID()
     {
@@ -25,6 +26,11 @@ public class AIAttackState : AIState
                 break;
             case Goblin agentGoblin:
                 agentGoblin.animator.SetTrigger(_attackHash);
+                break;
+            case Golem agentGolem:
+                agentGolem.animator.SetInteger(_attackTypeHash, 
+                                agentGolem.GetRandomAttackType());
+                agentGolem.animator.SetTrigger(_attackHash);
                 break;
         }
 

@@ -28,6 +28,9 @@ public class AIChasePlayerState : AIState
             case Goblin agentGoblin:
                 agentGoblin.ChangeSpeed(0.5f);
                 break;
+            case Golem agentGolem:
+                agentGolem.ChangeSpeed(0.5f);
+                break;
         }
 
         _timer = -0.1f;

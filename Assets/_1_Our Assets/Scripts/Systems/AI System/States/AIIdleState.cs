@@ -29,6 +29,9 @@ public class AIIdleState : AIState
             case Goblin agentGoblin:
                 agentGoblin.ChangeSpeed(0.0f);
                 break;
+            case Golem agentGolem:
+                agentGolem.ChangeSpeed(0.0f);
+                break;
         }
 
         _timer = Random.Range(agent.config.minAttackWaitTime, agent.config.maxAttackWaitTime);
