@@ -13,7 +13,9 @@ public class Golem : Enemy
     [SerializeField] private Transform throwTarget;
     
     // [ID of attack animation, number of chances to be selected at random]
+    // 1 = punch, 2 = slash, 3 = stomp
     [SerializeField] private Vector2Int[] attackAnimationRates;
+    // 1 = boulder, 2 = boulder x3, 3 = jump
     [SerializeField] private Vector2Int[] rangedAnimationRates;
 
     public float jumpAttackDistance = 5.19f;
@@ -21,12 +23,16 @@ public class Golem : Enemy
     
     private List<int> _attackAnimRatePool;
     private List<int> _rangedAnimRatePool;
+    private AIAgent _agent;
+    private Transform _playerTransform;
+    
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
     
     private void Start()
     {
         _attackAnimRatePool = CreateAnimationPool(attackAnimationRates);
         _rangedAnimRatePool = CreateAnimationPool(rangedAnimationRates);
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
     
     public void ChangeSpeed(float speed)
@@ -80,5 +86,18 @@ public class Golem : Enemy
         var index = Random.Range(0, _rangedAnimRatePool.Count - 1);
 
         return _rangedAnimRatePool[index];
+    }
+    
+    
+    // For Ranged Attack - multiple throws
+    public void EndRangedAttack()
+    {
+        _agent ??= GetComponent<AIAgent>();
+        (_agent.GetState(AIStateID.RangedAttack) as AIRangedAttackState).SwitchToChasePlayer(_agent);
+    }
+
+    public void LookAtPlayer()
+    {
+        // insert code here
     }
 }
