@@ -25,19 +25,20 @@ public class AIRangedAttackState : AIState
     // ReSharper disable Unity.PerformanceAnalysis
     public void EnterState(AIAgent agent)
     {
+        agent.navMeshAgent.enabled = false;
+        
         _endAfterLength = true;
         _playerTransform ??= GameObject.FindGameObjectWithTag("Player").transform;
 
         if (agent.enemy is Golem agentGolem)
         {
-            var attackType = agentGolem.GetRandomAttackType();
+            var attackType = agentGolem.GetRandomRangedType();
 
             if (attackType == 3) { 
                 agentGolem.animator.SetTrigger(_jumpHash);
             }
             else
             {
-
                 var jumpMinDistance = agentGolem.jumpAttackDistance - agentGolem.jumpAttackDeviation;
                 var jumpMaxDistance = agentGolem.jumpAttackDistance + agentGolem.jumpAttackDeviation;
                 var sqrDistance = CalculateSqrDistance(agent);
@@ -70,6 +71,8 @@ public class AIRangedAttackState : AIState
 
     public void ExitState(AIAgent agent)
     {
+        Debug.Log("Leaving RangedAttackState...");
+        agent.navMeshAgent.enabled = true;
         agent.enemy.isAttacking = false;
     }
 

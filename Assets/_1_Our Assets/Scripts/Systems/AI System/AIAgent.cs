@@ -14,52 +14,52 @@ public class AIAgent : MonoBehaviour
     
     private AIStateMachine stateMachine;
 
-    void Start()
+    private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemy ??= GetComponent<Enemy>();
         navMeshAgent.stoppingDistance = config.maxDistance;
         
         stateMachine = new AIStateMachine(this);
-        if (enemy is Skeleton)
+        switch (enemy)
         {
-            stateMachine.RegisterState(new AIChasePlayerState());
-            stateMachine.RegisterState(new AIIdleState());
-            stateMachine.RegisterState(new AIAttackState());
-            stateMachine.RegisterState(new AIRangedAttackState());
-            stateMachine.RegisterState(new AIDeathState());
-            stateMachine.RegisterState(new AIRoamState());
-            // stateMachine.RegisterState(new AIDamageStopState());
-        }
-        else if (enemy is Goblin)
-        {
-            stateMachine.RegisterState(new AIChasePlayerState());
-            stateMachine.RegisterState(new AIIdleState());
-            stateMachine.RegisterState(new AIAttackState());
-            stateMachine.RegisterState(new AIDeathState());
-            stateMachine.RegisterState(new AIRoamState());
-            stateMachine.RegisterState(new AIDamageStopState());
-        }
-        else if (enemy is Golem)
-        {
-            stateMachine.RegisterState(new AIChasePlayerState());
-            stateMachine.RegisterState(new AIChasePlayerState());
-            stateMachine.RegisterState(new AIIdleState());
-            stateMachine.RegisterState(new AIAttackState());
-            stateMachine.RegisterState(new AIDeathState());
-            stateMachine.RegisterState(new AIRoamState());
-            stateMachine.RegisterState(new AIRangedAttackState());
+            case Skeleton:
+                stateMachine.RegisterState(new AIChasePlayerState());
+                stateMachine.RegisterState(new AIIdleState());
+                stateMachine.RegisterState(new AIAttackState());
+                stateMachine.RegisterState(new AIRangedAttackState());
+                stateMachine.RegisterState(new AIDeathState());
+                stateMachine.RegisterState(new AIRoamState());
+                // stateMachine.RegisterState(new AIDamageStopState());
+                break;
+            case Goblin:
+                stateMachine.RegisterState(new AIChasePlayerState());
+                stateMachine.RegisterState(new AIIdleState());
+                stateMachine.RegisterState(new AIAttackState());
+                stateMachine.RegisterState(new AIDeathState());
+                stateMachine.RegisterState(new AIRoamState());
+                stateMachine.RegisterState(new AIDamageStopState());
+                break;
+            case Golem:
+                stateMachine.RegisterState(new AIChasePlayerState());
+                stateMachine.RegisterState(new AIChasePlayerState());
+                stateMachine.RegisterState(new AIIdleState());
+                stateMachine.RegisterState(new AIAttackState());
+                stateMachine.RegisterState(new AIDeathState());
+                stateMachine.RegisterState(new AIRangedAttackState());
+                break;
         }
         
         
         stateMachine.ChangeState(initialState);
     }
 
-    void Update()
+    private void Update()
     {
         stateMachine.Update();
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void ChangeState(AIStateID newState)
     {
         stateMachine.ChangeState(newState);

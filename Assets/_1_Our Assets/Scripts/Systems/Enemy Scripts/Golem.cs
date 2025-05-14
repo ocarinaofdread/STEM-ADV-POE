@@ -10,7 +10,7 @@ public class Golem : Enemy
     [SerializeField] private GameObject animRockObject;
     [SerializeField] private GameObject throwRockPrefab;
     [SerializeField] private Transform throwStartPoint;
-    [SerializeField] private Transform throwTarget;
+    [SerializeField] private float throwTurnSpeed = 2.0f;
     
     // [ID of attack animation, number of chances to be selected at random]
     // 1 = punch, 2 = slash, 3 = stomp
@@ -23,8 +23,10 @@ public class Golem : Enemy
     
     private List<int> _attackAnimRatePool;
     private List<int> _rangedAnimRatePool;
-    private AIAgent _agent;
+    private AIAgent _aiAgent;
     private Transform _playerTransform;
+
+    private bool _lookAtDuringThrow;
     
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
     
@@ -40,22 +42,28 @@ public class Golem : Enemy
         animator ??= GetComponent<Animator>();
         animator.SetFloat(_speedAnimHash, speed);
     }
-    
-    public void EnableAttackCollider() { attackCollider.enabled = true; }
-    public void DisableAttackCollider() { attackCollider.enabled = false; }
-    
-    public void EnableFootAttackCollider() { footAttackCollider.enabled = true; }
-    public void DisableFootAttackCollider() { footAttackCollider.enabled = false; }
-    
-    public void EnableAnimationRock() { animRockObject.SetActive(true); }
-    public void DisableAnimationRock() { animRockObject.SetActive(false); }
 
+    private void LateUpdate()
+    {
+        if (!_lookAtDuringThrow) return;
+        
+        var positionToLookAt = _playerTransform.position;
+        positionToLookAt.y = transform.position.y;
+        
+        var targetRotation =
+            Quaternion.LookRotation(positionToLookAt - transform.position);
+        
+        transform.rotation = 
+            Quaternion.Lerp(transform.rotation, targetRotation, 
+                            throwTurnSpeed * Time.deltaTime);
+    }
+    
     public void LaunchRock()
     {
         var projectile = Instantiate(throwRockPrefab, animRockObject.transform.position, 
                                                 throwStartPoint.transform.rotation);
         projectile.GetComponent<LaunchRockProjectile>().Launch(animRockObject.transform, 
-                                                            throwTarget); 
+                                                                _playerTransform); 
     }
 
     private List<int> CreateAnimationPool(Vector2Int[] rates)
@@ -92,12 +100,19 @@ public class Golem : Enemy
     // For Ranged Attack - multiple throws
     public void EndRangedAttack()
     {
-        _agent ??= GetComponent<AIAgent>();
-        (_agent.GetState(AIStateID.RangedAttack) as AIRangedAttackState).SwitchToChasePlayer(_agent);
+        _aiAgent ??= GetComponent<AIAgent>();
+        (_aiAgent.GetState(AIStateID.RangedAttack) as AIRangedAttackState)?.SwitchToChasePlayer(_aiAgent);
     }
 
-    public void LookAtPlayer()
-    {
-        // insert code here
-    }
+    public void EnableLook() { _lookAtDuringThrow = true; }
+    public void DisableLook() { _lookAtDuringThrow = false; }
+    
+    public void EnableAttackCollider() { attackCollider.enabled = true; }
+    public void DisableAttackCollider() { attackCollider.enabled = false; }
+    
+    public void EnableFootAttackCollider() { footAttackCollider.enabled = true; }
+    public void DisableFootAttackCollider() { footAttackCollider.enabled = false; }
+    
+    public void EnableAnimationRock() { animRockObject.SetActive(true); }
+    public void DisableAnimationRock() { animRockObject.SetActive(false); }
 }

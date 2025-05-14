@@ -149,5 +149,7 @@ MonoBehaviour:
   launchLocal: 0
   launchDirection: {x: 0, y: 0.5, z: 0.8660254}
   launchSpeed: 4
+  torqueDirection: {x: -4, y: 1, z: 1}
   calculationFactorMin: 1.5
   calculationFactorMax: 1.7
+  destroyDelay: 4

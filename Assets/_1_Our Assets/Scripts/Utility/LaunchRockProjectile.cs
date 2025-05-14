@@ -10,8 +10,12 @@ public class LaunchRockProjectile : MonoBehaviour
     [SerializeField] private bool launchLocal;
     [SerializeField] private Vector3 launchDirection;
     [SerializeField] private float launchSpeed;
+    [SerializeField] private Vector3 torqueDirection;
+    
     [SerializeField] private float calculationFactorMin = 2.2705f;
     [SerializeField] private float calculationFactorMax = 2.2705f;
+    
+    [SerializeField] private float destroyDelay = 4.0f;
 
     private Rigidbody _rigidbody;
     
@@ -20,10 +24,9 @@ public class LaunchRockProjectile : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
 
         Launch();
-        Debug.Log("Starting Position: " + transform.position);
     }
 
-    public void Launch(Transform endRotationTransform)//float launchAngle, Transform targetTransform)
+    public void Launch(Transform endRotationTransform)
     {
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.AddRelativeForce(launchDirection * launchSpeed, ForceMode.VelocityChange);
@@ -43,18 +46,23 @@ public class LaunchRockProjectile : MonoBehaviour
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.AddRelativeForce(launchDirection * speed, ForceMode.VelocityChange);
         transform.rotation = endRotationTransform.rotation;
-
+        
+        _rigidbody.AddTorque(torqueDirection, ForceMode.VelocityChange);
+        
+        Destroy(gameObject, destroyDelay); 
     }
 
     private void Launch()//float launchAngle, Transform targetTransform)
     {
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.AddRelativeForce(launchDirection * launchSpeed, ForceMode.VelocityChange);
+        
+        Destroy(gameObject, destroyDelay); 
     }
     
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Ending Position: " + transform.position);
+        //Debug.Log("Ending Position: " + transform.position);
     }
 
 }

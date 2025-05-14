@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a48b7fc20128c4e923958483576456, type: 3}
   m_Name: GolemConfig
   m_EditorClassIdentifier: 
-  maxDistance: 2
+  maxDistance: 3
   maxSightRange: 5
   minRoamDeviation: 2
   maxRoamDeviation: 3
@@ -22,3 +22,5 @@ MonoBehaviour:
   maxNavMeshRefreshTime: 0.1
   minAttackWaitTime: 2
   maxAttackWaitTime: 4
+  minRangedWaitTime: 4
+  maxRangedWaitTime: 6
