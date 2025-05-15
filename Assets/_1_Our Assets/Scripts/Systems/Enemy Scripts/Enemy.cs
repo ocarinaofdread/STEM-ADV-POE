@@ -5,12 +5,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Animator animator;
+    public Collider hitboxCollider;
+    
     public int health;
     public bool isDead;
     public bool isAttacking;
 
     [SerializeField] float deathDestroyDelay = 5.0f;
     [SerializeField] private bool damagesAdditive;
+    [SerializeField] private float additiveDamageDelay = 0.35f;
 
     private AIAgent _agent;
     private int _additiveDamages;
@@ -19,6 +22,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<AIAgent>();
+        hitboxCollider ??= GetComponent<Collider>();
     }
 
     private void Update()
@@ -46,9 +50,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Damage(bool animate)
+    private void Damage(bool animate)
     {
-        if (_agent.enemy.isDead) return;
+        if (health <= 0) return;
 
         // Health management insert here
         
@@ -76,13 +80,21 @@ public class Enemy : MonoBehaviour
     
     private IEnumerator WaitThenReduce(AIAgent agent)
     {
-        //var animLength = agent.enemy.animator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(0.35f);//animLength);
+        yield return new WaitForSeconds(additiveDamageDelay);
         
         if (agent.enemy.isDead) yield break;
         
         _additiveDamages--;
-        //agent.ChangeState(AIStateID.Idle);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Spell")) return;
+        
+        var otherSpell = other.GetComponent<Spell>();
+        health -= otherSpell.GetDamage();
+        otherSpell.End();
+        Damage(true);
     }
 
     public void LogPosition()

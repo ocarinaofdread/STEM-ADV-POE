@@ -7,7 +7,8 @@ public class Spell : MonoBehaviour
 {
     [SerializeField] private string spellName;
     [TextArea(1, 3)] [SerializeField] private string spellDescription;
-    [SerializeField] private float damage;
+    [SerializeField] private int damageMin;
+    [SerializeField] private int damageMax;
     [SerializeField] private float manaCost;
     [SerializeField] private bool hasDuration;
     [SerializeField] private float duration;
@@ -25,7 +26,7 @@ public class Spell : MonoBehaviour
     IEnumerator WaitDuration()
     {
         yield return new WaitForSeconds(duration);
-        AfterDuration();
+        End();
     }
     
     // Overridable Methods
@@ -34,7 +35,7 @@ public class Spell : MonoBehaviour
         // Insert action here for any following spell
     }
 
-    protected virtual void AfterDuration()
+    public virtual void End()
     {
         // Insert death/fizzle out/etc. effect after duration ends
     }
@@ -49,5 +50,10 @@ public class Spell : MonoBehaviour
 
     public string GetName() => spellName;
     public string GetDescription() => spellDescription;
+    
+    public int GetDamage()
+    {
+        return Random.Range(damageMin, damageMax);
+    }
 
 }

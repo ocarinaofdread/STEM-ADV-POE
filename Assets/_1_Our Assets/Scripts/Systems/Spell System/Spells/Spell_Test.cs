@@ -14,7 +14,7 @@ public class Spell_Test : Spell
         rb.AddForce(transform.forward * launchSpeed, ForceMode.Impulse);
     }
 
-    protected override void AfterDuration()
+    public override void End()
     {
         Destroy(gameObject);
     }

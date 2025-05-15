@@ -893,7 +893,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: cfbfb95b5f2b90949be0b5faab2775fb, type: 3}
   m_Controller: {fileID: 9100000, guid: 0fac9eacfbd70164c8955aee1956122f, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -958,19 +958,24 @@ MonoBehaviour:
   isDead: 0
   isAttacking: 0
   deathDestroyDelay: 5
-  damagesAdditive: 0
+  damagesAdditive: 1
   attackCollider: {fileID: 1644905130349948756}
-  footAttackCollider: {fileID: 0}
+  footAttackCollider: {fileID: 8876626820066421858}
   animRockObject: {fileID: 7692160820176561572}
   throwRockPrefab: {fileID: 7358012239114001051, guid: e6f848542dafc934aa186db9fa35e879,
     type: 3}
   throwStartPoint: {fileID: 6226320775047795479}
-  throwTarget: {fileID: 0}
+  throwTurnSpeed: 3
   attackAnimationRates:
-  - {x: 0, y: 4}
-  - {x: 1, y: 2}
-  - {x: 2, y: 1}
-  rangedAnimationRates: []
+  - {x: 1, y: 4}
+  - {x: 2, y: 2}
+  - {x: 3, y: 1}
+  rangedAnimationRates:
+  - {x: 1, y: 8}
+  - {x: 2, y: 6}
+  - {x: 3, y: 4}
+  jumpAttackDistance: 5.19
+  jumpAttackDeviation: 0.1
 --- !u!1 &3893423645043784700
 GameObject:
   m_ObjectHideFlags: 0
