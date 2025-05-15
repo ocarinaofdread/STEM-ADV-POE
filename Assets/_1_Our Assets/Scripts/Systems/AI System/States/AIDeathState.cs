@@ -16,9 +16,15 @@ public class AIDeathState : AIState
     public void EnterState(AIAgent agent)
     {
         agent.enemy.animator.SetTrigger(deathHash);
-        if (agent.enemy is Skeleton agentSkeleton)
+
+        switch (agent.enemy)
         {
-            agentSkeleton.animator.SetLayerWeight(agentSkeleton.animator.GetLayerIndex("Damage"),0);    
+            case Skeleton agentSkeleton:
+                agentSkeleton.animator.SetLayerWeight(agentSkeleton.animator.GetLayerIndex("Damage"), 0);
+                break;
+            case Golem agentGolem:
+                agentGolem.animator.SetLayerWeight(agentGolem.animator.GetLayerIndex("Damage"), 0);
+                break;
         }
     }
 

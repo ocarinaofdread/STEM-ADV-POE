@@ -858,6 +858,7 @@ GameObject:
   - component: {fileID: 6940767904416747072}
   - component: {fileID: 533937238380662012}
   - component: {fileID: 5457970663812975169}
+  - component: {fileID: 3227865940111853174}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Untagged
@@ -880,6 +881,7 @@ Transform:
   m_Children:
   - {fileID: 2029618185115427497}
   - {fileID: 6867059718721023171}
+  - {fileID: 8959189049759434675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4798989634391532194
@@ -954,11 +956,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4798989634391532194}
+  hitboxCollider: {fileID: 3227865940111853174}
   health: 1
   isDead: 0
   isAttacking: 0
   deathDestroyDelay: 5
   damagesAdditive: 1
+  additiveDamageDelay: 0.35
   attackCollider: {fileID: 1644905130349948756}
   footAttackCollider: {fileID: 8876626820066421858}
   animRockObject: {fileID: 7692160820176561572}
@@ -976,6 +980,29 @@ MonoBehaviour:
   - {x: 3, y: 4}
   jumpAttackDistance: 5.19
   jumpAttackDeviation: 0.1
+--- !u!136 &3227865940111853174
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796061530246310108}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 3.1241317
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.3305228, z: 0}
 --- !u!1 &3893423645043784700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1580,61 @@ Transform:
   - {fileID: 5960121721625156297}
   m_Father: {fileID: 767942344030786009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5827848689755401692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8959189049759434675}
+  - component: {fileID: 5125708634535006125}
+  m_Layer: 0
+  m_Name: ColliderForPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8959189049759434675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5827848689755401692}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8321883157691356778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5125708634535006125
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5827848689755401692}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 3.1241317
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.3305228, z: 0}
 --- !u!1 &5969067648668052062
 GameObject:
   m_ObjectHideFlags: 0

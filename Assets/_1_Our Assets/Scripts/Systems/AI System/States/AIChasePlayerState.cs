@@ -112,12 +112,13 @@ public class AIChasePlayerState : AIState
 
     private bool SwitchRoamIfNotOnNavMesh(AIAgent agent, Vector3 testingPosition)
     {
+        if (agent.GetState(AIStateID.Roam) == null) return false;
+        
         var isOnNavMesh =
             NavMesh.SamplePosition(testingPosition, out var hit, _navMeshCheckDistance, NavMesh.AllAreas);
 
         if (isOnNavMesh && Vector3.Distance(testingPosition, hit.position) < _navMeshCheckDistance)
             return false;
-        
         
         agent.ChangeState(AIStateID.Roam);
         return true;

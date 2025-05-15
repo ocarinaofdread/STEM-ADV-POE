@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4402854141191491279}
   - component: {fileID: 2205314126684194681}
   - component: {fileID: -8424883506891777614}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TestSpell_Yellow
   m_TagString: Spell
   m_Icon: {fileID: 0}
@@ -151,7 +151,8 @@ MonoBehaviour:
 
 
     Cast Yellow Spell'
-  damage: 0
+  damageMin: 5
+  damageMax: 6
   manaCost: 0
   hasDuration: 1
   duration: 4
