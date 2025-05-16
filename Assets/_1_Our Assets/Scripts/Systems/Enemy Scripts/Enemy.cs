@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,13 +16,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool damagesAdditive;
     [SerializeField] private float additiveDamageDelay = 0.35f;
 
-    private AIAgent _agent;
+    [SerializeField] private AIAgent _agent;
     private int _additiveDamages;
     private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
 
     private void Start()
     {
-        _agent = GetComponent<AIAgent>();
+        _agent ??= GetComponent<AIAgent>();
         hitboxCollider ??= GetComponent<Collider>();
     }
 
