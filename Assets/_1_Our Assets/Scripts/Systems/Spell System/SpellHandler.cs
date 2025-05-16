@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 public class SpellHandler : MonoBehaviour
@@ -12,8 +13,10 @@ public class SpellHandler : MonoBehaviour
 
     [SerializeField] private InputActionReference navigationEnableAction;
     [SerializeField] private InputActionReference navigationInputAction;
+    [SerializeField] private ActionBasedContinuousMoveProvider continuousProvider;
 
     private GameManager _gameManager;
+    private Player _player;
     private GameObject[] _spellPrefabList;
     private GameObject _currentSpellPrefab;
     private int _currentSpellPrefabIndex;
@@ -24,6 +27,7 @@ public class SpellHandler : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _player = FindObjectOfType<Player>();
         _spellPrefabList = _gameManager.GetSpellPrefabList();
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
     }
@@ -35,6 +39,7 @@ public class SpellHandler : MonoBehaviour
         foreach (var thisCastAction in castActionList)
         {
             thisCastAction.action.performed += OnCastAction;
+            thisCastAction.action.canceled += OnCastEnd;
         }
 
         foreach (var thisExemptedAction in exemptedActionList)
@@ -48,16 +53,29 @@ public class SpellHandler : MonoBehaviour
         navigationEnableAction.action.canceled += DisableGrimoireNavigation;
 
         navigationInputAction.action.performed += OnNavigationAction;
-
     }
 
 
 
     void OnCastAction(InputAction.CallbackContext obj)
     {
-        if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire)
+        
+        if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire && HasEnoughMana())
         {
             Instantiate(_currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
+            
+        }
+    }
+
+    void OnCastEnd(InputAction.CallbackContext obj)
+    {
+        if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire)
+        {
+            Spell currentSpell = _currentSpellPrefab.GetComponent<Spell>();
+            if (currentSpell.GetIsContinuous())
+            {
+                currentSpell.End();
+            }
         }
     }
 
@@ -84,14 +102,24 @@ public class SpellHandler : MonoBehaviour
         grimoire.UpdateGrimoirePages(_currentSpellPrefab.GetComponent<Spell>().GetName(), 1);
     }
 
+    private bool HasEnoughMana()
+    {
+        var manaCost = _currentSpellPrefab.GetComponent<Spell>().GetManaCost();
+        var currentMana = _player.GetMana();
+
+        return currentMana - manaCost >= 0;
+    }
+
     void EnableGrimoireNavigation(InputAction.CallbackContext obj)
     {
         _canSwitchSpells = true;
+        continuousProvider.enabled = false;
     }
 
     void DisableGrimoireNavigation(InputAction.CallbackContext obj)
     {
         _canSwitchSpells = false;
+        continuousProvider.enabled = true;
     }
 
     void AddExemptions(InputAction.CallbackContext obj)

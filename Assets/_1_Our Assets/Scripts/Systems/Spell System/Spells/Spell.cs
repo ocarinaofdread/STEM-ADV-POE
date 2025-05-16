@@ -9,7 +9,8 @@ public class Spell : MonoBehaviour
     [TextArea(1, 3)] [SerializeField] private string spellDescription;
     [SerializeField] private int damageMin;
     [SerializeField] private int damageMax;
-    [SerializeField] private float manaCost;
+    [SerializeField] private int manaCost;
+    [SerializeField] private bool isContinuous;
     [SerializeField] private bool hasDuration;
     [SerializeField] private float duration;
     
@@ -50,6 +51,8 @@ public class Spell : MonoBehaviour
 
     public string GetName() => spellName;
     public string GetDescription() => spellDescription;
+    public int GetManaCost() => manaCost;
+    public bool GetIsContinuous() => isContinuous;
     
     public int GetDamage()
     {

@@ -8,6 +8,7 @@ TagManager:
   - RightHand
   - Pointer
   - Spell
+  - Hazard
   layers:
   - Default
   - TransparentFX
