@@ -9,6 +9,10 @@ TagManager:
   - Pointer
   - Spell
   - Hazard
+  - LeftHealth
+  - LeftMana
+  - RightHealth
+  - RightMana
   layers:
   - Default
   - TransparentFX

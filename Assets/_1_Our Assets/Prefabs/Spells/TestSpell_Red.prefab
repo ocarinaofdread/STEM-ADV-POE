@@ -153,7 +153,9 @@ MonoBehaviour:
     Cast Red Spell'
   damageMin: 2
   damageMax: 4
-  manaCost: 0
+  manaCost: 15
+  manaRechargeDelay: 1
+  isContinuous: 0
   hasDuration: 1
   duration: 4
   launchSpeed: 10

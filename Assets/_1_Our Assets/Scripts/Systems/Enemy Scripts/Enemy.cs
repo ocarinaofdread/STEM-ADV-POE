@@ -12,18 +12,23 @@ public class Enemy : MonoBehaviour
     public bool isDead;
     public bool isAttacking;
 
-    [SerializeField] float deathDestroyDelay = 5.0f;
+    [SerializeField] private float deathDestroyDelay = 5.0f;
     [SerializeField] private bool damagesAdditive;
     [SerializeField] private float additiveDamageDelay = 0.35f;
 
     [SerializeField] private AIAgent _agent;
+    [SerializeField] private HealthSystemForDummies _healthSystem;
     private int _additiveDamages;
     private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
 
     private void Start()
     {
         _agent ??= GetComponent<AIAgent>();
+        _healthSystem ??= GetComponent<HealthSystemForDummies>();
         hitboxCollider ??= GetComponent<Collider>();
+
+        _healthSystem.MaximumHealth = health;
+        _healthSystem.CurrentHealth = health;
     }
 
     private void Update()
@@ -31,6 +36,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0 && !isDead)
         {
             _agent.ChangeState(AIStateID.Death);
+            _healthSystem.CurrentHealth = 0;
             isDead = true;
             Destroy(gameObject, deathDestroyDelay);
         }
@@ -90,10 +96,11 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Spell")) return;
+        if (!other.CompareTag("Spell") || isDead) return;
         
         var otherSpell = other.GetComponent<Spell>();
         health -= otherSpell.GetDamage();
+        _healthSystem.AddToCurrentHealth(-otherSpell.GetDamage());
         otherSpell.End();
         Damage(true);
     }

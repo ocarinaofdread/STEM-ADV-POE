@@ -153,7 +153,9 @@ MonoBehaviour:
     Cast Yellow Spell'
   damageMin: 5
   damageMax: 6
-  manaCost: 0
+  manaCost: 30
+  manaRechargeDelay: 2.5
+  isContinuous: 0
   hasDuration: 1
   duration: 4
   launchSpeed: 10

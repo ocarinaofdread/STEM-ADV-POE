@@ -24,17 +24,18 @@ public class SpellHandler : MonoBehaviour
     private bool _canSwitchSpells;
     private bool _isHoldingGrimoire;
 
-    void Start()
+    private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _player = FindObjectOfType<Player>();
+        
         _spellPrefabList = _gameManager.GetSpellPrefabList();
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
     }
 
 
     // Input References
-    void OnEnable()
+    private void OnEnable()
     {
         foreach (var thisCastAction in castActionList)
         {
@@ -57,21 +58,21 @@ public class SpellHandler : MonoBehaviour
 
 
 
-    void OnCastAction(InputAction.CallbackContext obj)
+    private void OnCastAction(InputAction.CallbackContext obj)
     {
-        
         if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire && HasEnoughMana())
         {
             Instantiate(_currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
-            
+            _player.IncrementMana(-CurrentSpell().GetManaCost());
+            StartCoroutine(_player.RechargeDelay(CurrentSpell().GetRechargeDelay()));
         }
     }
 
-    void OnCastEnd(InputAction.CallbackContext obj)
+    private void OnCastEnd(InputAction.CallbackContext obj)
     {
         if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire)
         {
-            Spell currentSpell = _currentSpellPrefab.GetComponent<Spell>();
+            var currentSpell = CurrentSpell();
             if (currentSpell.GetIsContinuous())
             {
                 currentSpell.End();
@@ -79,7 +80,7 @@ public class SpellHandler : MonoBehaviour
         }
     }
 
-    void OnNavigationAction(InputAction.CallbackContext obj)
+    private void OnNavigationAction(InputAction.CallbackContext obj)
     {
         if (!_canSwitchSpells || !_isHoldingGrimoire)
         {
@@ -99,41 +100,43 @@ public class SpellHandler : MonoBehaviour
         }
 
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
-        grimoire.UpdateGrimoirePages(_currentSpellPrefab.GetComponent<Spell>().GetName(), 1);
+        grimoire.UpdateGrimoirePages(CurrentSpell().GetName(), 1);
     }
 
     private bool HasEnoughMana()
     {
-        var manaCost = _currentSpellPrefab.GetComponent<Spell>().GetManaCost();
+        var manaCost = CurrentSpell().GetManaCost();
         var currentMana = _player.GetMana();
 
         return currentMana - manaCost >= 0;
     }
 
-    void EnableGrimoireNavigation(InputAction.CallbackContext obj)
+    private void EnableGrimoireNavigation(InputAction.CallbackContext obj)
     {
         _canSwitchSpells = true;
         continuousProvider.enabled = false;
     }
 
-    void DisableGrimoireNavigation(InputAction.CallbackContext obj)
+    private void DisableGrimoireNavigation(InputAction.CallbackContext obj)
     {
         _canSwitchSpells = false;
         continuousProvider.enabled = true;
     }
 
-    void AddExemptions(InputAction.CallbackContext obj)
+    private void AddExemptions(InputAction.CallbackContext obj)
     {
         _exemptedButtonsPressed += 1;
     }
 
-    void SubtractExemptions(InputAction.CallbackContext obj)
+    private void SubtractExemptions(InputAction.CallbackContext obj)
     {
         _exemptedButtonsPressed -= 1;
     }
 
     public void StartHoldingGrimoire() { _isHoldingGrimoire = true; }
     public void StopHoldingGrimoire() { _isHoldingGrimoire = false; }
+    
+    private Spell CurrentSpell() { return _currentSpellPrefab.GetComponent<Spell>(); }
 
     // Get/Set Functions
     //public void SetCurrentSpell(GameObject spell) { _currentSpellPrefab = spell; }

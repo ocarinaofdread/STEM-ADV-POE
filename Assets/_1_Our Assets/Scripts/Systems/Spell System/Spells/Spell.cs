@@ -10,6 +10,7 @@ public class Spell : MonoBehaviour
     [SerializeField] private int damageMin;
     [SerializeField] private int damageMax;
     [SerializeField] private int manaCost;
+    [SerializeField] private float manaRechargeDelay;
     [SerializeField] private bool isContinuous;
     [SerializeField] private bool hasDuration;
     [SerializeField] private float duration;
@@ -18,7 +19,7 @@ public class Spell : MonoBehaviour
     private void Awake()
     {
         RunCastAction();
-        if (hasDuration)
+        if (hasDuration && !isContinuous)
         {
             StartCoroutine(WaitDuration());
         }
@@ -43,7 +44,7 @@ public class Spell : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Hazard"))
         {
             // Enter Code Here
         }
@@ -52,6 +53,7 @@ public class Spell : MonoBehaviour
     public string GetName() => spellName;
     public string GetDescription() => spellDescription;
     public int GetManaCost() => manaCost;
+    public float GetRechargeDelay() => manaRechargeDelay;
     public bool GetIsContinuous() => isContinuous;
     
     public int GetDamage()
