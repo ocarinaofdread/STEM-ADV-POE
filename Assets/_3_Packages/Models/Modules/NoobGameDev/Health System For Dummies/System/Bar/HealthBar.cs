@@ -21,10 +21,13 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         healthSystem ??= GetComponentInParent<HealthSystemForDummies>();
+        Debug.Log(gameObject.name + " " + transform.parent.gameObject.tag + " Health System Max Health " + healthSystem.MaximumHealth);
+        
         image = GetComponentInChildren<Image>();
         text = GetComponentInChildren<Text>();
         followCameraRotation = GetComponent<FollowCameraRotation>();
         healthSystem.OnCurrentHealthChanged.AddListener(ChangeHealthFill);
+        text.enabled = shouldShowHealthNumbers;
     }
 
     void Update()
@@ -35,10 +38,11 @@ public class HealthBar : MonoBehaviour
         {
             image.fillAmount = healthSystem.CurrentHealthPercentage / 100;
         }
-
-        text.text = $"{healthSystem.CurrentHealth}/{healthSystem.MaximumHealth}";
-
-        text.enabled = shouldShowHealthNumbers;
+    
+        // text.enabled = shouldShowHealthNumbers;
+        
+        if (shouldShowHealthNumbers)
+        { text.text = $"{healthSystem.CurrentHealth}/{healthSystem.MaximumHealth}"; }
 
         followCameraRotation.enabled = isBillboarded;
     }
