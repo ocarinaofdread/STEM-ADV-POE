@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Golem : Enemy
 {
-    [SerializeField] private Collider attackCollider;
+    [SerializeField] private Collider rightAttackCollider;
+    [SerializeField] private Collider leftAttackCollider;
     [SerializeField] private Collider footAttackCollider;
     
     [SerializeField] private GameObject animRockObject;
@@ -107,8 +108,11 @@ public class Golem : Enemy
     public void EnableLook() { _lookAtDuringThrow = true; }
     public void DisableLook() { _lookAtDuringThrow = false; }
     
-    public void EnableAttackCollider() { attackCollider.enabled = true; }
-    public void DisableAttackCollider() { attackCollider.enabled = false; }
+    public void EnableRightAttackCollider() { rightAttackCollider.enabled = true; }
+    public void DisableRightAttackCollider() { rightAttackCollider.enabled = false; }
+    
+    public void EnableLeftAttackCollider() { leftAttackCollider.enabled = true; }
+    public void DisableLeftAttackCollider() { leftAttackCollider.enabled = false; }
     
     public void EnableFootAttackCollider() { footAttackCollider.enabled = true; }
     public void DisableFootAttackCollider() { footAttackCollider.enabled = false; }

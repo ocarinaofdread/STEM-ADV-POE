@@ -20,7 +20,7 @@ MonoBehaviour:
   maxRoamWaitTime: 4
   idleLookSpeed: 2
   maxNavMeshRefreshTime: 0.1
-  minAttackWaitTime: 2
-  maxAttackWaitTime: 4
+  minAttackWaitTime: 0
+  maxAttackWaitTime: 1.5
   minRangedWaitTime: 4
   maxRangedWaitTime: 6

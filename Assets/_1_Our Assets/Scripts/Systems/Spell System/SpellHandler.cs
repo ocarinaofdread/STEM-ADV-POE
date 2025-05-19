@@ -23,6 +23,7 @@ public class SpellHandler : MonoBehaviour
     private int _exemptedButtonsPressed;
     private bool _canSwitchSpells;
     private bool _isHoldingGrimoire;
+    private bool _wasContinuous;
 
     private void Start()
     {
@@ -114,13 +115,20 @@ public class SpellHandler : MonoBehaviour
     private void EnableGrimoireNavigation(InputAction.CallbackContext obj)
     {
         _canSwitchSpells = true;
-        continuousProvider.enabled = false;
+        if (continuousProvider.enabled && _isHoldingGrimoire)
+        {
+            continuousProvider.enabled = false;
+            _wasContinuous = true;
+        }
     }
 
     private void DisableGrimoireNavigation(InputAction.CallbackContext obj)
     {
         _canSwitchSpells = false;
-        continuousProvider.enabled = true;
+        if (_wasContinuous)
+        {
+            continuousProvider.enabled = true;
+        }
     }
 
     private void AddExemptions(InputAction.CallbackContext obj)
