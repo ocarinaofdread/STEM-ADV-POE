@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         healthSystem ??= GetComponentInParent<HealthSystemForDummies>();
-        Debug.Log(gameObject.name + " " + transform.parent.gameObject.tag + " Health System Max Health " + healthSystem.MaximumHealth);
+        //Debug.Log(gameObject.name + " " + transform.parent.gameObject.tag + " Health System Max Health " + healthSystem.MaximumHealth);
         
         image = GetComponentInChildren<Image>();
         text = GetComponentInChildren<Text>();

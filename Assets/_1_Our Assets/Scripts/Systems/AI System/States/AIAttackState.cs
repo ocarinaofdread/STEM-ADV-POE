@@ -28,8 +28,9 @@ public class AIAttackState : AIState
                 agentGoblin.animator.SetTrigger(_attackHash);
                 break;
             case Golem agentGolem:
-                agentGolem.animator.SetInteger(_attackTypeHash, 
-                                agentGolem.GetRandomAttackType());
+                // deprecated random attack type, now based on distance
+                //agentGolem.animator.SetInteger(_attackTypeHash, 
+                //                agentGolem.GetRandomAttackType());
                 agentGolem.animator.SetTrigger(_attackHash);
                 break;
         }

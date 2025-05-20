@@ -9,6 +9,10 @@ public class AIIdleState : AIState
     private float _timer;
     private float _lookAtSpeed;
     private float _sqrMaxDistance;
+    private float _closeAttackRange;
+    private bool _isGolem;
+
+    private readonly int _attackTypeHash = Animator.StringToHash("AttackType");
     
     public AIStateID GetID()
     {
@@ -20,6 +24,7 @@ public class AIIdleState : AIState
     {
         _playerTransform ??= GameObject.FindGameObjectWithTag("Player").transform;
         _sqrMaxDistance = agent.config.maxDistance * agent.config.maxDistance;
+        _closeAttackRange = agent.config.closeAttackRange;
         
         switch (agent.enemy)
         {
@@ -31,6 +36,7 @@ public class AIIdleState : AIState
                 break;
             case Golem agentGolem:
                 agentGolem.ChangeSpeed(0.0f);
+                _isGolem = true;
                 break;
         }
 
@@ -50,7 +56,15 @@ public class AIIdleState : AIState
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
-            //Debug.Log("Changing to Attack state");
+            //Debug.Log("Changing to Attack state");s
+            if (_isGolem)
+            {
+                var agentGolem = agent.enemy as Golem;
+                //Debug.Log("Distance squared: " + sqrDistance + " vs. Close Squared " + Mathf.Pow(_closeAttackRange, 2));
+                agentGolem.animator.SetInteger(_attackTypeHash,
+                    sqrDistance <= _closeAttackRange * _closeAttackRange ? agentGolem.GetRandomAttackType() : 2);
+            }
+
             agent.ChangeState(AIStateID.Attack);
         }
 

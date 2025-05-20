@@ -16,27 +16,27 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool damagesAdditive;
     [SerializeField] private float additiveDamageDelay = 0.35f;
 
-    [SerializeField] private AIAgent _agent;
-    [SerializeField] private HealthSystemForDummies _healthSystem;
+    [SerializeField] private AIAgent agent;
+    [SerializeField] private HealthSystemForDummies healthSystem;
     private int _additiveDamages;
     private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
 
     private void Start()
     {
-        _agent ??= GetComponent<AIAgent>();
-        _healthSystem ??= GetComponent<HealthSystemForDummies>();
+        agent ??= GetComponent<AIAgent>();
+        healthSystem ??= GetComponent<HealthSystemForDummies>();
         hitboxCollider ??= GetComponent<Collider>();
 
-        _healthSystem.MaximumHealth = health;
-        _healthSystem.CurrentHealth = health;
+        healthSystem.MaximumHealth = health;
+        healthSystem.CurrentHealth = health;
     }
 
     private void Update()
     {
         if (health <= 0 && !isDead)
         {
-            _agent.ChangeState(AIStateID.Death);
-            _healthSystem.CurrentHealth = 0;
+            agent.ChangeState(AIStateID.Death);
+            healthSystem.CurrentHealth = 0;
             isDead = true;
             Destroy(gameObject, deathDestroyDelay);
         }
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            _agent.ChangeState(AIStateID.DamageStop);
+            agent.ChangeState(AIStateID.DamageStop);
         }
     }
 
@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
         
         _additiveDamages++;
         animator.SetTrigger(_damageAdditiveHash);
-        StartCoroutine(WaitThenReduce(_agent));
+        StartCoroutine(WaitThenReduce(agent));
     }
     
     private IEnumerator WaitThenReduce(AIAgent agent)
@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
         
         var otherSpell = other.GetComponent<Spell>();
         health -= otherSpell.GetDamage();
-        _healthSystem.AddToCurrentHealth(-otherSpell.GetDamage());
+        healthSystem.AddToCurrentHealth(-otherSpell.GetDamage());
         otherSpell.End();
         Damage(true);
     }

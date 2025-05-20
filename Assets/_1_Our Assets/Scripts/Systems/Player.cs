@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,11 +37,18 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         if (_foundSystems) { return; }
-        
-        _leftManaSystem ??= GameObject.FindGameObjectWithTag("LeftMana").GetComponent<HealthSystemForDummies>();
-        _leftHealthSystem ??= GameObject.FindGameObjectWithTag("LeftHealth").GetComponent<HealthSystemForDummies>();
-        _rightManaSystem ??= GameObject.FindGameObjectWithTag("RightMana").GetComponent<HealthSystemForDummies>();
-        _rightHealthSystem ??= GameObject.FindGameObjectWithTag("RightHealth").GetComponent<HealthSystemForDummies>();
+
+        try
+        {
+            _leftManaSystem ??= GameObject.FindGameObjectWithTag("LeftMana").GetComponent<HealthSystemForDummies>();
+            _leftHealthSystem ??= GameObject.FindGameObjectWithTag("LeftHealth").GetComponent<HealthSystemForDummies>();
+            _rightManaSystem ??= GameObject.FindGameObjectWithTag("RightMana").GetComponent<HealthSystemForDummies>();
+            _rightHealthSystem ??= GameObject.FindGameObjectWithTag("RightHealth").GetComponent<HealthSystemForDummies>();
+        }
+        catch (NullReferenceException e)
+        {
+            return;
+        }
 
         if (_leftManaSystem)
         {
