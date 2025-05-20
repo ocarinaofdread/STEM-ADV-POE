@@ -96,7 +96,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -158,4 +158,5 @@ MonoBehaviour:
   isContinuous: 0
   hasDuration: 1
   duration: 4
+  spawnWithParent: 0
   launchSpeed: 10
