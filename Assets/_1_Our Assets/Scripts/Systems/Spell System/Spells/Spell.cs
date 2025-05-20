@@ -14,6 +14,7 @@ public class Spell : MonoBehaviour
     [SerializeField] private bool isContinuous;
     [SerializeField] private bool hasDuration;
     [SerializeField] private float duration;
+    [SerializeField] private bool spawnWithParent;
     
 
     private void Awake()
@@ -55,6 +56,7 @@ public class Spell : MonoBehaviour
     public int GetManaCost() => manaCost;
     public float GetRechargeDelay() => manaRechargeDelay;
     public bool GetIsContinuous() => isContinuous;
+    public bool GetSpawnWithParent() => spawnWithParent;
     
     public int GetDamage()
     {

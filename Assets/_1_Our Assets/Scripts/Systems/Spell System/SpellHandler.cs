@@ -63,6 +63,10 @@ public class SpellHandler : MonoBehaviour
     {
         if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire && HasEnoughMana())
         {
+            if (CurrentSpell().GetSpawnWithParent())
+            {
+                // insert code here
+            }
             Instantiate(_currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
             _player.IncrementMana(-CurrentSpell().GetManaCost());
             StartCoroutine(_player.RechargeDelay(CurrentSpell().GetRechargeDelay()));

@@ -7073,6 +7073,16 @@ PrefabInstance:
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4840144551318836235, guid: b4f659b79b1dfb444a4fdc82d45483bd,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840144551318836235, guid: b4f659b79b1dfb444a4fdc82d45483bd,
+        type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5325518150197197848, guid: b4f659b79b1dfb444a4fdc82d45483bd,
         type: 3}
       propertyPath: m_text
