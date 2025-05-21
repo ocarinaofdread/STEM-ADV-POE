@@ -1,7 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Player : MonoBehaviour
 {
@@ -9,8 +10,21 @@ public class Player : MonoBehaviour
     [SerializeField] private int mana;
     [SerializeField] private float manaRechargeInterval = 0.1f;
     [SerializeField] private int manaRechargeIncrement = 1;
+    // Why is this here? - [SerializeField] private GameObject leftSpellHandler;
+    
+    [SerializeField] private InputActionProperty rightHandContTurnAction;
+    [SerializeField] private InputActionProperty rightHandSnapTurnAction;
+    [SerializeField] private InputActionProperty leftHandContTurnAction;
+    [SerializeField] private InputActionProperty leftHandSnapTurnAction;
+    [SerializeField] private InputActionProperty rightHandMoveAction;
+    [SerializeField] private InputActionProperty leftHandMoveAction;
 
     private GameManager _gameManager;
+    private DominantHand _currentDominantHand;
+    private ActionBasedContinuousMoveProvider _continuousMoveProvider;
+    private ActionBasedSnapTurnProvider _snapTurnProvider;
+    private ActionBasedContinuousTurnProvider _continuousTurnProvider;
+    
     private HealthSystemForDummies _leftManaSystem;
     private HealthSystemForDummies _leftHealthSystem;
     private HealthSystemForDummies _rightManaSystem;
@@ -23,9 +37,15 @@ public class Player : MonoBehaviour
     private float _rechargeTimer;
     private bool _foundSystems;
 
+    private readonly InputActionProperty nullProperty = new(null);
+
     private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _continuousMoveProvider = GetComponent<ActionBasedContinuousMoveProvider>();
+        _snapTurnProvider = GetComponent<ActionBasedSnapTurnProvider>();
+        _continuousTurnProvider = GetComponent<ActionBasedContinuousTurnProvider>();
+        SetProviderActions(_gameManager.GetDominantHand());
         
         _maxMana = mana;
 
@@ -60,30 +80,38 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
+        // Dies if health <= 0
         if (health <= 0 && !_isDead)
         {
             // _gameManager.something
             // teleport to game over screen baby
             // return;
         }
-        
-        if (_currentlyRecharging && mana < _maxMana)
+
+        // Changes dominant hand and subsequent provider attributes
+        if (_currentDominantHand != _gameManager.GetDominantHand())
         {
-            _rechargeTimer -= Time.deltaTime;
-            if (_rechargeTimer <= 0)
-            {
-                mana += manaRechargeIncrement;
-                ChangeManaHealths(manaRechargeIncrement);
+            _currentDominantHand = _gameManager.GetDominantHand();
+            SetProviderActions(_currentDominantHand);
+        }
+
+        // Checks if currently recharging or max capacity reached
+        if (!_currentlyRecharging || mana >= _maxMana) return;
+        
+        // Regenerates mana
+        _rechargeTimer -= Time.deltaTime;
+        if (_rechargeTimer <= 0)
+        {
+            mana += manaRechargeIncrement;
+            ChangeManaHealths(manaRechargeIncrement);
                 
-                _rechargeTimer = manaRechargeInterval;
-            }
+            _rechargeTimer = manaRechargeInterval;
         }
     }
 
+    // Get, set mana
     public void IncrementMana(int increment)
     {
-        int ogMana = mana;
-        
         mana += increment;
         if (mana < 0)
         {
@@ -98,10 +126,12 @@ public class Player : MonoBehaviour
     }
     public int GetMana() => mana;
 
-    public IEnumerator RechargeDelay(float delay)
+    // Delay following a spell cast until recharge begins
+    public IEnumerator RechargeDelay(float delay, float intervalAfter)
     {
         _rechargeRequests++;
         _currentlyRecharging = false;
+        manaRechargeInterval = intervalAfter;
 
         yield return new WaitForSeconds(delay);
 
@@ -147,6 +177,33 @@ public class Player : MonoBehaviour
     {
         _rightHealthSystem.AddToCurrentHealth(increment);
         _leftHealthSystem.AddToCurrentHealth(increment);
+    }
+
+    private void SetProviderActions(DominantHand hand)
+    {
+        // Ex. Right Hand
+        // LeftHand = Move, RightHand = Turn
+        
+        if (hand == DominantHand.RightHanded)
+        {
+            _continuousMoveProvider.leftHandMoveAction = leftHandMoveAction;
+            _snapTurnProvider.rightHandSnapTurnAction = rightHandSnapTurnAction;
+            _continuousTurnProvider.rightHandTurnAction = rightHandContTurnAction;
+
+            _continuousMoveProvider.rightHandMoveAction = nullProperty;
+            _snapTurnProvider.leftHandSnapTurnAction = nullProperty;
+            _continuousTurnProvider.leftHandTurnAction = nullProperty;
+        }
+        else
+        {
+            _continuousMoveProvider.rightHandMoveAction = rightHandMoveAction;
+            _snapTurnProvider.leftHandSnapTurnAction = leftHandSnapTurnAction;
+            _continuousTurnProvider.leftHandTurnAction = leftHandContTurnAction;
+
+            _continuousMoveProvider.leftHandMoveAction = nullProperty;
+            _snapTurnProvider.rightHandSnapTurnAction = nullProperty;
+            _continuousTurnProvider.rightHandTurnAction = nullProperty;
+        }
     }
     
     public void ResetDeath() { _isDead = false; }

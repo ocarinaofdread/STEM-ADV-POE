@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6794657463672255306}
   - component: {fileID: 4402854141191491279}
   - component: {fileID: 2205314126684194681}
-  - component: {fileID: -8424883506891777614}
+  - component: {fileID: 4852521082188810013}
   m_Layer: 3
   m_Name: TestSpell_Blue
   m_TagString: Spell
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &-8424883506891777614
+--- !u!114 &4852521082188810013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,20 +143,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 970737749199969720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d28d19893bc97e4c9d2c4c6c1c4b604, type: 3}
+  m_Script: {fileID: 11500000, guid: 70241048b6359454897c963862bbace7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellName: Blue
-  spellDescription: 'Blue
+  spellName: Water
+  spellDescription: 'Water
 
 
-    Cast Blue Spell'
+    Push enemies backward with a stream of water in
+    front of you.'
   damageMin: 0
   damageMax: 0
+  damageAdditiveLevel: 0
   manaCost: 5
   manaRechargeDelay: 0.5
+  manaRechargeIntervalAfter: 0.1
   isContinuous: 0
   hasDuration: 1
   duration: 4
   spawnWithParent: 0
   launchSpeed: 10
+  pushForce: 1
+  pushForceMode: 2

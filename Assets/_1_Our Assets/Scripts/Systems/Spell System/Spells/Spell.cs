@@ -9,8 +9,10 @@ public class Spell : MonoBehaviour
     [TextArea(1, 3)] [SerializeField] private string spellDescription;
     [SerializeField] private int damageMin;
     [SerializeField] private int damageMax;
+    [SerializeField] private int damageAdditiveLevel;
     [SerializeField] private int manaCost;
     [SerializeField] private float manaRechargeDelay;
+    [SerializeField] private float manaRechargeIntervalAfter = 0.1f;
     [SerializeField] private bool isContinuous;
     [SerializeField] private bool hasDuration;
     [SerializeField] private float duration;
@@ -43,7 +45,7 @@ public class Spell : MonoBehaviour
         // Insert death/fizzle out/etc. effect after duration ends
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Hazard"))
         {
@@ -53,8 +55,10 @@ public class Spell : MonoBehaviour
 
     public string GetName() => spellName;
     public string GetDescription() => spellDescription;
+    public int GetDamageAdditiveLevel() => damageAdditiveLevel;
     public int GetManaCost() => manaCost;
     public float GetRechargeDelay() => manaRechargeDelay;
+    public float GetRechargeIntervalAfter() => manaRechargeIntervalAfter;
     public bool GetIsContinuous() => isContinuous;
     public bool GetSpawnWithParent() => spawnWithParent;
     

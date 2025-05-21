@@ -71,7 +71,7 @@ public class AIRangedAttackState : AIState
 
     public void ExitState(AIAgent agent)
     {
-        Debug.Log("Leaving RangedAttackState...");
+        //Debug.Log("Leaving RangedAttackState...");
         agent.navMeshAgent.enabled = true;
         agent.enemy.isAttacking = false;
     }

@@ -13,23 +13,26 @@ public class GrimoireInteractor : XRGrabInteractable
     [SerializeField] SpellHandler leftHandSpellHandler;
     [SerializeField] SpellHandler rightHandSpellHandler;
 
-    private GrimoireHandler handler;
+    private GameManager _gameManager;
+    
+    private void Start()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
+    }
     
     protected override void OnSelectEntering(SelectEnterEventArgs args)
-    {
-        handler = GetComponent<GrimoireHandler>();
-        
+    {   
         if (args.interactorObject.transform.CompareTag("LeftHand"))
         {
             attachTransform = leftHandAttachTransform;
             rightHandSpellHandler.StartHoldingGrimoire();
-            handler.ChangeDominantHand(DominantHand.LeftHanded, true);
+            _gameManager.SetDominantHand(DominantHand.LeftHanded);
         }
         else if (args.interactorObject.transform.CompareTag("RightHand"))
         {
             attachTransform = rightHandAttachTransform;
             leftHandSpellHandler.StartHoldingGrimoire();
-            handler.ChangeDominantHand(DominantHand.RightHanded, true);
+            _gameManager.SetDominantHand(DominantHand.RightHanded);
         }
 
         base.OnSelectEntering(args);

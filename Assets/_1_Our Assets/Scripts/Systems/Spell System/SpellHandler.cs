@@ -57,8 +57,6 @@ public class SpellHandler : MonoBehaviour
         navigationInputAction.action.performed += OnNavigationAction;
     }
 
-
-
     private void OnCastAction(InputAction.CallbackContext obj)
     {
         if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire && HasEnoughMana())
@@ -72,7 +70,8 @@ public class SpellHandler : MonoBehaviour
             }
 
             _player.IncrementMana(-CurrentSpell().GetManaCost());
-            StartCoroutine(_player.RechargeDelay(CurrentSpell().GetRechargeDelay()));
+            StartCoroutine(_player.RechargeDelay(CurrentSpell().GetRechargeDelay(), 
+                                                        CurrentSpell().GetRechargeIntervalAfter()));
         }
     }
 

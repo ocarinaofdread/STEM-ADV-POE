@@ -4,12 +4,6 @@ using System.Linq;
 using UnityEngine;
 using TMPro;
 
-public enum DominantHand
-{
-    RightHanded,
-    LeftHanded
-}
-
 public class GrimoireHandler : MonoBehaviour
 {
     // Dominant Hand: Controls
@@ -17,13 +11,13 @@ public class GrimoireHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI leftPageTMPro;
     [SerializeField] private TextMeshProUGUI rightPageTMPro;
     
-    [SerializeField] private DominantHand selectedDominantHand;
     [TextArea(1, 3)] [SerializeField] private string controlsText;
 
     // <Name, Description>
     private Dictionary<string, string> _spellDictionary;
     private GameManager _gameManager;
-
+    private DominantHand _currentDominantHand;
+    
     private TextMeshProUGUI _currentSpellPage;
     private TextMeshProUGUI _currentControlsPage;
 
@@ -31,13 +25,21 @@ public class GrimoireHandler : MonoBehaviour
     {
         _gameManager = FindObjectOfType<GameManager>();
         _spellDictionary = _gameManager.GetSpellDictionary();
-        SetPages(selectedDominantHand);
+        
+        _currentDominantHand = _gameManager.GetDominantHand();
+        SetPages(_currentDominantHand);
 
         var firstSpellName = _spellDictionary.Keys.ToList()[0];
         UpdateGrimoirePages(firstSpellName ,1);
         UpdateGrimoirePages("", 2);
     }
     
+    private void Update()
+    {
+        if (_currentDominantHand == _gameManager.GetDominantHand()) return;
+        
+        ChangeDominantHand(_gameManager.GetDominantHand(), true);
+    }
     
     public void UpdateGrimoirePages(string newSpellName, int changeType)
     {
@@ -66,12 +68,12 @@ public class GrimoireHandler : MonoBehaviour
         }
     }
 
-
     public void ChangeDominantHand(DominantHand dominantHand, bool swapAfter)
     {
-        if (selectedDominantHand == dominantHand) return;
-        selectedDominantHand = dominantHand;
-        SetPages(selectedDominantHand);
+        // if (_currentDominantHand == dominantHand) return;
+        
+        _currentDominantHand = dominantHand;
+        SetPages(_currentDominantHand);
             
         if (swapAfter) { UpdateGrimoirePages(null, 3); }
     }
@@ -89,6 +91,4 @@ public class GrimoireHandler : MonoBehaviour
             _currentControlsPage = leftPageTMPro;
         }
     }
-    
-    public DominantHand GetDominantHand() => selectedDominantHand;
 }

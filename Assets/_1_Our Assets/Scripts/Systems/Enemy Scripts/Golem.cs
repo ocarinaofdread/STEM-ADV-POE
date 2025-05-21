@@ -21,7 +21,8 @@ public class Golem : Enemy
 
     public float jumpAttackDistance = 5.19f;
     public float jumpAttackDeviation = 0.10f;
-    
+
+    private GameManager _gameManager;
     private List<int> _attackAnimRatePool;
     private List<int> _rangedAnimRatePool;
     private AIAgent _aiAgent;
@@ -96,7 +97,12 @@ public class Golem : Enemy
 
         return _rangedAnimRatePool[index];
     }
-    
+
+    public void SummonEndPortal()
+    {
+        // _gameManager end game or something
+        // yippeeeeeeeee
+    }
     
     // For Ranged Attack - multiple throws
     public void EndRangedAttack()

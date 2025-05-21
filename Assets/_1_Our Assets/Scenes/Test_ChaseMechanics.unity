@@ -689,6 +689,7 @@ MonoBehaviour:
   - {fileID: 970737749199969720, guid: 71ccb165234b0334a9e27313a991ab18, type: 3}
   - {fileID: 970737749199969720, guid: ae81df84ce8b70d4db50230095fab57b, type: 3}
   - {fileID: 970737749199969720, guid: a11cf80bedbaa4f4e9f051a7e1bcd6fd, type: 3}
+  selectedDominantHand: 0
 --- !u!1 &429682654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3143,11 +3144,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1596884732}
   - component: {fileID: 1596884731}
+  - component: {fileID: 1596884735}
   - component: {fileID: 1596884730}
   - component: {fileID: 1596884734}
   - component: {fileID: 1596884733}
-  - component: {fileID: 1596884735}
   - component: {fileID: 1596884736}
+  - component: {fileID: 1596884741}
   - component: {fileID: 1596884739}
   - component: {fileID: 1596884740}
   m_Layer: 7
@@ -3280,6 +3282,84 @@ MonoBehaviour:
   mana: 50
   manaRechargeInterval: 0.1
   manaRechargeIncrement: 1
+  rightHandContTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Cont Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 7c219d9b-2e2a-42d3-bc51-80ea0d557050
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  rightHandSnapTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 356e58e1-8207-4395-a16e-18dbdbe72ab7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  leftHandContTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Cont Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 96edcef1-9953-4ab2-8634-fb9dd5924c32
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 1010738217276881514, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  leftHandSnapTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 2ee14bb9-2198-4ace-99b6-24f6bad2dd3b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -7374733323251553461, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  rightHandMoveAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Move
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 4441a2b9-35ba-4f22-9c01-0e6344194360
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  leftHandMoveAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Move
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 8cd5f7fe-401f-4b37-abfe-24761943172c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 15759602096507913, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!114 &1596884736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,6 +3451,46 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &1596884741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596884729}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 1596884734}
+  m_TurnSpeed: 60
+  m_LeftHandTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Turn
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: b9ac2485-f305-451c-9106-d1d25cc235dc
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 1010738217276881514, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  m_RightHandTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Turn
+      m_Type: 0
+      m_ExpectedControlType: Vector2
+      m_Id: 93119ec4-ae3b-41c0-8fb4-7ff4c5e6f732
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1 &1613346281
 GameObject:
   m_ObjectHideFlags: 0
@@ -6090,6 +6210,11 @@ PrefabInstance:
       propertyPath: healthSystem
       value: 
       objectReference: {fileID: 1449704826}
+    - target: {fileID: 5457970663812975169, guid: 7bf668bb03ee5404981a9e6575f1eac9,
+        type: 3}
+      propertyPath: deathDestroyDelay
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5457970663812975169, guid: 7bf668bb03ee5404981a9e6575f1eac9,
         type: 3}
       propertyPath: attackAnimationRates.Array.size

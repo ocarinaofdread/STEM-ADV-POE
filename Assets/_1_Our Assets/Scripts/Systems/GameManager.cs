@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DominantHand
+{
+    RightHanded,
+    LeftHanded
+}
+
 public class GameManager : MonoBehaviour
 {
     // Spell Handler
     [SerializeField] private GameObject[] spellPrefabList;
+    [SerializeField] private DominantHand selectedDominantHand;
     
     private string[] _spellNames;
     private string[] _spellDescriptions;
@@ -45,7 +52,7 @@ public class GameManager : MonoBehaviour
             _spellDictionary.Add(_spellNames[i], _spellDescriptions[i]);
         }
     }
-
+    
     // Get methods
     public GameObject[] GetSpellPrefabList() => spellPrefabList;
     public Dictionary<string, string> GetSpellDictionary()
@@ -56,5 +63,13 @@ public class GameManager : MonoBehaviour
         }
         return _spellDictionary;
     }
+    public DominantHand GetDominantHand() => selectedDominantHand;
     
+    // Set methods
+    public void SetDominantHand(DominantHand newHand){
+        // ReSharper disable once RedundantCheckBeforeAssignment
+        if (newHand == selectedDominantHand) return;
+        
+        selectedDominantHand = newHand;
+    }
 }
