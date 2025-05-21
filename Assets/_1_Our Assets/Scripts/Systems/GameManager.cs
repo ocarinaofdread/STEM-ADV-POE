@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Spell initialization & management
+    // ReSharper disable Unity.PerformanceAnalysis
     private void InitializeSpellListsAndDictionary()
     {
         // Initialize Lists
@@ -25,8 +26,8 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < spellPrefabList.Length; i++)
         {
-            _spellNames[i] = spellPrefabList[i].GetComponent<Spell>().GetName();
-            _spellDescriptions[i] = spellPrefabList[i].GetComponent<Spell>().GetDescription();
+            _spellNames[i] = spellPrefabList[i].GetComponentInChildren<Spell>().GetName();
+            _spellDescriptions[i] = spellPrefabList[i].GetComponentInChildren<Spell>().GetDescription();
         }
 
         // Initialize Dictionary

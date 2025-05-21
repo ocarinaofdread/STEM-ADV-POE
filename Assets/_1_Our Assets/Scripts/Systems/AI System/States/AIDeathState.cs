@@ -24,6 +24,7 @@ public class AIDeathState : AIState
                 break;
             case Golem agentGolem:
                 agentGolem.animator.SetLayerWeight(agentGolem.animator.GetLayerIndex("Damage"), 0);
+                // call ending here
                 break;
         }
     }

@@ -17,7 +17,8 @@ public class Player : MonoBehaviour
     private HealthSystemForDummies _rightHealthSystem;
     private bool _currentlyRecharging;
     private int _rechargeRequests;
-    
+
+    private bool _isDead;
     private int _maxMana;
     private float _rechargeTimer;
     private bool _foundSystems;
@@ -50,15 +51,22 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (_leftManaSystem)
-        {
-            _foundSystems = true;
-            SetManaHealths(_maxMana);
-        }
+        if (!_leftManaSystem) return;
+        
+        _foundSystems = true;
+        SetManaHealths(_maxMana);
+        SetHealths(health);
     }
     
     private void Update()
     {
+        if (health <= 0 && !_isDead)
+        {
+            // _gameManager.something
+            // teleport to game over screen baby
+            // return;
+        }
+        
         if (_currentlyRecharging && mana < _maxMana)
         {
             _rechargeTimer -= Time.deltaTime;
@@ -121,6 +129,14 @@ public class Player : MonoBehaviour
         _leftManaSystem.MaximumHealth = newMana;
     }
 
+    private void SetHealths(int newHealth)
+    {
+        _rightHealthSystem.CurrentHealth = newHealth;
+        _leftHealthSystem.CurrentHealth = newHealth;
+        _rightHealthSystem.MaximumHealth = newHealth;
+        _leftHealthSystem.MaximumHealth = newHealth;
+    }
+
     private void ChangeManaHealths(int newIncrement)
     {
         _rightManaSystem.AddToCurrentHealth(newIncrement);
@@ -132,4 +148,6 @@ public class Player : MonoBehaviour
         _rightHealthSystem.AddToCurrentHealth(increment);
         _leftHealthSystem.AddToCurrentHealth(increment);
     }
+    
+    public void ResetDeath() { _isDead = false; }
 }

@@ -63,11 +63,14 @@ public class SpellHandler : MonoBehaviour
     {
         if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire && HasEnoughMana())
         {
+            var spawnedSpell = 
+                Instantiate(_currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
+            
             if (CurrentSpell().GetSpawnWithParent())
             {
-                // insert code here
+                spawnedSpell.transform.SetParent(attachPoint.transform);
             }
-            Instantiate(_currentSpellPrefab, attachPoint.transform.position, attachPoint.transform.rotation);
+
             _player.IncrementMana(-CurrentSpell().GetManaCost());
             StartCoroutine(_player.RechargeDelay(CurrentSpell().GetRechargeDelay()));
         }
@@ -148,7 +151,7 @@ public class SpellHandler : MonoBehaviour
     public void StartHoldingGrimoire() { _isHoldingGrimoire = true; }
     public void StopHoldingGrimoire() { _isHoldingGrimoire = false; }
     
-    private Spell CurrentSpell() { return _currentSpellPrefab.GetComponent<Spell>(); }
+    private Spell CurrentSpell() { return _currentSpellPrefab.GetComponentInChildren<Spell>(); }
 
     // Get/Set Functions
     //public void SetCurrentSpell(GameObject spell) { _currentSpellPrefab = spell; }

@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class Spell_Electricity : Spell
 {
-    [SerializeField] private float launchSpeed = 1;
-    private Rigidbody rb;
+    //[SerializeField] private Animator animator;
     
     protected override void RunCastAction()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * launchSpeed, ForceMode.Impulse);
+        
     }
 
     public override void End()

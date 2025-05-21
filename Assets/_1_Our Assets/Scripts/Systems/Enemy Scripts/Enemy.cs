@@ -18,8 +18,10 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private AIAgent agent;
     [SerializeField] private HealthSystemForDummies healthSystem;
+    
     private int _additiveDamages;
     private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
+    private List<int> _lastFiveSpellObjects;
 
     private void Start()
     {
@@ -29,6 +31,8 @@ public class Enemy : MonoBehaviour
 
         healthSystem.MaximumHealth = health;
         healthSystem.CurrentHealth = health;
+
+        _lastFiveSpellObjects = new List<int>();
     }
 
     private void Update()
@@ -96,17 +100,41 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Spell") || isDead) return;
+        if (!other.CompareTag("Spell") || isDead
+            || SpellAlreadyEncountered(other.gameObject)) return;
+        
+        AddSpellInstance(other.gameObject);
         
         var otherSpell = other.GetComponent<Spell>();
         health -= otherSpell.GetDamage();
         healthSystem.AddToCurrentHealth(-otherSpell.GetDamage());
+        
         otherSpell.End();
         Damage(true);
     }
-
-    public void LogPosition()
+    
+    private void AddSpellInstance(GameObject newSpell)
     {
-        Debug.Log(transform.position);
+        _lastFiveSpellObjects.Insert(newSpell.GetInstanceID(), 0);
+        
+        if (_lastFiveSpellObjects.Count <= 5) return;
+            
+        _lastFiveSpellObjects.Remove(5);
     }
+
+    private bool SpellAlreadyEncountered(GameObject other)
+    {
+        // returns true if the spell has already been encountered
+        // (prevents enemies from going in and out of spells to accumulate massive damage)
+
+        if (_lastFiveSpellObjects.Count == 0) return false;
+
+        foreach (int instanceId in _lastFiveSpellObjects)
+        {
+            if (other.GetInstanceID() == instanceId) return true;
+        }
+
+        return false;
+    }
+    
 }
