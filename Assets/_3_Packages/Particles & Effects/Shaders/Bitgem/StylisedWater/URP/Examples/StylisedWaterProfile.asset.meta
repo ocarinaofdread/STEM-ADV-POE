@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Particles & Effects/Shaders/Bitgem/StylisedWater/URP/Examples/StylisedWaterProfile.asset.meta
 guid: 05d75389c271387408f4f25b616b2aed
+========
+guid: 9e5cb2051d46e4a4dafeeda52546aaa2
+>>>>>>>> origin/Alex'sDontTounch:Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Ground.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

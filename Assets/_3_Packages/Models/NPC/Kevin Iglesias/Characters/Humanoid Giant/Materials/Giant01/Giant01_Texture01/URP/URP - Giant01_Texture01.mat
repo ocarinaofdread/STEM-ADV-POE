@@ -7,12 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture01/URP/URP - Giant01_Texture01.mat
   m_Name: URP - Giant01_Texture01
+========
+  m_Name: Goblin_diffuse
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin/Goblin_model/Materials/Goblin_diffuse.mat
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
   m_InvalidKeywords: []
@@ -28,11 +31,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture01/URP/URP - Giant01_Texture01.mat
         m_Texture: {fileID: 2800000, guid: 83152ffb76ff0474182a36e65c69c3d9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: cafa24c67bb2ae94babdf46c585bae7e, type: 3}
+========
+        m_Texture: {fileID: 2800000, guid: f3eefe6ba7a146d438db24adc29b3a52, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: a86161dbf9d62aa4b8246fb3ac848ba0, type: 3}
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin/Goblin_model/Materials/Goblin_diffuse.mat
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -52,11 +63,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture01/URP/URP - Giant01_Texture01.mat
         m_Texture: {fileID: 2800000, guid: 83152ffb76ff0474182a36e65c69c3d9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: 4581ad5e3c9f5264da00438082368174, type: 3}
+========
+        m_Texture: {fileID: 2800000, guid: f3eefe6ba7a146d438db24adc29b3a52, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin/Goblin_model/Materials/Goblin_diffuse.mat
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -108,6 +127,7 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Shininess: 0.078125
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -121,9 +141,13 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecColor: {r: 0.16417909, g: 0.16417909, b: 0.16417909, a: 1}
   m_BuildTextureStacks: []
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture01/URP/URP - Giant01_Texture01.mat
 --- !u!114 &4280523382155743223
+========
+--- !u!114 &7899080978420716657
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin/Goblin_model/Materials/Goblin_diffuse.mat
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

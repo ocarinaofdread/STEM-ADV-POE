@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Animations/DoubleL/Demo/Anim/Action_A_4_1.anim.meta
 guid: 19d70cddc853d934d8ebfc7cac722062
+========
+guid: 8ff305e9b2602d045b34747b9c84429e
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin_Character/Animation/Goblin_Anim/rig_Anim,Idle.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

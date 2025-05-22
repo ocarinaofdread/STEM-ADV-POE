@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Particles & Effects/Shaders/Bitgem/StylisedWater/URP/Materials.meta
 guid: 23dd8f7c55dedc9428557d7ab46cf80b
+========
+guid: 2ed76ccb6023d6d439be8a12d9625d6a
+>>>>>>>> origin/Alex'sDontTounch:Assets/Kevin Iglesias/Characters/Humanoid Giant/Demo Scene/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

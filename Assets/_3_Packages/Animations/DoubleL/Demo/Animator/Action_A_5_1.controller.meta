@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Animations/DoubleL/Demo/Animator/Action_A_5_1.controller.meta
 guid: 943531d578b156549b5d42dbbc21d663
+========
+guid: b96483bad95afb5469743561c4bdaace
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/FBX/Skeleton.controller.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000

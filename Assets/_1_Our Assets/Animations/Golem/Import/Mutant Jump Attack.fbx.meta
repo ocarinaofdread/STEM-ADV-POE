@@ -1,11 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_1_Our Assets/Animations/Golem/Import/Mutant Jump Attack.fbx.meta
 guid: 25dd49ca98ea0054da7864739ff81fcf
+========
+guid: 3aea19d119561984e9d6a457a2075a37
+>>>>>>>> origin/Alex'sDontTounch:Assets/Kevin Iglesias/Characters/Humanoid Giant/Demo Scene/Models/ThrowingRockExample.fbx.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -16,8 +20,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -57,7 +59,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
+    optimizeBones: 0
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -67,18 +69,22 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
+<<<<<<<< HEAD:Assets/_1_Our Assets/Animations/Golem/Import/Mutant Jump Attack.fbx.meta
     useFileScale: 1
+========
+    useFileScale: 0
+>>>>>>>> origin/Alex'sDontTounch:Assets/Kevin Iglesias/Characters/Humanoid Giant/Demo Scene/Models/ThrowingRockExample.fbx.meta
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -97,11 +103,19 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
+<<<<<<<< HEAD:Assets/_1_Our Assets/Animations/Golem/Import/Mutant Jump Attack.fbx.meta
   animationType: 3
+========
+  animationType: 0
+>>>>>>>> origin/Alex'sDontTounch:Assets/Kevin Iglesias/Characters/Humanoid Giant/Demo Scene/Models/ThrowingRockExample.fbx.meta
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+<<<<<<<< HEAD:Assets/_1_Our Assets/Animations/Golem/Import/Mutant Jump Attack.fbx.meta
   importBlendShapeDeformPercent: 1
+========
+  importBlendShapeDeformPercent: 0
+>>>>>>>> origin/Alex'sDontTounch:Assets/Kevin Iglesias/Characters/Humanoid Giant/Demo Scene/Models/ThrowingRockExample.fbx.meta
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 

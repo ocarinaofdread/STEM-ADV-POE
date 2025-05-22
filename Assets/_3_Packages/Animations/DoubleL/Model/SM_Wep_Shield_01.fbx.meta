@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Animations/DoubleL/Model/SM_Wep_Shield_01.fbx.meta
 guid: 08aecb816b6b4194a9c2897afa4f9148
+========
+guid: 6bfbf20300c3ac94b8610433abf8d75b
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin_Character/Model/SWORD.fbx.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,8 +20,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

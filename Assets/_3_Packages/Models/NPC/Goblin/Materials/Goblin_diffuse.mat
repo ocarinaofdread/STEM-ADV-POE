@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Materials/Goblin_diffuse.mat
 --- !u!114 &-2663432112171202868
+========
+--- !u!114 &-683232256531123199
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Axes/Axe_2H_Textures/Materials/Axe2H_Medium_BaseColor.mat
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,13 +24,21 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Materials/Goblin_diffuse.mat
   m_Name: Goblin_diffuse
+========
+  m_Name: Axe2H_Medium_BaseColor
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Axes/Axe_2H_Textures/Materials/Axe2H_Medium_BaseColor.mat
   m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Materials/Goblin_diffuse.mat
   - _GLOSSINESS_FROM_BASE_ALPHA
   - _SPECULAR_COLOR
+========
+  - _NORMALMAP
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Axes/Axe_2H_Textures/Materials/Axe2H_Medium_BaseColor.mat
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,11 +52,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Materials/Goblin_diffuse.mat
         m_Texture: {fileID: 2800000, guid: f3eefe6ba7a146d438db24adc29b3a52, type: 3}
+========
+        m_Texture: {fileID: 2800000, guid: 313606f4d8e94004d8272e3fdfe5c36d, type: 3}
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Axes/Axe_2H_Textures/Materials/Axe2H_Medium_BaseColor.mat
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8ff911807a53151429a215be22380cd0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -52,7 +68,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Materials/Goblin_diffuse.mat
         m_Texture: {fileID: 0}
+========
+        m_Texture: {fileID: 2800000, guid: 313606f4d8e94004d8272e3fdfe5c36d, type: 3}
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Axes/Axe_2H_Textures/Materials/Axe2H_Medium_BaseColor.mat
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -87,7 +107,11 @@ Material:
     - _ReceiveShadows: 1
     - _Shininess: 0
     - _Smoothness: 0.5
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Materials/Goblin_diffuse.mat
     - _SmoothnessSource: 1
+========
+    - _SmoothnessSource: 0
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Axes/Axe_2H_Textures/Materials/Axe2H_Medium_BaseColor.mat
     - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Goblin_model/Materials.meta
 guid: 65bb0e47e0ac3d4478ccdfea33222aef
+========
+guid: 897c79ff8b481d14da184e6240923ccb
+>>>>>>>> origin/Alex'sDontTounch:Assets/Kevin Iglesias/Characters/Humanoid Giant/Textures/Giant01/Texture01/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

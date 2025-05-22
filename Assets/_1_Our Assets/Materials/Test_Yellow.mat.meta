@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_1_Our Assets/Materials/Test_Yellow.mat.meta
 guid: d9e580cc222be00498dd421c2941b10a
+========
+guid: 8828101d1ea790c45a9f2ed424c3a48f
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/Materials/SceletonVersion1_m.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

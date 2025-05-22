@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_1_Our Assets/Scenes/Test_ChaseMechanics.meta
 guid: f90eaa5821bf79547a5fdb878957830d
+========
+guid: 1be86c142954e0248b5d3216f3e43f0b
+>>>>>>>> origin/Alex'sDontTounch:Assets/Blink.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

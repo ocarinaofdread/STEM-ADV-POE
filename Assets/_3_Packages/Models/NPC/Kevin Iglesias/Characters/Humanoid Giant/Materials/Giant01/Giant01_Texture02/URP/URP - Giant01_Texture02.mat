@@ -7,7 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture02/URP/URP - Giant01_Texture02.mat
   m_Name: URP - Giant01_Texture02
+========
+  m_Name: Staff_Basic
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Staff/Staff_Textures/Staff_Basic.mat
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -28,11 +32,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture02/URP/URP - Giant01_Texture02.mat
         m_Texture: {fileID: 2800000, guid: 247488cc21dbfc1419636177f430b25a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 2109c9946887aef4798db226ff9e18f2, type: 3}
+========
+        m_Texture: {fileID: 2800000, guid: a2f7b41abb255544ca2d57d95138a571, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 1498ce9f77caffa46b40b05f8e60089f, type: 3}
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Staff/Staff_Textures/Staff_Basic.mat
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -52,11 +64,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture02/URP/URP - Giant01_Texture02.mat
         m_Texture: {fileID: 2800000, guid: 247488cc21dbfc1419636177f430b25a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: e120d0eace4d3a64c9ddbe05d85c2944, type: 3}
+========
+        m_Texture: {fileID: 2800000, guid: a2f7b41abb255544ca2d57d95138a571, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: 0f10caa92ffe07f4fab8cf787329e818, type: 3}
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Staff/Staff_Textures/Staff_Basic.mat
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -99,7 +119,11 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture02/URP/URP - Giant01_Texture02.mat
     - _GlossMapScale: 0.66
+========
+    - _GlossMapScale: 0.5
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Staff/Staff_Textures/Staff_Basic.mat
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
@@ -123,7 +147,11 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Characters/Humanoid Giant/Materials/Giant01/Giant01_Texture02/URP/URP - Giant01_Texture02.mat
 --- !u!114 &5135894995453746714
+========
+--- !u!114 &365230166215024452
+>>>>>>>> origin/Alex'sDontTounch:Assets/alex/Blink/Art/Weapons/LowPoly/FreeRPGWeapons/Staff/Staff_Textures/Staff_Basic.mat
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

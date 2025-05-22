@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Particles & Effects/Shaders/Bitgem/StylisedWater/URP/Scripts/Bitgem/VFX/StylisedWater/WaterVolumeBox.cs.meta
 guid: 427749d1fc2d12648a7acfc208590ea3
+========
+guid: 7933df0380a14744c91808109f6a66e0
+>>>>>>>> origin/Alex'sDontTounch:Assets/NoobGameDev/Health System For Dummies/Example Scene Scripts/AnimationSlider.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

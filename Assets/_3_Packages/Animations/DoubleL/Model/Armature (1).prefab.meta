@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Animations/DoubleL/Model/Armature (1).prefab.meta
 guid: 459f79a004eb51144840e79b6950c697
+========
+guid: c0f6048420295a2448cd9098f1835ff7
+>>>>>>>> origin/Alex'sDontTounch:Assets/_1_Our Assets/Scenes/SceneManger.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

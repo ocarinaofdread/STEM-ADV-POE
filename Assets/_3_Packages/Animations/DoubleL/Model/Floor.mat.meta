@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Animations/DoubleL/Model/Floor.mat.meta
 guid: b3ae8fdcd3858f54f95eeb04bdc36021
+========
+guid: 3db8320e46c63f642a8b8dc4c6e4fede
+>>>>>>>> origin/Alex'sDontTounch:Assets/New Material.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

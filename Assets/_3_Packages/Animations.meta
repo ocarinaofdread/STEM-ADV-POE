@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Animations.meta
 guid: 97c7b8f414d1d5d4cb32b6aeb3557f2a
+========
+guid: 4c06acd64767f0245a33aa435b41929b
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

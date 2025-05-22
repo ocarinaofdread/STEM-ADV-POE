@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Animations/DoubleL/Demo/Animator/Action_A_5_2.controller.meta
 guid: 7b4619b45c84ce64baa73e7caae5a9df
+========
+guid: 7b0a597d26f18f04188a660afe9c520c
+>>>>>>>> origin/Alex'sDontTounch:Assets/NoobGameDev/Health System For Dummies/System/Example Scene/Animation/Character.controller.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000

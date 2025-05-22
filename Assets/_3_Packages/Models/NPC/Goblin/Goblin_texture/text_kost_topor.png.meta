@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Goblin_texture/text_kost_topor.png.meta
 guid: 4789ebb19d16a2848a28885f1f08d07f
+========
+guid: aac4a85035482684a9e6daa45465993e
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin_Character/Textures/COLORS.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -63,11 +67,17 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Goblin_texture/text_kost_topor.png.meta
   applyGammaDecoding: 1
   swizzle: 50462976
   cookieLightType: 1
+========
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin_Character/Textures/COLORS.png.meta
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -80,7 +90,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -93,9 +103,15 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Goblin_texture/text_kost_topor.png.meta
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 1024
+========
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin_Character/Textures/COLORS.png.meta
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -110,6 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 
@@ -119,6 +136,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Goblin/Goblin_texture/text_kost_topor.png.meta
+========
+    spriteCustomMetadata:
+      entries: []
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin_Character/Textures/COLORS.png.meta
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

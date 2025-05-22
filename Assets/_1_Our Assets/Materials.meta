@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_1_Our Assets/Materials.meta
 guid: f4657ac6e4cfcfe43978b339ae390c24
+========
+guid: eb1155c94f54d10488563e378503f436
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

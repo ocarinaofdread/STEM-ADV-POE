@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/DacingEyebrows/deb_Goblin01/Materials.meta
 guid: 1ce4798fb462dd94587e693b729cc502
+========
+guid: bc418eab0781d31489ae4288d8c4feaa
+>>>>>>>> origin/Alex'sDontTounch:Assets/Kevin Iglesias/Characters/Humanoid Giant/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

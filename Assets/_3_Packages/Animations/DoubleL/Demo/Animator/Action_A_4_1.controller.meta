@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Animations/DoubleL/Demo/Animator/Action_A_4_1.controller.meta
 guid: 227c8e8422e89464a875d7ec6f6bdbbe
+========
+guid: be94599944fb18b4ea870787648aa418
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin_Character/Animation/Goblin_Anim/GOBLIN.controller.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000

@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Skeleton Animations/Animations/Combat/Skeleton@Damage01.fbx.meta
 guid: 6368e4bf7c7401d4ba9753b66d2c84fe
 ModelImporter:
   serializedVersion: 22200
@@ -6,6 +7,12 @@ ModelImporter:
   - first:
       74: -4847777627775502037
     second: Skeleton@Damage01
+========
+guid: 94a39138eed52234a89e2a5b81fcee7b
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/FBX/IDLE.fbx.meta
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -29,27 +36,42 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Skeleton Animations/Animations/Combat/Skeleton@Damage01.fbx.meta
     animationCompression: 3
     animationRotationError: 0
     animationPositionError: 0
     animationScaleError: 0
+========
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/FBX/IDLE.fbx.meta
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Skeleton Animations/Animations/Combat/Skeleton@Damage01.fbx.meta
       name: Skeleton@Damage01
       takeName: Skeleton@Idle01
       internalID: 0
       firstFrame: 0
       lastFrame: 17
+========
+      name: IDLE
+      takeName: IDLE
+      internalID: 2126459665172807778
+      firstFrame: 71
+      lastFrame: 119
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/FBX/IDLE.fbx.meta
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
@@ -65,7 +87,11 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Skeleton Animations/Animations/Combat/Skeleton@Damage01.fbx.meta
       additiveReferencePoseFrame: 0
+========
+      additiveReferencePoseFrame: 71
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/FBX/IDLE.fbx.meta
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -75,11 +101,19 @@ ModelImporter:
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Skeleton Animations/Animations/Combat/Skeleton@Damage01.fbx.meta
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
     nodeNameCollisionStrategy: 0
+========
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/FBX/IDLE.fbx.meta
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -127,16 +161,30 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Skeleton Animations/Animations/Combat/Skeleton@Damage01.fbx.meta
     hasExtraRoot: 1
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+========
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf,
+    type: 3}
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/FBX/IDLE.fbx.meta
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+<<<<<<<< HEAD:Assets/_3_Packages/Models/NPC/Kevin Iglesias/Skeleton Animations/Animations/Combat/Skeleton@Damage01.fbx.meta
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 0
   remapMaterialsIfMaterialImportModeIsNone: 1
+========
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+>>>>>>>> origin/Alex'sDontTounch:Assets/Skeleton/FBX/IDLE.fbx.meta
   additionalBone: 0
   userData: 
   assetBundleName: 

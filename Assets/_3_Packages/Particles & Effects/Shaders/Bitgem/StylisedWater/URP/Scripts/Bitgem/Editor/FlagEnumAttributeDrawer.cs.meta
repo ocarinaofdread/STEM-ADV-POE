@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_3_Packages/Particles & Effects/Shaders/Bitgem/StylisedWater/URP/Scripts/Bitgem/Editor/FlagEnumAttributeDrawer.cs.meta
 guid: d359930cbabfcc7448e9f0e56039b644
+========
+guid: 9bc6cfe3af6de2e4eb61a1808c4b93b9
+>>>>>>>> origin/Alex'sDontTounch:Assets/SceneManagerController.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

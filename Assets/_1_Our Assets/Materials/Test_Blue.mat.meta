@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_1_Our Assets/Materials/Test_Blue.mat.meta
 guid: 56d3d5ae78a09bd4084701faee9ce26e
+========
+guid: c0ec378d7285da042ab574c759b98ab3
+>>>>>>>> origin/Alex'sDontTounch:Assets/Goblin_Character/Material/MTL_COLORS_HDRP.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
