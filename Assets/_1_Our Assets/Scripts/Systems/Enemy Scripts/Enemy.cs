@@ -115,11 +115,11 @@ public class Enemy : MonoBehaviour
     
     private void AddSpellInstance(GameObject newSpell)
     {
-        _lastFiveSpellObjects.Insert(newSpell.GetInstanceID(), 0);
+        _lastFiveSpellObjects.Add(newSpell.GetInstanceID());
         
         if (_lastFiveSpellObjects.Count <= 5) return;
             
-        _lastFiveSpellObjects.Remove(5);
+        _lastFiveSpellObjects.Remove(0);
     }
 
     private bool SpellAlreadyEncountered(GameObject other)

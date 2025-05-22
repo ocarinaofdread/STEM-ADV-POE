@@ -22,17 +22,18 @@ public class GrimoireInteractor : XRGrabInteractable
     
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {   
+        // Remember: You hold the grimoire in your NON-DOMINANT HAND
         if (args.interactorObject.transform.CompareTag("LeftHand"))
         {
             attachTransform = leftHandAttachTransform;
             rightHandSpellHandler.StartHoldingGrimoire();
-            _gameManager.SetDominantHand(DominantHand.LeftHanded);
+            _gameManager.SetDominantHand(DominantHand.RightHanded);
         }
         else if (args.interactorObject.transform.CompareTag("RightHand"))
         {
             attachTransform = rightHandAttachTransform;
             leftHandSpellHandler.StartHoldingGrimoire();
-            _gameManager.SetDominantHand(DominantHand.RightHanded);
+            _gameManager.SetDominantHand(DominantHand.LeftHanded);
         }
 
         base.OnSelectEntering(args);

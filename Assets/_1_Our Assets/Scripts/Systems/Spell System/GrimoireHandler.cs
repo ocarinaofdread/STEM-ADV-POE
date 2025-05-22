@@ -80,7 +80,8 @@ public class GrimoireHandler : MonoBehaviour
 
     private void SetPages(DominantHand dominantHand)
     {
-        if (dominantHand == DominantHand.RightHanded)
+        // Remember: Grimoire is held in NON-DOMINANT HAND!
+        if (dominantHand == DominantHand.LeftHanded)
         {
             _currentSpellPage = leftPageTMPro;
             _currentControlsPage = rightPageTMPro;
