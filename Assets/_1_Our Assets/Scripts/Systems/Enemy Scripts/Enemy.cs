@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
         healthSystem.MaximumHealth = health;
         healthSystem.CurrentHealth = health;
 
-        _lastFiveSpellObjects = new List<int>();
+        _lastFiveSpellObjects = new List<int>(1);
     }
 
     private void Update()
@@ -126,15 +127,8 @@ public class Enemy : MonoBehaviour
     {
         // returns true if the spell has already been encountered
         // (prevents enemies from going in and out of spells to accumulate massive damage)
-
-        if (_lastFiveSpellObjects.Count == 0) return false;
-
-        foreach (int instanceId in _lastFiveSpellObjects)
-        {
-            if (other.GetInstanceID() == instanceId) return true;
-        }
-
-        return false;
+        return _lastFiveSpellObjects.Count != 0 && _lastFiveSpellObjects.Any(instanceId => other.GetInstanceID() 
+                                                                             == instanceId);
     }
     
 }

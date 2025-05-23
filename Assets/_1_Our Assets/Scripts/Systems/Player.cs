@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Leguar.LowHealth;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private InputActionProperty leftHandSnapTurnAction;
     [SerializeField] private InputActionProperty rightHandMoveAction;
     [SerializeField] private InputActionProperty leftHandMoveAction;
+    [SerializeField] private LowHealthController lowHealthController;
 
     private GameManager _gameManager;
     private DominantHand _currentDominantHand;
@@ -34,8 +36,10 @@ public class Player : MonoBehaviour
 
     private bool _isDead;
     private int _maxMana;
+    private int _maxHealth;
     private float _rechargeTimer;
     private bool _foundSystems;
+    private float _previousHealthPercentage;
 
     private readonly InputActionProperty nullProperty = new(null);
 
@@ -48,6 +52,7 @@ public class Player : MonoBehaviour
         SetProviderActions(_gameManager.GetDominantHand());
         
         _maxMana = mana;
+        _maxHealth = health;
 
         _rechargeTimer = manaRechargeInterval;
         _currentlyRecharging = true;
@@ -88,6 +93,12 @@ public class Player : MonoBehaviour
             // return;
         }
 
+        if (_previousHealthPercentage != GetHealthPercentage())
+        {
+            _previousHealthPercentage = GetHealthPercentage();
+            lowHealthController.SetPlayerHealthInstantly(_previousHealthPercentage);
+        }
+        
         // Changes dominant hand and subsequent provider attributes
         if (_currentDominantHand != _gameManager.GetDominantHand())
         {
@@ -177,6 +188,11 @@ public class Player : MonoBehaviour
     {
         _rightHealthSystem.AddToCurrentHealth(increment);
         _leftHealthSystem.AddToCurrentHealth(increment);
+    }
+
+    private float GetHealthPercentage()
+    {
+        return (float) health / _maxHealth;
     }
 
     private void SetProviderActions(DominantHand hand)
