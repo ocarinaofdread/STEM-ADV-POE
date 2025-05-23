@@ -130,6 +130,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 445656418902384577, guid: 0e962f908c5d32e44aca6ba353d9b22f,
+        type: 3}
+      propertyPath: fadeScreen
+      value: 
+      objectReference: {fileID: 1469177989}
     - target: {fileID: 5469378032839269898, guid: 0e962f908c5d32e44aca6ba353d9b22f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -326,6 +331,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621305696267646436, guid: 0fe2cf84e9e1fcc4793a294207a9dff9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 2880766992910907041, guid: 0fe2cf84e9e1fcc4793a294207a9dff9,
         type: 3}
@@ -1694,7 +1704,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 297727854}
         m_TargetAssemblyTypeName: SceneManagerController, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: GoToScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2360,6 +2370,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445887316}
   m_CullTransparentMesh: 1
+--- !u!114 &1469177989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2214683386110741942, guid: 0fe2cf84e9e1fcc4793a294207a9dff9,
+    type: 3}
+  m_PrefabInstance: {fileID: 415176098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1718c164052994bb9220f0d634c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1569935612
 GameObject:
   m_ObjectHideFlags: 0

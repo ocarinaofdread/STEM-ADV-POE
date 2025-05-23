@@ -6,45 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerController : MonoBehaviour
 {
-   
-    public float fadeDuration = 2f;
-    public Color fadeColor;
-    private Renderer rend;
-    void Start()
+     public FadeScreen fadeScreen;
+
+    public void GoToScene(int sceneIndex)
     {
-        rend = GetComponent<Renderer>();
-    }
-    public void FadeIn()
-    {
-        Fade(1, 0);
-    }
-    public void FadeOut()
-    {
-        Fade(0, 1);
-    }
-    public void Fade(float alphaIn, float alphaOut)
-    {
-        StartCoroutine(FadeRoutine(alphaIn, alphaOut));
+        StartCoroutine(GoToSceneRoutine( sceneIndex));
     }
 
-    public IEnumerator FadeRoutine(float alphaIn, float alphaOut)
+    IEnumerator GoToSceneRoutine(int sceneIndex)
     {
-        float timer = 0;
-        while (timer <= fadeDuration)
-        {
-            Color newColor = fadeColor;
-            newColor.a = Mathf.Lerp(alphaIn, alphaOut, timer / fadeDuration);
-            rend.material.SetColor("color", newColor);
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        Color newColor2 = fadeColor;
-        newColor2.a = alphaOut;
-        rend.material.SetColor("color", newColor2);
+        fadeScreen.FadeOut();
+        yield return new WaitForSeconds(fadeScreen.fadeDuration);
+        SceneManager.LoadScene(sceneIndex);
     }
-    public void LoadScene(int sceneInt)
-    {
-       
-        SceneManager.LoadScene(sceneInt);
-    }
+  
 }
