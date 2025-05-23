@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Leguar.LowHealth;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -19,7 +18,6 @@ public class Player : MonoBehaviour
     [SerializeField] private InputActionProperty leftHandSnapTurnAction;
     [SerializeField] private InputActionProperty rightHandMoveAction;
     [SerializeField] private InputActionProperty leftHandMoveAction;
-    [SerializeField] private LowHealthController lowHealthController;
 
     private GameManager _gameManager;
     private DominantHand _currentDominantHand;
@@ -91,12 +89,6 @@ public class Player : MonoBehaviour
             // _gameManager.something
             // teleport to game over screen baby
             // return;
-        }
-
-        if (_previousHealthPercentage != GetHealthPercentage())
-        {
-            _previousHealthPercentage = GetHealthPercentage();
-            lowHealthController.SetPlayerHealthInstantly(_previousHealthPercentage);
         }
         
         // Changes dominant hand and subsequent provider attributes

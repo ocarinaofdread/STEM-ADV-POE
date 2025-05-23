@@ -382,23 +382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfea5ed4cd5feff47bd657f6899ae6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionLossEnabled: 1
-  visionLossStartsAt: 0.55
-  visionLossMaxEffect: 0.6
-  visionLossHeartBeat: 0
-  detailLossEnabled: 1
-  detailLossStartsAt: 0.45
-  detailLossMaxEffect: 0.8
-  colorLossEnabled: 1
-  colorLossStartsAt: 0.65
-  colorLossTowardRedStartsAt: 0.15
-  doubleVisionEnabled: 0
-  doubleVisionStartsAt: 0.25
-  doubleVisionMaxEffect: 0.35
-  doubleVisionWaving: 0.5
-  stopEffectsWhenZeroHealth: 1
-  showInEditor: 0
-  simulateHealth: 0.155
 --- !u!1 &80548122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,7 +2957,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3491,7 +3474,6 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
-  lowHealthController: {fileID: 50957042}
 --- !u!114 &1596884736
 MonoBehaviour:
   m_ObjectHideFlags: 0
