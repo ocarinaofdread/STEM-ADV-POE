@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Golem : Enemy
@@ -32,8 +33,9 @@ public class Golem : Enemy
     
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
     
-    private void Start()
+    public void Start()
     {
+        base.Start();
         _attackAnimRatePool = CreateAnimationPool(attackAnimationRates);
         _rangedAnimRatePool = CreateAnimationPool(rangedAnimationRates);
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;

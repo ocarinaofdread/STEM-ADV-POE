@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
     private List<int> _lastFiveSpellObjects;
 
-    private void Start()
+    public void Start()
     {
         agent ??= GetComponent<AIAgent>();
         healthSystem ??= GetComponent<HealthSystemForDummies>();
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         healthSystem.MaximumHealth = health;
         healthSystem.CurrentHealth = health;
 
-        _lastFiveSpellObjects = new List<int>(1);
+        _lastFiveSpellObjects = new List<int>(0);
     }
 
     private void Update()
