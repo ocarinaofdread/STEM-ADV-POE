@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6516170490453668136}
   - component: {fileID: 8815441191257126282}
   - component: {fileID: 993788886131053530}
+  - component: {fileID: 6027054646449880549}
   m_Layer: 0
   m_Name: XR Rig
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66374052335625961}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7079115, z: -0, w: 0.70630115}
+  m_LocalRotation: {x: 0, y: -0.70790845, z: 0, w: 0.70630425}
   m_LocalPosition: {x: 8.39, y: 4.031, z: -11.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -193,6 +194,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &6027054646449880549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66374052335625961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
 --- !u!1 &2779998802388784942
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 6027054646449880549}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2184,7 +2199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 6027054646449880549}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
