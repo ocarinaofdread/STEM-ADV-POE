@@ -10,12 +10,12 @@ public class Spell_Water : Spell
     [SerializeField] private float pushForce = 1;
     [SerializeField] private ForceMode pushForceMode;
     [SerializeField] private float pushTime = 2.0f;
-    private Rigidbody rb;
+    private Rigidbody _rigidbody;
     
     protected override void RunCastAction()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * launchSpeed, ForceMode.Impulse);
+        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.AddForce(transform.forward * launchSpeed, ForceMode.Impulse);
     }
 
     public override void End()
@@ -26,11 +26,11 @@ public class Spell_Water : Spell
     private void OnTriggerEnter(Collider other)
     {
         var otherGameObject = other.gameObject;
-        Debug.Log("SpellWater: Trigger has been entered.");
+        Debug.Log("SpellWater: Collision has been entered (" + otherGameObject.name + ").");
         if (otherGameObject.CompareTag("Hazard"))
         {
             Debug.Log("SpellWater: Other object has Hazard tag.");
-            if (otherGameObject.GetComponent<Enemy>())
+            if (otherGameObject.transform.root.GetComponentInChildren<Enemy>())
             {
                 Debug.Log("SpellWater: Other object has Enemy script.");
                 StartCoroutine(Timer(otherGameObject));
@@ -42,14 +42,14 @@ public class Spell_Water : Spell
 
     private IEnumerator Timer(GameObject otherGameObject)
     {
-        var pushDirection = otherGameObject.transform.position - transform.position;
+        var pushDirection = _rigidbody.velocity.normalized;
         var otherRb = otherGameObject.transform.root.GetComponentInChildren<Rigidbody>();
-        var otherNm = otherGameObject.transform.root.GetComponentInChildren<NavMeshAgent>();
+        //var otherNm = otherGameObject.transform.root.GetComponentInChildren<NavMeshAgent>();
 
-        otherNm.enabled = false;
+        //otherNm.enabled = false;
         Debug.Log("SpellWater: Pushing other object with " + pushDirection + " vector.");
         otherRb.AddForce(pushDirection * pushForce, pushForceMode);
         yield return new WaitForSeconds(pushTime);
-        otherNm.enabled = true;
+        //otherNm.enabled = true;
     }
 }

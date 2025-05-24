@@ -147,7 +147,8 @@ public class Player : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Hazard")) return;
+        if (!other.CompareTag("Hazard") || !other.GetComponentInChildren<Hazard>()) return;
+        
         
         var otherHazard = other.GetComponentInChildren<Hazard>();
         health -= otherHazard.GetDamage();

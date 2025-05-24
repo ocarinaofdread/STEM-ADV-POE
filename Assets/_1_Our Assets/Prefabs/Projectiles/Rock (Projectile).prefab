@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7505455826152507357}
   - component: {fileID: 5302623991646383935}
   - component: {fileID: -1684446061059465941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock (Projectile)
   m_TagString: Hazard
   m_Icon: {fileID: 0}

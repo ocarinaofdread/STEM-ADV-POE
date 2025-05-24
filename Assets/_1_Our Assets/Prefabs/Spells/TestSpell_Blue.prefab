@@ -163,6 +163,6 @@ MonoBehaviour:
   duration: 4
   spawnWithParent: 0
   launchSpeed: 10
-  pushForce: 45
-  pushForceMode: 2
+  pushForce: 10
+  pushForceMode: 1
   pushTime: 0.5
