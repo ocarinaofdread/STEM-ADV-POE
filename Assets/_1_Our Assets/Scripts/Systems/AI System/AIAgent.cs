@@ -30,7 +30,7 @@ public class AIAgent : MonoBehaviour
                 stateMachine.RegisterState(new AIRangedAttackState());
                 stateMachine.RegisterState(new AIDeathState());
                 stateMachine.RegisterState(new AIRoamState());
-                // stateMachine.RegisterState(new AIDamageStopState());
+                stateMachine.RegisterState(new AIDamageStopState());
                 break;
             case Goblin:
                 stateMachine.RegisterState(new AIChasePlayerState());
@@ -47,6 +47,7 @@ public class AIAgent : MonoBehaviour
                 stateMachine.RegisterState(new AIAttackState());
                 stateMachine.RegisterState(new AIDeathState());
                 stateMachine.RegisterState(new AIRangedAttackState());
+                stateMachine.RegisterState(new AIDamageStopState());
                 break;
         }
         

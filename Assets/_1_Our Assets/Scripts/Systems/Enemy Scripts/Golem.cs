@@ -33,7 +33,7 @@ public class Golem : Enemy
     
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
     
-    public void Start()
+    public new void Start()
     {
         base.Start();
         _attackAnimRatePool = CreateAnimationPool(attackAnimationRates);

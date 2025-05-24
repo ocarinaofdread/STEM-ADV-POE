@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     private bool _foundSystems;
     private float _previousHealthPercentage;
 
-    private readonly InputActionProperty nullProperty = new(null);
+    private readonly InputActionProperty _nullProperty = new(null);
 
     private void Start()
     {
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             _rightManaSystem ??= GameObject.FindGameObjectWithTag("RightMana").GetComponent<HealthSystemForDummies>();
             _rightHealthSystem ??= GameObject.FindGameObjectWithTag("RightHealth").GetComponent<HealthSystemForDummies>();
         }
-        catch (NullReferenceException e)
+        catch (NullReferenceException)
         {
             return;
         }
@@ -149,7 +149,7 @@ public class Player : MonoBehaviour
     {
         if (!other.CompareTag("Hazard")) return;
         
-        var otherHazard = other.GetComponent<Hazard>();
+        var otherHazard = other.GetComponentInChildren<Hazard>();
         health -= otherHazard.GetDamage();
         ChangeHealths(-otherHazard.GetDamage());
     }
@@ -198,9 +198,9 @@ public class Player : MonoBehaviour
             _snapTurnProvider.rightHandSnapTurnAction = rightHandSnapTurnAction;
             _continuousTurnProvider.rightHandTurnAction = rightHandContTurnAction;
 
-            _continuousMoveProvider.rightHandMoveAction = nullProperty;
-            _snapTurnProvider.leftHandSnapTurnAction = nullProperty;
-            _continuousTurnProvider.leftHandTurnAction = nullProperty;
+            _continuousMoveProvider.rightHandMoveAction = _nullProperty;
+            _snapTurnProvider.leftHandSnapTurnAction = _nullProperty;
+            _continuousTurnProvider.leftHandTurnAction = _nullProperty;
         }
         else
         {
@@ -208,9 +208,9 @@ public class Player : MonoBehaviour
             _snapTurnProvider.leftHandSnapTurnAction = leftHandSnapTurnAction;
             _continuousTurnProvider.leftHandTurnAction = leftHandContTurnAction;
 
-            _continuousMoveProvider.leftHandMoveAction = nullProperty;
-            _snapTurnProvider.rightHandSnapTurnAction = nullProperty;
-            _continuousTurnProvider.rightHandTurnAction = nullProperty;
+            _continuousMoveProvider.leftHandMoveAction = _nullProperty;
+            _snapTurnProvider.rightHandSnapTurnAction = _nullProperty;
+            _continuousTurnProvider.rightHandTurnAction = _nullProperty;
         }
     }
     

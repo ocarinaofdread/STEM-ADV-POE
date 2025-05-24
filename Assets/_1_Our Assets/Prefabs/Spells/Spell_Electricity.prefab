@@ -180,8 +180,10 @@ MonoBehaviour:
     Spawn a field of electricity in front of you.'
   damageMin: 5
   damageMax: 6
+  damageAdditiveLevel: 2
   manaCost: 30
   manaRechargeDelay: 2.5
+  manaRechargeIntervalAfter: 0.1
   isContinuous: 0
   hasDuration: 1
   duration: 4

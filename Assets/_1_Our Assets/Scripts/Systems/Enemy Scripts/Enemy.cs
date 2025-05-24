@@ -14,13 +14,14 @@ public class Enemy : MonoBehaviour
     public bool isAttacking;
 
     [SerializeField] private float deathDestroyDelay = 5.0f;
-    [SerializeField] private bool damagesAdditive;
+    [SerializeField] private int damageStopThreshold;
     [SerializeField] private float additiveDamageDelay = 0.35f;
 
     [SerializeField] private AIAgent agent;
     [SerializeField] private HealthSystemForDummies healthSystem;
     
     private int _additiveDamages;
+    private bool _damageAdditiveNow;
     private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
     private List<int> _lastFiveSpellObjects;
 
@@ -46,7 +47,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject, deathDestroyDelay);
         }
 
-        if (isDead || !damagesAdditive) return;
+        if (isDead || !_damageAdditiveNow) return;
 
         var damageWeight = animator.GetLayerWeight(animator.GetLayerIndex("Damage"));
 
@@ -62,7 +63,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Damage(bool animate)
+    private void Damage(bool animate, Spell otherSpell)
     {
         if (health <= 0) return;
 
@@ -70,7 +71,8 @@ public class Enemy : MonoBehaviour
         
         if (!animate) return;
         
-        if (damagesAdditive)
+        
+        if (SpellDamagesAdditive(otherSpell))
         {
             DamageAdditive();
         }
@@ -111,7 +113,7 @@ public class Enemy : MonoBehaviour
         healthSystem.AddToCurrentHealth(-otherSpell.GetDamage());
         
         otherSpell.End();
-        Damage(true);
+        Damage(true, otherSpell);
     }
     
     private void AddSpellInstance(GameObject newSpell)
@@ -129,6 +131,12 @@ public class Enemy : MonoBehaviour
         // (prevents enemies from going in and out of spells to accumulate massive damage)
         return _lastFiveSpellObjects.Count != 0 && _lastFiveSpellObjects.Any(instanceId => other.GetInstanceID() 
                                                                              == instanceId);
+    }
+
+    private bool SpellDamagesAdditive(Spell spell)
+    {
+        // false if the additive level is greater than or equal to the stop threshold
+        return spell.GetDamageAdditiveLevel() < damageStopThreshold;
     }
     
 }

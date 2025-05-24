@@ -977,11 +977,11 @@ MonoBehaviour:
   health: 20
   isDead: 0
   isAttacking: 0
-  deathDestroyDelay: 5
-  damagesAdditive: 1
+  deathDestroyDelay: 10
+  damageStopThreshold: 0
   additiveDamageDelay: 0.35
-  _agent: {fileID: 533937238380662012}
-  _healthSystem: {fileID: 4814415113929923243}
+  agent: {fileID: 533937238380662012}
+  healthSystem: {fileID: 4814415113929923243}
   rightAttackCollider: {fileID: 1644905130349948756}
   leftAttackCollider: {fileID: 5642566688672858055}
   footAttackCollider: {fileID: 8876626820066421858}
@@ -992,8 +992,7 @@ MonoBehaviour:
   throwTurnSpeed: 3
   attackAnimationRates:
   - {x: 1, y: 4}
-  - {x: 2, y: 2}
-  - {x: 3, y: 1}
+  - {x: 3, y: 3}
   rangedAnimationRates:
   - {x: 1, y: 8}
   - {x: 2, y: 6}
@@ -1010,7 +1009,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1652,7 +1651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8959189049759434675}
-  - component: {fileID: 5125708634535006125}
+  - component: {fileID: 7585163530172064612}
   - component: {fileID: 8939971958396116246}
   m_Layer: 0
   m_Name: ColliderForPlayer
@@ -1676,8 +1675,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8321883157691356778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &5125708634535006125
-CapsuleCollider:
+--- !u!65 &7585163530172064612
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1686,7 +1685,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 8
@@ -1694,11 +1693,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 3.1241317
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.3305228, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3.124132, z: 1}
+  m_Center: {x: 0, y: 1.330523, z: 0}
 --- !u!54 &8939971958396116246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1724,8 +1721,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 2
 --- !u!1 &5969067648668052062
 GameObject:
   m_ObjectHideFlags: 0

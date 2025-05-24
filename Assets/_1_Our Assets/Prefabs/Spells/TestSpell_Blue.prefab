@@ -154,7 +154,7 @@ MonoBehaviour:
     front of you.'
   damageMin: 0
   damageMax: 0
-  damageAdditiveLevel: 0
+  damageAdditiveLevel: 4
   manaCost: 5
   manaRechargeDelay: 0.5
   manaRechargeIntervalAfter: 0.1
@@ -163,5 +163,6 @@ MonoBehaviour:
   duration: 4
   spawnWithParent: 0
   launchSpeed: 10
-  pushForce: 1
+  pushForce: 45
   pushForceMode: 2
+  pushTime: 0.5

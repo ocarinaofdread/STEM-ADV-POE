@@ -13,6 +13,7 @@ public class AIDamageStopState : AIState
     // ReSharper disable Unity.PerformanceAnalysis
     public void EnterState(AIAgent agent)
     {
+        Debug.Log(agent.gameObject.name + " is entering DamageStopState.");
         switch (agent.enemy)
         {
             case Skeleton agentSkeleton:
@@ -20,6 +21,9 @@ public class AIDamageStopState : AIState
                 break;
             case Goblin agentGoblin:
                 agentGoblin.animator.SetTrigger(_damageHash);
+                break;
+            case Golem agentGolem:
+                agentGolem.animator.SetTrigger(_damageHash);
                 break;
         }
 
