@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private float _rechargeTimer;
     private bool _foundSystems;
     private float _previousHealthPercentage;
+    private bool _isContinuouslyUsingSpell;
 
     private readonly InputActionProperty _nullProperty = new(null);
 
@@ -129,6 +130,33 @@ public class Player : MonoBehaviour
     }
     public int GetMana() => mana;
 
+    public IEnumerator ContinuouslyDrain(float interval, float delayAfter, float intervalAfter)
+    {
+        _isContinuouslyUsingSpell = true;
+        _currentlyRecharging = false;
+        Debug.Log("ContinuouslyDrain method has been reached. Status Update:\n_isContinuouslyUsingSpell = " + 
+                  _isContinuouslyUsingSpell + "\n_currentlyRecharging = " + _currentlyRecharging);
+        
+        while (_isContinuouslyUsingSpell)
+        {
+            Debug.Log("Iteration of ContinuouslyDrain has begun.");
+            yield return new WaitForSeconds(interval);
+            Debug.Log("Interval has been succeeded. Mana subtracted by one.");
+            mana--;
+            if (mana <= 0)
+            {
+                mana = 0;
+                _isContinuouslyUsingSpell = false;
+            }
+            ChangeManaHealths(-1);
+            Debug.Log("Iteration Status Update:\n_isContinuouslyUsingSpell = " + 
+                _isContinuouslyUsingSpell + "\n_currentlyRecharging = " + _currentlyRecharging +
+                "\nMana = " + mana);
+        }
+        
+        StartCoroutine(RechargeDelay(delayAfter, intervalAfter));
+    }
+
     // Delay following a spell cast until recharge begins
     public IEnumerator RechargeDelay(float delay, float intervalAfter)
     {
@@ -214,6 +242,9 @@ public class Player : MonoBehaviour
             _continuousTurnProvider.rightHandTurnAction = _nullProperty;
         }
     }
+    
+    public void SetContinuouslyDraining(bool set){ _isContinuouslyUsingSpell = set; }
+    public bool GetContinuouslyDraining() => _isContinuouslyUsingSpell;
     
     public void ResetDeath() { _isDead = false; }
 }

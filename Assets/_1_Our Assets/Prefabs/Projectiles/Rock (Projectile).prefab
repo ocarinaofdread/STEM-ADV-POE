@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7505455826152507357}
   - component: {fileID: 5302623991646383935}
   - component: {fileID: -1684446061059465941}
+  - component: {fileID: 6925939402372710903}
   m_Layer: 8
   m_Name: Rock (Projectile)
   m_TagString: Hazard
@@ -168,3 +169,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMin: 5
   damageMax: 6
+--- !u!65 &6925939402372710903
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358012239114001051}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 248.6501, y: 200.0338, z: 190.8518}
+  m_Center: {x: 0, y: 0, z: 0}

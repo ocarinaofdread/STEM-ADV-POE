@@ -804,12 +804,12 @@
                 },
                 {
                     "name": "Y Button",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "4568bdd5-8cf7-4b15-bb28-ab8abd783617",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Hold(duration=0.05)",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1680,12 +1680,12 @@
                 },
                 {
                     "name": "B Button",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "aa2f8e98-31dd-4ead-a3b5-514661906c6a",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Hold(duration=0.05)",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

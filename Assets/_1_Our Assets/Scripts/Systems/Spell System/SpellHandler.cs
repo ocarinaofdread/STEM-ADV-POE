@@ -19,10 +19,13 @@ public class SpellHandler : MonoBehaviour
     private Player _player;
     private GameObject[] _spellPrefabList;
     private GameObject _currentSpellPrefab;
+    private GameObject _latestSpellObject;
+    private bool _latestSpellWasContinuous;
     private int _currentSpellPrefabIndex;
     private int _exemptedButtonsPressed;
     private bool _canSwitchSpells;
     private bool _isHoldingGrimoire;
+    // Note: Specifically referring to whether CONTINUOUS MOVEMENT was selected, not continuous spell
     private bool _wasContinuous;
 
     private void Start()
@@ -40,21 +43,32 @@ public class SpellHandler : MonoBehaviour
     {
         foreach (var thisCastAction in castActionList)
         {
-            thisCastAction.action.performed += OnCastAction;
+            thisCastAction.action.started += OnCastAction;
             thisCastAction.action.canceled += OnCastEnd;
         }
 
         foreach (var thisExemptedAction in exemptedActionList)
         {
-            thisExemptedAction.action.performed += AddExemptions;
+            thisExemptedAction.action.started += AddExemptions;
             thisExemptedAction.action.canceled += SubtractExemptions;
         }
 
         // As long as navigationEnableAction is selected, spells can be cast
-        navigationEnableAction.action.performed += EnableGrimoireNavigation;
+        navigationEnableAction.action.started += EnableGrimoireNavigation;
         navigationEnableAction.action.canceled += DisableGrimoireNavigation;
 
-        navigationInputAction.action.performed += OnNavigationAction;
+        navigationInputAction.action.started += OnNavigationAction;
+    }
+
+    private void Update()
+    {
+        if (!_latestSpellWasContinuous) return;
+
+        if (!_player.GetContinuouslyDraining())
+        {
+            _latestSpellObject.GetComponent<Spell>().End();
+            _latestSpellWasContinuous = false;
+        }
     }
 
     private void OnCastAction(InputAction.CallbackContext obj)
@@ -69,9 +83,21 @@ public class SpellHandler : MonoBehaviour
                 spawnedSpell.transform.SetParent(attachPoint.transform);
             }
 
-            _player.IncrementMana(-CurrentSpell().GetManaCost());
-            StartCoroutine(_player.RechargeDelay(CurrentSpell().GetRechargeDelay(), 
-                                                        CurrentSpell().GetRechargeIntervalAfter()));
+            if (!CurrentSpell().GetIsContinuous())
+            {
+                _player.IncrementMana(-CurrentSpell().GetManaCost());
+                StartCoroutine(_player.RechargeDelay(CurrentSpell().GetRechargeDelay(),
+                    CurrentSpell().GetRechargeIntervalAfter()));
+            }
+            else
+            {
+                _player.SetContinuouslyDraining(true);
+                StartCoroutine(_player.ContinuouslyDrain(CurrentSpell().GetContinuousDecreaseInterval(),
+                    CurrentSpell().GetRechargeDelay(), CurrentSpell().GetRechargeIntervalAfter()));
+            }
+
+            _latestSpellObject = spawnedSpell;
+            _latestSpellWasContinuous = spawnedSpell.GetComponent<Spell>().GetIsContinuous();
         }
     }
 
@@ -79,11 +105,12 @@ public class SpellHandler : MonoBehaviour
     {
         if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire)
         {
-            var currentSpell = CurrentSpell();
-            if (currentSpell.GetIsContinuous())
+            Debug.Log("canceled achieved. OnCastEnd ran.");
+            if (CurrentSpell().GetIsContinuous() && _latestSpellObject)
             {
-                currentSpell.End();
+                _latestSpellObject.GetComponent<Spell>().End();
             }
+            _player.SetContinuouslyDraining(false);
         }
     }
 

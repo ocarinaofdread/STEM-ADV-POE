@@ -13,7 +13,7 @@ public class AIDamageStopState : AIState
     // ReSharper disable Unity.PerformanceAnalysis
     public void EnterState(AIAgent agent)
     {
-        Debug.Log(agent.gameObject.name + " is entering DamageStopState.");
+        //Debug.Log(agent.gameObject.name + " is entering DamageStopState.");
         switch (agent.enemy)
         {
             case Skeleton agentSkeleton:
