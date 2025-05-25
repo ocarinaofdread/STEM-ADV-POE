@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.037, y: 0.596, z: -0.164}
-  m_LocalScale: {x: 0.1019446, y: 0.1019446, z: 0.1019446}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8748216650442261724}
@@ -155,7 +155,7 @@ MonoBehaviour:
     front of you.'
   damageMin: 0
   damageMax: 0
-  damageAdditiveLevel: 4
+  damageAdditiveLevel: 1
   manaCost: 5
   manaRechargeDelay: 0.5
   manaRechargeIntervalAfter: 0.1
@@ -165,7 +165,7 @@ MonoBehaviour:
   duration: 2
   spawnWithParent: 0
   launchSpeed: 10
-  pushForce: 5
+  pushForce: 25
   pushForceMode: 1
   tagsExemptedFromDestroy:
   - Player
@@ -198,8 +198,8 @@ Transform:
   m_GameObject: {fileID: 3038183030030986078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.18, z: 0.12}
-  m_LocalScale: {x: 0.1019446, y: 0.1019446, z: 0.1019446}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3652764257128641978}
@@ -5030,7 +5030,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1019446, y: 0.1019446, z: 0.1019446}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8748216650442261724}

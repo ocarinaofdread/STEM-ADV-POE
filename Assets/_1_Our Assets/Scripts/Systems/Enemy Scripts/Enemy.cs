@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private AIAgent agent;
     [SerializeField] private HealthSystemForDummies healthSystem;
-    
+
+    private Rigidbody _rigidbody;
     private int _additiveDamages;
     private bool _damageAdditiveNow;
     private readonly int _damageAdditiveHash = Animator.StringToHash("DamageAdditive");
@@ -30,7 +31,8 @@ public class Enemy : MonoBehaviour
         agent ??= GetComponent<AIAgent>();
         healthSystem ??= GetComponent<HealthSystemForDummies>();
         hitboxCollider ??= GetComponent<Collider>();
-
+        _rigidbody = transform.root.GetComponentInChildren<Rigidbody>();
+        
         healthSystem.MaximumHealth = health;
         healthSystem.CurrentHealth = health;
 
@@ -115,6 +117,14 @@ public class Enemy : MonoBehaviour
         otherSpell.End();
         Damage(true, otherSpell);
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        _rigidbody.velocity = Vector3.zero;
+    //    }
+    //}
     
     private void AddSpellInstance(GameObject newSpell)
     {

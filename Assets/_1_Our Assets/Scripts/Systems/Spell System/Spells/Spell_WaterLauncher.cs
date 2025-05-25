@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class Spell_WaterLauncher : Spell
 {
+    [SerializeField] private Transform launchPoint;
     [SerializeField] private GameObject waterSpell;
     [SerializeField] private float spawnRate = 0.5f;
 
@@ -13,6 +14,7 @@ public class Spell_WaterLauncher : Spell
     
     protected override void RunCastAction()
     {
+        launchPoint ??= transform;
         _timer = spawnRate;
     }
 
@@ -21,7 +23,7 @@ public class Spell_WaterLauncher : Spell
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
-            Instantiate(waterSpell, transform.position, transform.rotation);
+            Instantiate(waterSpell, launchPoint.position, launchPoint.rotation);
             _timer = spawnRate;
         }
         

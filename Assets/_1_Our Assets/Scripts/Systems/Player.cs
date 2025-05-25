@@ -134,14 +134,14 @@ public class Player : MonoBehaviour
     {
         _isContinuouslyUsingSpell = true;
         _currentlyRecharging = false;
-        Debug.Log("ContinuouslyDrain method has been reached. Status Update:\n_isContinuouslyUsingSpell = " + 
-                  _isContinuouslyUsingSpell + "\n_currentlyRecharging = " + _currentlyRecharging);
+        //Debug.Log("ContinuouslyDrain method has been reached. Status Update:\n_isContinuouslyUsingSpell = " + 
+        //          _isContinuouslyUsingSpell + "\n_currentlyRecharging = " + _currentlyRecharging);
         
         while (_isContinuouslyUsingSpell)
         {
-            Debug.Log("Iteration of ContinuouslyDrain has begun.");
+            //Debug.Log("Iteration of ContinuouslyDrain has begun.");
             yield return new WaitForSeconds(interval);
-            Debug.Log("Interval has been succeeded. Mana subtracted by one.");
+            //Debug.Log("Interval has been succeeded. Mana subtracted by one.");
             mana--;
             if (mana <= 0)
             {
@@ -149,9 +149,9 @@ public class Player : MonoBehaviour
                 _isContinuouslyUsingSpell = false;
             }
             ChangeManaHealths(-1);
-            Debug.Log("Iteration Status Update:\n_isContinuouslyUsingSpell = " + 
-                _isContinuouslyUsingSpell + "\n_currentlyRecharging = " + _currentlyRecharging +
-                "\nMana = " + mana);
+            //Debug.Log("Iteration Status Update:\n_isContinuouslyUsingSpell = " + 
+            //    _isContinuouslyUsingSpell + "\n_currentlyRecharging = " + _currentlyRecharging +
+            //    "\nMana = " + mana);
         }
         
         StartCoroutine(RechargeDelay(delayAfter, intervalAfter));

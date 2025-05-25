@@ -73,7 +73,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20565000107693868}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -841,7 +841,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5412766, y: 1.61356, z: 0.5412766}
-  m_Center: {x: 0.03396189, y: 0.7641938, z: 0}
+  m_Center: {x: 0, y: 0.7641938, z: 0}
 --- !u!1 &2968919397920415774
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,7 +2155,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8835506583615175128}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.5
+  m_Radius: 0.29
   m_Speed: 3.5
   m_Acceleration: 40
   avoidancePriority: 50
@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8996810210639412802}
-  hitboxCollider: {fileID: 0}
+  hitboxCollider: {fileID: 7769836094258409365}
   health: 10
   isDead: 0
   isAttacking: 0
@@ -2220,14 +2220,14 @@ BoxCollider:
     m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.6012766, y: 1.632454, z: 0.5912766}
-  m_Center: {x: 0.033961892, y: 0.7736408, z: 0}
+  m_Center: {x: 0, y: 0.7736408, z: 0}
 --- !u!114 &1715752633495212300
 MonoBehaviour:
   m_ObjectHideFlags: 0

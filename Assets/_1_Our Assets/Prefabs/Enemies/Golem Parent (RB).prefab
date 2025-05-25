@@ -480,7 +480,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2263034537458860708}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.55
+  m_Radius: 0.52
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 75266605129198643}
-  hitboxCollider: {fileID: 0}
+  hitboxCollider: {fileID: 5246692468551132175}
   health: 20
   isDead: 0
   isAttacking: 0
@@ -1714,10 +1714,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -2186,10 +2186,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6668468199521995977}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 30
+  m_Drag: 2
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: -0.21, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -2608,7 +2608,7 @@ GameObject:
   - component: {fileID: 2090025436916935399}
   - component: {fileID: 470732337600654753}
   - component: {fileID: 3564541151943568977}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock (Animation)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2693,7 +2693,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

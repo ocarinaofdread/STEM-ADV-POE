@@ -63,6 +63,8 @@ public class AIIdleState : AIState
                 //Debug.Log("Distance squared: " + sqrDistance + " vs. Close Squared " + Mathf.Pow(_closeAttackRange, 2));
                 agentGolem.animator.SetInteger(_attackTypeHash,
                     sqrDistance <= _closeAttackRange * _closeAttackRange ? agentGolem.GetRandomAttackType() : 2);
+                //Debug.Log("Golem square distance is " + sqrDistance + " which is related to sqr close atk range "
+                //          + Mathf.Pow(_closeAttackRange, 2));
             }
 
             agent.ChangeState(AIStateID.Attack);

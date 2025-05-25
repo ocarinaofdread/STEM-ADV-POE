@@ -22,6 +22,6 @@ MonoBehaviour:
   maxNavMeshRefreshTime: 0.1
   minAttackWaitTime: 0
   maxAttackWaitTime: 1.5
-  closeAttackRange: 1
+  closeAttackRange: 3
   minRangedWaitTime: 4
   maxRangedWaitTime: 6

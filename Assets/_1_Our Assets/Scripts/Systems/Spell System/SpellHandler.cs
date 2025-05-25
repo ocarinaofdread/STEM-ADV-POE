@@ -43,21 +43,21 @@ public class SpellHandler : MonoBehaviour
     {
         foreach (var thisCastAction in castActionList)
         {
-            thisCastAction.action.started += OnCastAction;
+            thisCastAction.action.performed += OnCastAction;
             thisCastAction.action.canceled += OnCastEnd;
         }
 
         foreach (var thisExemptedAction in exemptedActionList)
         {
-            thisExemptedAction.action.started += AddExemptions;
+            thisExemptedAction.action.performed += AddExemptions;
             thisExemptedAction.action.canceled += SubtractExemptions;
         }
 
         // As long as navigationEnableAction is selected, spells can be cast
-        navigationEnableAction.action.started += EnableGrimoireNavigation;
+        navigationEnableAction.action.performed += EnableGrimoireNavigation;
         navigationEnableAction.action.canceled += DisableGrimoireNavigation;
 
-        navigationInputAction.action.started += OnNavigationAction;
+        navigationInputAction.action.performed += OnNavigationAction;
     }
 
     private void Update()
@@ -105,7 +105,7 @@ public class SpellHandler : MonoBehaviour
     {
         if (_exemptedButtonsPressed < 1 && _isHoldingGrimoire)
         {
-            Debug.Log("canceled achieved. OnCastEnd ran.");
+            //Debug.Log("canceled achieved. OnCastEnd ran.");
             if (CurrentSpell().GetIsContinuous() && _latestSpellObject)
             {
                 _latestSpellObject.GetComponent<Spell>().End();

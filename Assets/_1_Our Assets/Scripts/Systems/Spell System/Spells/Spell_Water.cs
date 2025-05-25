@@ -35,6 +35,7 @@ public class Spell_Water : Spell
             {
                 //Debug.Log("SpellWater: Other object has Enemy script.");
                 var pushDirection = _rigidbody.velocity.normalized;
+                pushDirection.y = 0;
                 var otherRb = otherGameObject.transform.root.GetComponentInChildren<Rigidbody>();
                         
                 //Debug.Log("SpellWater: Pushing other object with " + pushDirection + " vector.");
