@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject, deathDestroyDelay);
         }
 
-        if (isDead || !_damageAdditiveNow) return;
+        if (isDead) return; // || !_damageAdditiveNow) return;
 
         var damageWeight = animator.GetLayerWeight(animator.GetLayerIndex("Damage"));
 
