@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum DominantHand
 {
@@ -13,14 +14,37 @@ public class GameManager : MonoBehaviour
     // Spell Handler
     [SerializeField] private GameObject[] spellPrefabList;
     [SerializeField] private DominantHand selectedDominantHand;
+    [SerializeField] private GameObject[] playerRays;
     
     private string[] _spellNames;
     private string[] _spellDescriptions;
     private Dictionary<string, string> _spellDictionary = new();
+    
+    public FadeScreen fadeScreen;
 
     private void Awake()
     {
         InitializeSpellListsAndDictionary();
+        SceneManager.sceneLoaded += OnSceneLoad;
+    }
+    
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        // Disables rays if dungeon scene
+        if (scene.buildIndex == 1)
+        {
+            foreach (var ray in playerRays)
+            {
+                ray.SetActive(false);
+            }
+        }
+        else
+        {
+            foreach (var ray in playerRays)
+            {
+                ray.SetActive(true);
+            }
+        }
     }
 
     // Spell initialization & management
@@ -71,5 +95,18 @@ public class GameManager : MonoBehaviour
         if (newHand == selectedDominantHand) return;
         
         selectedDominantHand = newHand;
+    }
+    
+    // Scene Management
+    public void GoToScene(int sceneIndex)
+    {
+        StartCoroutine(GoToSceneRoutine( sceneIndex));
+    }
+
+    IEnumerator GoToSceneRoutine(int sceneIndex)
+    {
+        fadeScreen.FadeOut();
+        yield return new WaitForSeconds(fadeScreen.fadeDuration);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

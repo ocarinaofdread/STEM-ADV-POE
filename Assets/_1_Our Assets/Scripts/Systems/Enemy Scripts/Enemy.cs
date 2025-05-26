@@ -145,7 +145,7 @@ public class Enemy : MonoBehaviour
 
     private bool SpellDamagesAdditive(Spell spell)
     {
-        // false if the additive level is greater than or equal to the stop threshold
+        // true if the additive level is less than the stop threshold
         return spell.GetDamageAdditiveLevel() < damageStopThreshold;
     }
     
