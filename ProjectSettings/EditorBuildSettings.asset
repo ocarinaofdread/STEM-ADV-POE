@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/_1_Our Assets/Scenes/Dungeon.unity
     guid: 06acf74012300f64ca5c14e9fb977d44
   - enabled: 1
-    path: Assets/_1_Our Assets/Scenes/Death Screen.unity
+    path: Assets/_1_Our Assets/Scenes/Death screen.unity
     guid: 4b8d54711a5792748b80f1769afd276b
   - enabled: 1
     path: Assets/_1_Our Assets/Scenes/End Screen.unity
