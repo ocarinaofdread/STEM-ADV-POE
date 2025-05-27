@@ -102604,7 +102604,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 7.733333
-    functionName: EnemyDie
+    functionName: Victory
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

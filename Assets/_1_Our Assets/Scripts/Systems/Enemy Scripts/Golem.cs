@@ -43,14 +43,14 @@ public class Golem : Enemy
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
     
-    public override void EnemyDie()
+    public void Victory()
     {
         StartCoroutine(DeathDestroy());
     }
 
     private IEnumerator DeathDestroy()
     {
-        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager = FindObjectOfType<GameManager>(true);
         _gameManager.EndGame(false);
         
         yield return new WaitForSeconds(destroyDelayAfterAnim);
