@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SkyboxVictory
-  m_Shader: {fileID: -6465566751694194690, guid: 012a8eb7ae72d044981dcbbe1c455473,
+  m_Shader: {fileID: -6465566751694194690, guid: fc510c22b7a615444b26300a9b21e032,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

@@ -65,6 +65,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public virtual void Die()
+    {
+        Destroy(gameObject, deathDestroyDelay);
+    }
+
     private void Damage(bool animate, Spell otherSpell)
     {
         if (health <= 0) return;

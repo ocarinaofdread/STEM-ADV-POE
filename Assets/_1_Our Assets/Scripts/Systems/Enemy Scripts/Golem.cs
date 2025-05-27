@@ -19,10 +19,12 @@ public class Golem : Enemy
     [SerializeField] private Vector2Int[] attackAnimationRates;
     // 1 = boulder, 2 = boulder x3, 3 = jump
     [SerializeField] private Vector2Int[] rangedAnimationRates;
-
+    
     public float jumpAttackDistance = 5.19f;
     public float jumpAttackDeviation = 0.10f;
 
+    [SerializeField] private float destroyDelayAfterAnim;
+    
     private GameManager _gameManager;
     private List<int> _attackAnimRatePool;
     private List<int> _rangedAnimRatePool;
@@ -39,6 +41,20 @@ public class Golem : Enemy
         _attackAnimRatePool = CreateAnimationPool(attackAnimationRates);
         _rangedAnimRatePool = CreateAnimationPool(rangedAnimationRates);
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+    
+    public override void Die()
+    {
+        StartCoroutine(DeathDestroy());
+    }
+
+    private IEnumerator DeathDestroy()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager.EndGame(false);
+        
+        yield return new WaitForSeconds(destroyDelayAfterAnim);
+        Destroy(gameObject);
     }
     
     public void ChangeSpeed(float speed)
@@ -98,12 +114,6 @@ public class Golem : Enemy
         var index = Random.Range(0, _rangedAnimRatePool.Count - 1);
 
         return _rangedAnimRatePool[index];
-    }
-
-    public void SummonEndPortal()
-    {
-        // _gameManager end game or something
-        // yippeeeeeeeee
     }
     
     // For Ranged Attack - multiple throws

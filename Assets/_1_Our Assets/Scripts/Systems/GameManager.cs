@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum DominantHand
 {
@@ -15,35 +16,33 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] spellPrefabList;
     [SerializeField] private DominantHand selectedDominantHand;
     [SerializeField] private GameObject[] playerRays;
-    
+    [SerializeField] private LoadSceneMode loadSceneMode = LoadSceneMode.Single;
+
+    private GameObject _player;
     private string[] _spellNames;
     private string[] _spellDescriptions;
     private Dictionary<string, string> _spellDictionary = new();
     
     public FadeScreen fadeScreen;
+    [SerializeField] private float rayEnableDelay = 0.5f;
+    [SerializeField] private int dungeonSceneIndex = 2;
 
     private void Awake()
     {
+        _player = transform.root.GetComponentInChildren<Player>().gameObject;
         InitializeSpellListsAndDictionary();
         SceneManager.sceneLoaded += OnSceneLoad;
     }
-    
-    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+
+    public void EndGame(bool defeat)
     {
-        // Disables rays if dungeon scene
-        if (scene.buildIndex == 1)
+        if (defeat)
         {
-            foreach (var ray in playerRays)
-            {
-                ray.SetActive(false);
-            }
+            
         }
         else
         {
-            foreach (var ray in playerRays)
-            {
-                ray.SetActive(true);
-            }
+            
         }
     }
 
@@ -98,15 +97,49 @@ public class GameManager : MonoBehaviour
     }
     
     // Scene Management
-    public void GoToScene(int sceneIndex)
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        StartCoroutine(GoToSceneRoutine( sceneIndex));
+        // Disables rays if dungeon scene
+        foreach (var ray in playerRays)
+        {
+            if (scene.buildIndex == dungeonSceneIndex || scene.buildIndex == 0)
+            {
+                ray.SetActive(false);
+            }
+            else
+            {
+                StartCoroutine(EnableRay(ray));
+            }
+        }
+        
+        var startPos = GameObject.FindGameObjectWithTag("LoadPosition").transform.position;
+        _player.transform.position = startPos;
     }
 
-    IEnumerator GoToSceneRoutine(int sceneIndex)
+    private IEnumerator EnableRay(GameObject ray)
     {
-        fadeScreen.FadeOut();
+        ray.SetActive(false);
+        yield return new WaitForSeconds(rayEnableDelay);
+        ray.SetActive(true);
+        ray.GetComponent<XRRayInteractor>().interactionManager = FindObjectOfType<XRInteractionManager>();
+    }
+    
+    public void GoToScene(int sceneIndex)
+    {
+        StartCoroutine(GoToSceneRoutine(sceneIndex, false, Color.black, 0));
+    }
+
+    public void GoToScene(int sceneIndex, Color fadeColor, float duration)
+    {
+        StartCoroutine(GoToSceneRoutine(sceneIndex, true, fadeColor, duration));
+    }
+
+    IEnumerator GoToSceneRoutine(int sceneIndex, bool hasColor, Color fadeColor, float duration)
+    {
+        if (hasColor) fadeScreen.FadeOut(fadeColor, duration);
+        else fadeScreen.FadeOut();
+        
         yield return new WaitForSeconds(fadeScreen.fadeDuration);
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadSceneAsync(sceneIndex, loadSceneMode);
     }
 }
