@@ -43,7 +43,7 @@ public class Golem : Enemy
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
     
-    public override void Die()
+    public override void EnemyDie()
     {
         StartCoroutine(DeathDestroy());
     }

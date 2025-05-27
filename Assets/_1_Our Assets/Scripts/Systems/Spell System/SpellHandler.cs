@@ -28,10 +28,11 @@ public class SpellHandler : MonoBehaviour
     // Note: Specifically referring to whether CONTINUOUS MOVEMENT was selected, not continuous spell
     private bool _wasContinuous;
 
-    private void Start()
+    private void Awake()
     {
-        _gameManager = FindObjectOfType<GameManager>();
-        _player = FindObjectOfType<Player>();
+        _gameManager ??= FindObjectOfType<GameManager>();
+        _player ??= FindObjectOfType<Player>();
+        grimoire ??= FindObjectOfType<GrimoireHandler>();
         
         _spellPrefabList = _gameManager.GetSpellPrefabList();
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
@@ -120,7 +121,10 @@ public class SpellHandler : MonoBehaviour
         {
             return;
         }
-
+        
+        grimoire ??= FindObjectOfType<GrimoireHandler>();
+        _spellPrefabList ??= _gameManager.GetSpellPrefabList();
+        
         var incrementValue = (int)Math.Round(obj.ReadValue<Vector2>().x);
 
         _currentSpellPrefabIndex += incrementValue;
@@ -132,7 +136,7 @@ public class SpellHandler : MonoBehaviour
         {
             _currentSpellPrefabIndex = _spellPrefabList.Length - 1;
         }
-
+        
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
         grimoire.UpdateGrimoirePages(CurrentSpell().GetName(), 1);
     }

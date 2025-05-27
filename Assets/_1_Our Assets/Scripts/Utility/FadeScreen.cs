@@ -38,12 +38,23 @@ public class FadeScreen : MonoBehaviour
         fadeDuration = duration;
         Fade(0, 1);
     }
-
     public void FadeOut()
     {
         _fadeColor = defaultFadeColor;
         fadeDuration = _defaultFadeDuration;
         Fade(0,1);
+    }
+
+    public void FadeOutIn(Color fade, float totalDuration)
+    {
+        StartCoroutine(FadeOutInRoutine(fade, totalDuration));
+    }
+
+    private IEnumerator FadeOutInRoutine(Color fade, float totalDuration)
+    {
+        FadeOut(fade, totalDuration / 2);
+        yield return new WaitForSeconds(totalDuration / 2);
+        FadeIn(fade, totalDuration / 2);
     }
     
     private void Fade(float alphaIn, float alphaOut)

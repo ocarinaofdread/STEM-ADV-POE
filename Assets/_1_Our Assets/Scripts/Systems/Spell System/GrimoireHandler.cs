@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GrimoireHandler : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class GrimoireHandler : MonoBehaviour
     private TextMeshProUGUI _currentSpellPage;
     private TextMeshProUGUI _currentControlsPage;
 
+    private XRGrabInteractable _grabInteractable;
+    private Animator _animator;
+    private AnimatorUnityEventHandler _animatorUnityEventHandler;
+    private readonly int _openHash = Animator.StringToHash("Open");
+    private readonly int _closeHash = Animator.StringToHash("Close");
+    
     private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
@@ -45,7 +52,7 @@ public class GrimoireHandler : MonoBehaviour
     {
         if (_spellDictionary == null)
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _gameManager ??= FindObjectOfType<GameManager>();
             _spellDictionary = _gameManager.GetSpellDictionary();
         }
 
@@ -92,4 +99,37 @@ public class GrimoireHandler : MonoBehaviour
             _currentControlsPage = leftPageTMPro;
         }
     }
+    
+    // Socket Interaction Prevention
+    
+    private void Awake()
+    {
+        _grabInteractable = GetComponent<XRGrabInteractable>();
+        _animator = GetComponent<Animator>();
+        _animatorUnityEventHandler = GetComponent<AnimatorUnityEventHandler>();
+        
+        _grabInteractable.selectEntered.AddListener(GrabInteractable_SelectEntered);
+        _grabInteractable.selectExited.AddListener(GrabInteractable_SelectExited);
+    }
+    
+    private void OnDestroy()
+    {
+        _grabInteractable.selectEntered.RemoveListener(GrabInteractable_SelectEntered);
+        _grabInteractable.selectExited.RemoveListener(GrabInteractable_SelectExited);
+    }
+    
+    private void GrabInteractable_SelectEntered(SelectEnterEventArgs args)
+    {
+        if (args.interactorObject is not XRDirectInteractor) return;
+        
+        _animator.SetTrigger(_openHash);
+        _animatorUnityEventHandler.SetBool(true);
+    }
+    private void GrabInteractable_SelectExited(SelectExitEventArgs args)
+    {
+        if (args.interactorObject is not XRDirectInteractor) return;
+        
+        _animator.SetTrigger(_closeHash);
+         _animatorUnityEventHandler.SetBool(false);
+     }
 }

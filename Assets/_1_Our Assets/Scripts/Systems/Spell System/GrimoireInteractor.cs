@@ -10,30 +10,26 @@ public class GrimoireInteractor : XRGrabInteractable
     public Transform leftHandAttachTransform;
     public Transform rightHandAttachTransform;
 
-    [SerializeField] SpellHandler leftHandSpellHandler;
-    [SerializeField] SpellHandler rightHandSpellHandler;
-
+    private SpellHandler _leftHandSpellHandler;
+    private SpellHandler _rightHandSpellHandler;
     private GameManager _gameManager;
-    
-    private void Start()
-    {
-        _gameManager = FindObjectOfType<GameManager>();
-    }
     
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {   
         // Remember: You hold the grimoire in your NON-DOMINANT HAND
         if (args.interactorObject.transform.CompareTag("LeftHand"))
         {
+            _rightHandSpellHandler ??= GameObject.FindGameObjectWithTag("RightHand").GetComponent<SpellHandler>();
             attachTransform = leftHandAttachTransform;
-            rightHandSpellHandler.StartHoldingGrimoire();
-            _gameManager.SetDominantHand(DominantHand.RightHanded);
+            _rightHandSpellHandler.StartHoldingGrimoire();
+            //_gameManager.SetDominantHand(DominantHand.RightHanded);
         }
         else if (args.interactorObject.transform.CompareTag("RightHand"))
         {
+            _leftHandSpellHandler ??= GameObject.FindGameObjectWithTag("LeftHand").GetComponent<SpellHandler>();
             attachTransform = rightHandAttachTransform;
-            leftHandSpellHandler.StartHoldingGrimoire();
-            _gameManager.SetDominantHand(DominantHand.LeftHanded);
+            _leftHandSpellHandler.StartHoldingGrimoire();
+            //_gameManager.SetDominantHand(DominantHand.LeftHanded);
         }
 
         base.OnSelectEntering(args);

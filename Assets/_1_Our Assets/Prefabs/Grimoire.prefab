@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3314441290884555961}
   - component: {fileID: 7264072441551798008}
   - component: {fileID: 5393287625133228299}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: LeftPageCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1875074972360792480}
   - component: {fileID: 7427956975938392563}
   - component: {fileID: 816294060153585804}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: RightPageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spell Slot 1 - A
+  m_text: Sample Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.02
-  m_fontSizeBase: 0.02
+  m_fontSize: 0.015
+  m_fontSizeBase: 0.015
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -245,7 +245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4565578777487914482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftHandAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 769098741094762151}
   - component: {fileID: 836485186736681153}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 1587285731937315812}
   - component: {fileID: 5156506049030636852}
   - component: {fileID: 5325518150197197848}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: LeftPageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spell Slot 1 - A
+  m_text: Sample Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -412,8 +412,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.02
-  m_fontSizeBase: 0.02
+  m_fontSize: 0.015
+  m_fontSizeBase: 0.015
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -463,7 +463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5628499800252305681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightHandAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 6305685790163656387}
   - component: {fileID: 9004743902770192951}
   - component: {fileID: 1504878588233497475}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: RightPageCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,6 +595,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9207838374081023110, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -9093581500327080938, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8767809908961938054, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -613,7 +628,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: 8.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
@@ -623,7 +638,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.362
+      value: 6.31
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
@@ -680,6 +695,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -94.65067
       objectReference: {fileID: 0}
+    - target: {fileID: -6842926736322134263, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5955773775343293117, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -5917105527941485985, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -690,6 +715,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.00007714889
       objectReference: {fileID: 0}
+    - target: {fileID: -5774532814125635462, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -5651751901618623305, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -699,6 +729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 100.12641
+      objectReference: {fileID: 0}
+    - target: {fileID: -5528037404604053399, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4666543769990137381, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
@@ -730,6 +765,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: -2125031024455963709, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1856042696960641885, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1708828829156125761, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 492193388214077530, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -755,10 +805,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.00006316801
       objectReference: {fileID: 0}
+    - target: {fileID: 741808593568725213, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
       propertyPath: m_Name
       value: Grimoire
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1099186181119657759, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
@@ -769,6 +829,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.000063168
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302818752918560290, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856046678575957249, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3174194537443690932, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
@@ -784,6 +854,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262852073556901633, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3855390532109337431, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
@@ -810,6 +885,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 5457672128490484827, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6498672121556715891, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -824,6 +904,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678711921179972651, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229325312146927613, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358031341929964723, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479356380512864435, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557879457519096344, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595552866189800706, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204582565592953761, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320650185884283670, guid: e01ef5ed25239f04c871284ca7c91b2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: e01ef5ed25239f04c871284ca7c91b2c,
         type: 3}
@@ -924,10 +1049,10 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -948,12 +1073,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 836485186736681153}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -1037,6 +1163,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpellHandler, Assembly-CSharp
+        m_MethodName: StopHoldingGrimoire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpellHandler, Assembly-CSharp
+        m_MethodName: StopHoldingGrimoire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -1101,7 +1251,7 @@ MonoBehaviour:
   m_TrackPosition: 1
   m_SmoothPosition: 1
   m_SmoothPositionAmount: 3.1
-  m_TightenPosition: 0.1
+  m_TightenPosition: 0.865
   m_TrackRotation: 1
   m_SmoothRotation: 1
   m_SmoothRotationAmount: 2.3
@@ -1137,8 +1287,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   leftHandAttachTransform: {fileID: 4565578777487914482}
   rightHandAttachTransform: {fileID: 5628499800252305681}
-  leftHandSpellHandler: {fileID: 0}
-  rightHandSpellHandler: {fileID: 0}
 --- !u!114 &7972481375189153473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,8 +1315,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftPageTMPro: {fileID: 5325518150197197848}
   rightPageTMPro: {fileID: 816294060153585804}
-  selectedDominantHand: 0
-  controlsText: Controls!!!!!!!!!!!!!!
+  controlsText: 'Controls:
+
+
+    Hold Back Trigger + L/R Stick to Change Spells
+
+
+    Press
+    Upper Button on Other Hand while Open to Shoot'
 --- !u!4 &5754085816005168358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3902820759519458468, guid: e01ef5ed25239f04c871284ca7c91b2c,

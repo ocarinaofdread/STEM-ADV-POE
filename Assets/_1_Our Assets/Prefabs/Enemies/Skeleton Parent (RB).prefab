@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBillboarded: 1
-  shouldShowHealthNumbers: 1
+  shouldShowHealthNumbers: 0
   healthSystem: {fileID: 0}
 --- !u!114 &1095655611789649228
 MonoBehaviour:

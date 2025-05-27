@@ -548,6 +548,7 @@ MonoBehaviour:
   - {x: 3, y: 4}
   jumpAttackDistance: 5.19
   jumpAttackDeviation: 0.1
+  destroyDelayAfterAnim: 0
 --- !u!65 &2209353518201896086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1908,7 +1909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBillboarded: 1
-  shouldShowHealthNumbers: 1
+  shouldShowHealthNumbers: 0
   healthSystem: {fileID: 0}
 --- !u!114 &3084605283961267729
 MonoBehaviour:

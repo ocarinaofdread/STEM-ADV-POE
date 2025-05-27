@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] spellPrefabList;
     [SerializeField] private DominantHand selectedDominantHand;
     [SerializeField] private GameObject[] playerRays;
+    [SerializeField] private GameObject[] playerControllers;
     [SerializeField] private LoadSceneMode loadSceneMode = LoadSceneMode.Single;
 
     private GameObject _player;
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour
     public FadeScreen fadeScreen;
     [SerializeField] private float rayEnableDelay = 0.5f;
     [SerializeField] private int dungeonSceneIndex = 2;
+    [SerializeField] private int victorySceneIndex = 4;
+    [SerializeField] private int gameOverSceneIndex = 3;
+    [SerializeField] private Color gameOverFadeColor;
 
     private void Awake()
     {
@@ -34,15 +38,18 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoad;
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void EndGame(bool defeat)
     {
+        var localLoader = GameObject.FindGameObjectWithTag("LoadPosition").GetComponent<LocalSceneLoad>();
+        
         if (defeat)
         {
-            
+            localLoader.LoadScene(gameOverSceneIndex, gameOverFadeColor, 2);
         }
         else
         {
-            
+            FindObjectOfType<Portal>().gameObject.SetActive(true);
         }
     }
 
@@ -108,20 +115,33 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine(EnableRay(ray));
+                StartCoroutine(EnableControllerAfterDelay(ray, true, true));
+                _player.GetComponent<Player>().ResetDeath();
             }
         }
+        foreach (var controller in playerControllers)
+        {
+            StartCoroutine(EnableControllerAfterDelay(controller, false, false));
+        }
         
-        var startPos = GameObject.FindGameObjectWithTag("LoadPosition").transform.position;
-        _player.transform.position = startPos;
+        var startTransform = GameObject.FindGameObjectWithTag("LoadPosition").transform;
+        _player.transform.position = startTransform.position;
+        _player.transform.rotation = startTransform.rotation;
     }
 
-    private IEnumerator EnableRay(GameObject ray)
+    private IEnumerator EnableControllerAfterDelay(GameObject ray, bool activate, bool isRay)
     {
-        ray.SetActive(false);
+        if (activate) ray.SetActive(false);
         yield return new WaitForSeconds(rayEnableDelay);
-        ray.SetActive(true);
-        ray.GetComponent<XRRayInteractor>().interactionManager = FindObjectOfType<XRInteractionManager>();
+        if (activate) ray.SetActive(true);
+        if (isRay)
+        {
+            ray.GetComponent<XRRayInteractor>().interactionManager = FindObjectOfType<XRInteractionManager>();
+        }
+        else
+        {
+            ray.GetComponent<XRDirectInteractor>().interactionManager = FindObjectOfType<XRInteractionManager>();
+        }
     }
     
     public void GoToScene(int sceneIndex)

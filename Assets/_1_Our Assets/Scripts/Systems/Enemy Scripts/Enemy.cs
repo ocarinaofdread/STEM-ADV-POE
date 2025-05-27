@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
             agent.ChangeState(AIStateID.Death);
             healthSystem.CurrentHealth = 0;
             isDead = true;
-            Destroy(gameObject, deathDestroyDelay);
+            EnemyDie();
         }
 
         if (isDead) return; // || !_damageAdditiveNow) return;
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void Die()
+    public virtual void EnemyDie()
     {
         Destroy(gameObject, deathDestroyDelay);
     }

@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     [SerializeField] private int mana;
     [SerializeField] private float manaRechargeInterval = 0.1f;
     [SerializeField] private int manaRechargeIncrement = 1;
-    // Why is this here? - [SerializeField] private GameObject leftSpellHandler;
     
     [SerializeField] private InputActionProperty rightHandContTurnAction;
     [SerializeField] private InputActionProperty rightHandSnapTurnAction;
@@ -18,8 +17,11 @@ public class Player : MonoBehaviour
     [SerializeField] private InputActionProperty leftHandSnapTurnAction;
     [SerializeField] private InputActionProperty rightHandMoveAction;
     [SerializeField] private InputActionProperty leftHandMoveAction;
-
+    [SerializeField] private Color damageFadeColor = Color.red;
+    [SerializeField] private float damageDuration = 1f;
+    
     private GameManager _gameManager;
+    private FadeScreen _fadeScreen;
     private DominantHand _currentDominantHand;
     private ActionBasedContinuousMoveProvider _continuousMoveProvider;
     private ActionBasedSnapTurnProvider _snapTurnProvider;
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _fadeScreen = GetComponentInChildren<FadeScreen>();
         _continuousMoveProvider = GetComponent<ActionBasedContinuousMoveProvider>();
         _snapTurnProvider = GetComponent<ActionBasedSnapTurnProvider>();
         _continuousTurnProvider = GetComponent<ActionBasedContinuousTurnProvider>();
@@ -87,9 +90,8 @@ public class Player : MonoBehaviour
         // Dies if health <= 0
         if (health <= 0 && !_isDead)
         {
-            // _gameManager.something
-            // teleport to game over screen baby
-            // return;
+            _isDead = true;
+            _gameManager.EndGame(true);
         }
         
         // Changes dominant hand and subsequent provider attributes
@@ -177,10 +179,13 @@ public class Player : MonoBehaviour
     {
         if (!other.CompareTag("Hazard") || !other.GetComponentInChildren<Hazard>()) return;
         
-        
         var otherHazard = other.GetComponentInChildren<Hazard>();
         health -= otherHazard.GetDamage();
         ChangeHealths(-otherHazard.GetDamage());
+        if (otherHazard.GetDamage() > 0)
+        {
+            _fadeScreen.FadeOutIn(damageFadeColor, damageDuration);
+        }
     }
 
     private void SetManaHealths(int newMana)
@@ -245,6 +250,11 @@ public class Player : MonoBehaviour
     
     public void SetContinuouslyDraining(bool set){ _isContinuouslyUsingSpell = set; }
     public bool GetContinuouslyDraining() => _isContinuouslyUsingSpell;
-    
-    public void ResetDeath() { _isDead = false; }
+
+    public void ResetDeath()
+    {
+        _isDead = false;
+        health = _maxHealth;
+        mana = _maxMana;
+    }
 }

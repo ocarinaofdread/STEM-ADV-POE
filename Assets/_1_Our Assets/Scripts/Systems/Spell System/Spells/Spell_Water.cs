@@ -52,6 +52,7 @@ public class Spell_Water : Spell
             if (collision.gameObject.CompareTag(thisTag)) return;
         }
         
+        Debug.Log("SpellWater is interacting with " + collision.gameObject.name);
         End();
     }
 }

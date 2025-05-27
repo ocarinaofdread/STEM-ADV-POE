@@ -51,4 +51,22 @@ public class LocalSceneLoad : MonoBehaviour
         _contProvider.turnSpeed = speed;
         contSpeedDisplayText.text = speed + "";
     }
+
+    public void SetLeftHanded(bool enable)
+    {
+        _gameManager ??= FindObjectOfType<GameManager>();
+        if (enable)
+        {
+            _gameManager.SetDominantHand(DominantHand.LeftHanded);
+        }
+    }
+
+    public void SetRightHanded(bool enable)
+    {
+        _gameManager ??= FindObjectOfType<GameManager>();
+        if (enable)
+        {
+            _gameManager.SetDominantHand(DominantHand.RightHanded);
+        }
+    }
 }
