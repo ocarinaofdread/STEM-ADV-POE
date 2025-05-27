@@ -13,6 +13,7 @@ public class AIAgentConfig : ScriptableObject
     public float maxRoamDeviation = 3.0f;
     public float minRoamWaitTime = 1.0f;
     public float maxRoamWaitTime = 3.0f;
+    public float roamResetTime = 3.0f;
     
     // Idle Settings
     public float idleLookSpeed = 1.0f;

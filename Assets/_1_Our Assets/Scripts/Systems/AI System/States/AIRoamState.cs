@@ -13,6 +13,7 @@ public class AIRoamState : AIState
     private float _waitTimer;
     private float _minWaitTime;
     private float _maxWaitTime;
+    private float _resetTime;
     
     public AIStateID GetID()
     {
@@ -29,6 +30,7 @@ public class AIRoamState : AIState
         _maxRoamDeviation = agent.config.maxRoamDeviation;
         _minWaitTime = agent.config.minRoamWaitTime;
         _maxWaitTime = agent.config.maxRoamWaitTime;
+        _resetTime = agent.config.roamResetTime;
 
         _waitTimer = Random.Range(_minWaitTime, _maxWaitTime);
         
@@ -55,7 +57,17 @@ public class AIRoamState : AIState
                 var randomWaitTime = Random.Range(_minWaitTime, _maxWaitTime);
                 _waitTimer = randomWaitTime;
                 ChangeSpeed(agent, 0.5f);
+                agent.StartCoroutine(StopIfBugged(agent));
             }
+        }
+    }
+
+    private IEnumerator StopIfBugged(AIAgent agent)
+    {
+        yield return new WaitForSeconds(_resetTime);
+        if (agent.navMeshAgent.hasPath)
+        {
+            agent.navMeshAgent.ResetPath();
         }
     }
 
@@ -78,9 +90,9 @@ public class AIRoamState : AIState
         var randomDistance = Random.Range(_minRoamDeviation, _maxRoamDeviation);
         
         var randomX = randomDistance * Mathf.Cos(randomRadian);
-        var randomY = randomDistance * Mathf.Sin(randomRadian);
+        var randomZ = randomDistance * Mathf.Sin(randomRadian);
         
-        return new Vector3(randomX, _centerPoint.y, randomY);
+        return new Vector3(randomX + _centerPoint.x, _centerPoint.y, randomZ + _centerPoint.z);
     }
     
     

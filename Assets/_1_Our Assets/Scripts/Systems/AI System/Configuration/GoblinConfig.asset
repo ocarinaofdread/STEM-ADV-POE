@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 2
   maxSightRange: 5
-  minRoamDeviation: 2
-  maxRoamDeviation: 3
+  minRoamDeviation: 0.5
+  maxRoamDeviation: 1.5
   minRoamWaitTime: 1.5
   maxRoamWaitTime: 4
   idleLookSpeed: 4
   maxNavMeshRefreshTime: 0.1
   minAttackWaitTime: 0.5
   maxAttackWaitTime: 2
+  closeAttackRange: 1.5
+  minRangedWaitTime: 4
+  maxRangedWaitTime: 6
