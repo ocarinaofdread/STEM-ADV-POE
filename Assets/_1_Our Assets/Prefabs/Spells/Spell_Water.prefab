@@ -82,7 +82,11 @@ MonoBehaviour:
 
 
     Push enemies backward with a stream of water in
-    front of you.'
+    front of you.
+
+    Mana Cost: Draining
+
+    Range: Far'
   damageMin: 0
   damageMax: 0
   damageAdditiveLevel: 0

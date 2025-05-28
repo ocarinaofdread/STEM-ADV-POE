@@ -52,7 +52,12 @@ MonoBehaviour:
   spellDescription: 'Electricity
 
 
-    Spawn a field of electricity in front of you.'
+    Spawn a field of electricity in front of you.
+
+    Mana
+    Cost: 30
+
+    Range: Close'
   damageMin: 5
   damageMax: 6
   damageAdditiveLevel: 2

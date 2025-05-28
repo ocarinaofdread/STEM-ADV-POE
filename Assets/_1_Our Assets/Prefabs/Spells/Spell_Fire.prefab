@@ -151,7 +151,12 @@ MonoBehaviour:
   spellDescription: 'Fire
 
 
-    Launch a fireball in front of you.'
+    Launch a fireball in front of you.
+
+    Mana Cost:
+    20
+
+    Range: Far'
   damageMin: 3
   damageMax: 4
   damageAdditiveLevel: 1
