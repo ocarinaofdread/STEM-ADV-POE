@@ -118763,6 +118763,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.7
+    functionName: PlayHandSoundEffect
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 0d673437a53f66b4fb40fee757bb7956,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2
     functionName: DisableRightAttackCollider
     data: 

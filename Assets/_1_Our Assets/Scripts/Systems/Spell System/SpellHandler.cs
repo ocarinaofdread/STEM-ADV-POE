@@ -17,6 +17,7 @@ public class SpellHandler : MonoBehaviour
 
     private GameManager _gameManager;
     private Player _player;
+    private AudioSource _audioSource;
     private GameObject[] _spellPrefabList;
     private GameObject _currentSpellPrefab;
     private GameObject _latestSpellObject;
@@ -33,6 +34,7 @@ public class SpellHandler : MonoBehaviour
         _gameManager ??= FindObjectOfType<GameManager>();
         _player ??= FindObjectOfType<Player>();
         grimoire ??= FindObjectOfType<GrimoireHandler>();
+        _audioSource ??= GetComponent<AudioSource>();
         
         _spellPrefabList = _gameManager.GetSpellPrefabList();
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
@@ -82,6 +84,11 @@ public class SpellHandler : MonoBehaviour
             if (CurrentSpell().GetSpawnWithParent())
             {
                 spawnedSpell.transform.SetParent(attachPoint.transform);
+            }
+
+            if (CurrentSpell() is Spell_Fire spellFire)
+            {
+                _audioSource.PlayOneShot(spellFire.GetCastAudio());
             }
 
             if (!CurrentSpell().GetIsContinuous())
@@ -136,6 +143,9 @@ public class SpellHandler : MonoBehaviour
         {
             _currentSpellPrefabIndex = _spellPrefabList.Length - 1;
         }
+        
+        if (incrementValue > 0) grimoire.PlayRightFlipClip();
+        else grimoire.PlayLeftFlipClip();
         
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
         grimoire.UpdateGrimoirePages(CurrentSpell().GetName(), 1);

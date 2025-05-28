@@ -114,15 +114,19 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Spell") || isDead
-            || SpellAlreadyEncountered(other.gameObject)) return;
+            || SpellAlreadyEncountered(other.gameObject)
+            || (this is Golem && (this as Golem).isCutscene)) return;
         
         AddSpellInstance(other.gameObject);
         
         var otherSpell = other.GetComponent<Spell>();
         health -= otherSpell.GetDamage();
         healthSystem.AddToCurrentHealth(-otherSpell.GetDamage());
-        
-        otherSpell.End();
+
+        if (otherSpell.GetName() != "Electricity")
+        {
+            otherSpell.End();
+        }
         Damage(true, otherSpell);
     }
 

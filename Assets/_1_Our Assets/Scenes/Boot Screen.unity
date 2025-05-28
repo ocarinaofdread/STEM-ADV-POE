@@ -142,16 +142,6 @@ PrefabInstance:
       objectReference: {fileID: 1278465414}
     - target: {fileID: 1150028236678449873, guid: 82f12fcfc2ba332428b37b0ba88d127c,
         type: 3}
-      propertyPath: rayEnableDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150028236678449873, guid: 82f12fcfc2ba332428b37b0ba88d127c,
-        type: 3}
-      propertyPath: playerRays.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150028236678449873, guid: 82f12fcfc2ba332428b37b0ba88d127c,
-        type: 3}
       propertyPath: playerRays.Array.data[0]
       value: 
       objectReference: {fileID: 1278465416}
@@ -160,11 +150,6 @@ PrefabInstance:
       propertyPath: playerRays.Array.data[1]
       value: 
       objectReference: {fileID: 1278465415}
-    - target: {fileID: 1150028236678449873, guid: 82f12fcfc2ba332428b37b0ba88d127c,
-        type: 3}
-      propertyPath: playerControllers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1150028236678449873, guid: 82f12fcfc2ba332428b37b0ba88d127c,
         type: 3}
       propertyPath: playerControllers.Array.data[0]
@@ -250,11 +235,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1627329679}
     m_Modifications:
-    - target: {fileID: 432579271856173723, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_TurnSpeed
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 2691102025595371493, guid: d6e6170114cb2b34db29a7ce204b01cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -305,138 +285,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2883615259934939423, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_ModelPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2888649584473212507, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_ModelPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3137973140357682940, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 3529760163506015373, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3529760163506015373, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_RaycastMask.m_Bits
-      value: 507
-      objectReference: {fileID: 0}
-    - target: {fileID: 3795480582479838302, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261243961886819843, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261243961886819843, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_RaycastMask.m_Bits
-      value: 507
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815317983818965000, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815317983818965000, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5155247353322435083, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_LineBendRatio
-      value: 0.427
-      objectReference: {fileID: 0}
-    - target: {fileID: 5155247353322435083, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_SnapEndpointIfAvailable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5532919032500592279, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_MaskInteraction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5678557755828181697, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_LineBendRatio
-      value: 0.511
-      objectReference: {fileID: 0}
-    - target: {fileID: 5678557755828181697, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_AutoAdjustLineLength
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7045869525112814544, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7206697733918585395, guid: d6e6170114cb2b34db29a7ce204b01cf,
         type: 3}
       propertyPath: m_Name
       value: XR Rig
       objectReference: {fileID: 0}
-    - target: {fileID: 7214635316864460848, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: fadeColor.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7214635316864460848, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: fadeDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7308247265153254696, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7308247265153254696, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7460908666063597185, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026118397458260870, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: damageDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026118397458260870, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: damageFadeColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026118397458260870, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: damageFadeColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026118397458260870, guid: d6e6170114cb2b34db29a7ce204b01cf,
-        type: 3}
-      propertyPath: damageFadeColor.r
-      value: 0.7735849
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7308247265153254696, guid: d6e6170114cb2b34db29a7ce204b01cf, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

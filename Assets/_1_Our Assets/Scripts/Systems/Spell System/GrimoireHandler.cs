@@ -13,11 +13,14 @@ public class GrimoireHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rightPageTMPro;
     
     [TextArea(1, 3)] [SerializeField] private string controlsText;
+    [SerializeField] private AudioClip leftFlipAudioClip;
+    [SerializeField] private AudioClip rightFlipAudioClip;
 
     // <Name, Description>
     private Dictionary<string, string> _spellDictionary;
     private GameManager _gameManager;
     private DominantHand _currentDominantHand;
+    private AudioSource _audioSource;
     
     private TextMeshProUGUI _currentSpellPage;
     private TextMeshProUGUI _currentControlsPage;
@@ -32,6 +35,7 @@ public class GrimoireHandler : MonoBehaviour
     {
         _gameManager = FindObjectOfType<GameManager>();
         _spellDictionary = _gameManager.GetSpellDictionary();
+        _audioSource = GetComponentInChildren<AudioSource>();
         
         _currentDominantHand = _gameManager.GetDominantHand();
         SetPages(_currentDominantHand);
@@ -131,5 +135,8 @@ public class GrimoireHandler : MonoBehaviour
         
         _animator.SetTrigger(_closeHash);
          _animatorUnityEventHandler.SetBool(false);
-     }
+    }
+    
+    public void PlayLeftFlipClip() { _audioSource.PlayOneShot(leftFlipAudioClip); }
+    public void PlayRightFlipClip() { _audioSource.PlayOneShot(rightFlipAudioClip); }
 }

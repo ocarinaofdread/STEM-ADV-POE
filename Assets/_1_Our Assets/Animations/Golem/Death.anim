@@ -102631,6 +102631,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 3.2
+    functionName: PlayFaceSoundEffect
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: bd0927bbe39427649a82a967898dc07a,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 7.733333
     functionName: Victory
     data: 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Spell_Fire : Spell
 {
     [SerializeField] private float launchSpeed = 1;
+    [SerializeField] private AudioClip castSound;
     private Rigidbody rb;
     
     protected override void RunCastAction()
@@ -29,5 +30,10 @@ public class Spell_Fire : Spell
             }
         }
         End();
+    }
+
+    public AudioClip GetCastAudio()
+    {
+        return castSound;
     }
 }

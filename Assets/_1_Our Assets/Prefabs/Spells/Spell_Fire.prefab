@@ -164,6 +164,7 @@ MonoBehaviour:
   duration: 4
   spawnWithParent: 0
   launchSpeed: 10
+  castSound: {fileID: 8300000, guid: d5d77c7a97fb84040a677ba25c50e1fa, type: 3}
 --- !u!1001 &5220797558824933842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -324,7 +325,8 @@ PrefabInstance:
       propertyPath: InitialModule.startRotationY.minMaxState
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000010008360170, guid: 8ab6c72f39c05e2488825eb424cb36d4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

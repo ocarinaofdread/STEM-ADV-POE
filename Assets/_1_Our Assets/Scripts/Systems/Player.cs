@@ -19,10 +19,12 @@ public class Player : MonoBehaviour
     [SerializeField] private InputActionProperty leftHandMoveAction;
     [SerializeField] private Color damageFadeColor = Color.red;
     [SerializeField] private float damageDuration = 1f;
+    [SerializeField] private AudioClip damageSFX;
     
     private GameManager _gameManager;
     private FadeScreen _fadeScreen;
     private DominantHand _currentDominantHand;
+    private AudioSource _audioSource;
     private ActionBasedContinuousMoveProvider _continuousMoveProvider;
     private ActionBasedSnapTurnProvider _snapTurnProvider;
     private ActionBasedContinuousTurnProvider _continuousTurnProvider;
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
     {
         _gameManager = FindObjectOfType<GameManager>();
         _fadeScreen = GetComponentInChildren<FadeScreen>();
+        _audioSource = GetComponent<AudioSource>();
         _continuousMoveProvider = GetComponent<ActionBasedContinuousMoveProvider>();
         _snapTurnProvider = GetComponent<ActionBasedSnapTurnProvider>();
         _continuousTurnProvider = GetComponent<ActionBasedContinuousTurnProvider>();
@@ -68,10 +71,7 @@ public class Player : MonoBehaviour
 
         try
         {
-            _leftManaSystem ??= GameObject.FindGameObjectWithTag("LeftMana").GetComponent<HealthSystemForDummies>();
-            _leftHealthSystem ??= GameObject.FindGameObjectWithTag("LeftHealth").GetComponent<HealthSystemForDummies>();
-            _rightManaSystem ??= GameObject.FindGameObjectWithTag("RightMana").GetComponent<HealthSystemForDummies>();
-            _rightHealthSystem ??= GameObject.FindGameObjectWithTag("RightHealth").GetComponent<HealthSystemForDummies>();
+            SetHealthsAndManasIfNull();
         }
         catch (NullReferenceException)
         {
@@ -185,6 +185,7 @@ public class Player : MonoBehaviour
         if (otherHazard.GetDamage() > 0 && health > 0)
         {
             _fadeScreen.FadeOutIn(damageFadeColor, damageDuration);
+            _audioSource.PlayOneShot(damageSFX);
         }
     }
 
@@ -206,12 +207,14 @@ public class Player : MonoBehaviour
 
     private void ChangeManaHealths(int newIncrement)
     {
+        SetHealthsAndManasIfNull();
         _rightManaSystem.AddToCurrentHealth(newIncrement);
         _leftManaSystem.AddToCurrentHealth(newIncrement);
     }
 
     private void ChangeHealths(int increment)
     {
+        SetHealthsAndManasIfNull();
         _rightHealthSystem.AddToCurrentHealth(increment);
         _leftHealthSystem.AddToCurrentHealth(increment);
     }
@@ -253,10 +256,19 @@ public class Player : MonoBehaviour
 
     public void ResetDeath()
     {
-        _isDead = false;
+        SetHealthsAndManasIfNull();
         health = _maxHealth;
         SetHealths(health);
         mana = _maxMana;
         SetManaHealths(mana);
+        _isDead = false;
+    }
+
+    private void SetHealthsAndManasIfNull()
+    {
+        _leftManaSystem ??= GameObject.FindGameObjectWithTag("LeftMana").GetComponent<HealthSystemForDummies>();
+        _leftHealthSystem ??= GameObject.FindGameObjectWithTag("LeftHealth").GetComponent<HealthSystemForDummies>();
+        _rightManaSystem ??= GameObject.FindGameObjectWithTag("RightMana").GetComponent<HealthSystemForDummies>();
+        _rightHealthSystem ??= GameObject.FindGameObjectWithTag("RightHealth").GetComponent<HealthSystemForDummies>();
     }
 }

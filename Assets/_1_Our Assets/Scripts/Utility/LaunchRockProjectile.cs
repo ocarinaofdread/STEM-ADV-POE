@@ -5,8 +5,6 @@ using UnityEngine.XR.Content.Interaction;
 
 public class LaunchRockProjectile : MonoBehaviour
 {
-    //[SerializeField] private Transform targetTransform;
-    // [SerializeField] private Transform playerTransform;
     [SerializeField] private bool launchLocal;
     [SerializeField] private Vector3 launchDirection;
     [SerializeField] private float launchSpeed;
@@ -14,14 +12,17 @@ public class LaunchRockProjectile : MonoBehaviour
     
     [SerializeField] private float calculationFactorMin = 2.2705f;
     [SerializeField] private float calculationFactorMax = 2.2705f;
-    
+
+    [SerializeField] private AudioClip breakSound;
     [SerializeField] private float destroyDelay = 4.0f;
 
     private Rigidbody _rigidbody;
+    private AudioSource _audioSource;
     
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
 
         Launch();
     }
@@ -56,13 +57,14 @@ public class LaunchRockProjectile : MonoBehaviour
     {
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.AddRelativeForce(launchDirection * launchSpeed, ForceMode.VelocityChange);
-        
-        Destroy(gameObject, destroyDelay); 
     }
     
     private void OnCollisionEnter(Collision other)
     {
-        //Debug.Log("Ending Position: " + transform.position);
+        _audioSource.PlayOneShot(breakSound);
+        tag = "Untagged";
+        
+        Destroy(gameObject, destroyDelay);
     }
 
 }

@@ -97977,6 +97977,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.3
+    functionName: PlaySwordSoundEffect
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 270b85537c422d64cb5a4f0ce0628692,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.4
     functionName: EnableAttackCollider
     data: 

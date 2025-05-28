@@ -53,6 +53,7 @@ public class Spell_Water : Spell
         }
         
         Debug.Log("SpellWater is interacting with " + collision.gameObject.name);
+        //collision.gameObject.transform.position = new Vector3(0, 25, 0);
         End();
     }
 }

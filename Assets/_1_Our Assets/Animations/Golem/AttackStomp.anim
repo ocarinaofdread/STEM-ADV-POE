@@ -144748,6 +144748,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.73333335
+    functionName: PlayFootSoundEffect
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 4c93830ec34a2ee44a21f8a79e25d64a,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.8666667
     functionName: DisableFootAttackCollider
     data: 

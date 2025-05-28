@@ -8,6 +8,9 @@ public class Golem : Enemy
     [SerializeField] private Collider rightAttackCollider;
     [SerializeField] private Collider leftAttackCollider;
     [SerializeField] private Collider footAttackCollider;
+    [SerializeField] private AudioSource faceAudioSource;
+    [SerializeField] private AudioSource footAudioSource;
+    [SerializeField] private AudioSource handAudioSource;
     
     [SerializeField] private GameObject animRockObject;
     [SerializeField] private GameObject throwRockPrefab;
@@ -23,6 +26,8 @@ public class Golem : Enemy
     public float jumpAttackDistance = 5.19f;
     public float jumpAttackDeviation = 0.10f;
 
+    [SerializeField] private float delayBeforeFight = 2f;
+    [SerializeField] private float victoryFadeOutDuration = 3f;
     [SerializeField] private float destroyDelayAfterAnim;
     
     private GameManager _gameManager;
@@ -32,12 +37,15 @@ public class Golem : Enemy
     private Transform _playerTransform;
 
     private bool _lookAtDuringThrow;
+    public bool isCutscene;
     
     private readonly int _speedAnimHash = Animator.StringToHash("Speed");
+    private readonly int _cutsceneHash = Animator.StringToHash("Cutscene");
     
     public new void Start()
     {
         base.Start();
+        isCutscene = true;
         _attackAnimRatePool = CreateAnimationPool(attackAnimationRates);
         _rangedAnimRatePool = CreateAnimationPool(rangedAnimationRates);
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -45,6 +53,8 @@ public class Golem : Enemy
     
     public void Victory()
     {
+        var bgmSource = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
+        StartCoroutine(AudioFadeOut.FadeOut(bgmSource, victoryFadeOutDuration));
         StartCoroutine(DeathDestroy());
     }
 
@@ -134,7 +144,25 @@ public class Golem : Enemy
     
     public void EnableFootAttackCollider() { footAttackCollider.enabled = true; }
     public void DisableFootAttackCollider() { footAttackCollider.enabled = false; }
-    
+
+    public void PlayFaceSoundEffect(AudioClip clip) { faceAudioSource.PlayOneShot(clip); }
+    public void PlayHandSoundEffect(AudioClip clip) { handAudioSource.PlayOneShot(clip); }
+    public void PlayFootSoundEffect(AudioClip clip) { footAudioSource.PlayOneShot(clip); }
+
     public void EnableAnimationRock() { animRockObject.SetActive(true); }
     public void DisableAnimationRock() { animRockObject.SetActive(false); }
+
+    public void SetCutsceneHash()
+    {
+        animator.SetTrigger(_cutsceneHash);
+        StartCoroutine(DelayBeforeBattle());
+    }
+
+    private IEnumerator DelayBeforeBattle()
+    {
+        yield return new WaitForSeconds(delayBeforeFight);
+        _aiAgent ??= GetComponent<AIAgent>();
+        _aiAgent.ChangeState(AIStateID.ChasePlayer);
+        isCutscene = false;
+    }
 }

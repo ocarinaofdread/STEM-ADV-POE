@@ -10,7 +10,8 @@ public enum AIStateID
     Attack,
     RangedAttack,
     DamageStop,
-    Death
+    Death,
+    Cutscene
 }
 
 public interface AIState

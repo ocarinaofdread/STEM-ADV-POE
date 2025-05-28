@@ -49,3 +49,15 @@ MonoBehaviour:
   - {fileID: 970737749199969720, guid: 71ccb165234b0334a9e27313a991ab18, type: 3}
   - {fileID: 970737749199969720, guid: a11cf80bedbaa4f4e9f051a7e1bcd6fd, type: 3}
   selectedDominantHand: 0
+  playerRays:
+  - {fileID: 0}
+  - {fileID: 0}
+  playerControllers:
+  - {fileID: 0}
+  - {fileID: 0}
+  loadSceneMode: 0
+  fadeScreen: {fileID: 0}
+  rayEnableDelay: 1
+  dungeonSceneIndex: 2
+  gameOverSceneIndex: 3
+  gameOverFadeColor: {r: 0, g: 0, b: 0, a: 0}

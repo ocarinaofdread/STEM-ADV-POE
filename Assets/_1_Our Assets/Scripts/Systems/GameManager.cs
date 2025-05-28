@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LoadSceneMode loadSceneMode = LoadSceneMode.Single;
 
     private GameObject _player;
+    private Camera _playerCamera;
     private string[] _spellNames;
     private string[] _spellDescriptions;
     private Dictionary<string, string> _spellDictionary = new();
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _player = transform.root.GetComponentInChildren<Player>().gameObject;
+        _playerCamera = _player.GetComponentInChildren<Camera>();
         InitializeSpellListsAndDictionary();
         SceneManager.sceneLoaded += OnSceneLoad;
     }
@@ -126,6 +128,7 @@ public class GameManager : MonoBehaviour
         var startTransform = GameObject.FindGameObjectWithTag("LoadPosition").transform;
         _player.transform.position = startTransform.position;
         _player.transform.rotation = startTransform.rotation;
+        _playerCamera.transform.localRotation = new Quaternion(0, 0, 0, 0);
     }
 
     private IEnumerator EnableControllerAfterDelay(GameObject ray, bool activate, bool isRay)
