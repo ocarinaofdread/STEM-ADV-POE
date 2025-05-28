@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: GoblinConfig
   m_EditorClassIdentifier: 
   maxDistance: 2
-  maxSightRange: 5
+  maxSightRange: 3
   minRoamDeviation: 0.5
   maxRoamDeviation: 1.5
   minRoamWaitTime: 1.5
   maxRoamWaitTime: 4
+  roamResetTime: 3
   idleLookSpeed: 4
   maxNavMeshRefreshTime: 0.1
   minAttackWaitTime: 0.5

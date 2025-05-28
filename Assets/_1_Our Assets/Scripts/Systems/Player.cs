@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
         var otherHazard = other.GetComponentInChildren<Hazard>();
         health -= otherHazard.GetDamage();
         ChangeHealths(-otherHazard.GetDamage());
-        if (otherHazard.GetDamage() > 0)
+        if (otherHazard.GetDamage() > 0 && health > 0)
         {
             _fadeScreen.FadeOutIn(damageFadeColor, damageDuration);
         }
@@ -255,6 +255,8 @@ public class Player : MonoBehaviour
     {
         _isDead = false;
         health = _maxHealth;
+        SetHealths(health);
         mana = _maxMana;
+        SetManaHealths(mana);
     }
 }

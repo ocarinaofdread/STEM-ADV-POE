@@ -46,7 +46,10 @@ public class Enemy : MonoBehaviour
             agent.ChangeState(AIStateID.Death);
             healthSystem.CurrentHealth = 0;
             isDead = true;
-            EnemyDie();
+            if (this is not Golem)
+            {
+                EnemyDie();
+            }
         }
 
         if (isDead) return; // || !_damageAdditiveNow) return;
@@ -65,7 +68,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void EnemyDie()
+    private void EnemyDie()
     {
         Destroy(gameObject, deathDestroyDelay);
     }

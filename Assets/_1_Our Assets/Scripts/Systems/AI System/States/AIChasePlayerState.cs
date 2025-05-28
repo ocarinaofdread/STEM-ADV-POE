@@ -22,6 +22,12 @@ public class AIChasePlayerState : AIState
     // ReSharper disable Unity.PerformanceAnalysis
     public void EnterState(AIAgent agent)
     {
+        if (agent.enemy.isDead)
+        {
+            agent.ChangeState(AIStateID.Death);
+            return;
+        }
+        
         switch (agent.enemy)
         {
             // Skeleton
@@ -80,10 +86,10 @@ public class AIChasePlayerState : AIState
         if (sqrTFDistance > _sqrMaxDistance) {
             //Debug.Log("NMDistance is greater than max distance");
             if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial) {
-                if (!SwitchRoamIfNotOnNavMesh(agent, _playerTransform.position))
-                {
+                //if (!SwitchRoamIfNotOnNavMesh(agent, _playerTransform.position))
+                //{
                     agent.navMeshAgent.destination = _playerTransform.position;
-                }
+                //}
                 //Debug.Log("New destination");
             }
         }

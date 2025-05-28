@@ -165,7 +165,7 @@ MonoBehaviour:
   duration: 2
   spawnWithParent: 0
   launchSpeed: 10
-  pushForce: 25
+  pushForce: 30
   pushForceMode: 1
   tagsExemptedFromDestroy:
   - Player

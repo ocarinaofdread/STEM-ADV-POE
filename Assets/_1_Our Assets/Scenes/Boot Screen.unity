@@ -142,6 +142,11 @@ PrefabInstance:
       objectReference: {fileID: 1278465414}
     - target: {fileID: 1150028236678449873, guid: 82f12fcfc2ba332428b37b0ba88d127c,
         type: 3}
+      propertyPath: rayEnableDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150028236678449873, guid: 82f12fcfc2ba332428b37b0ba88d127c,
+        type: 3}
       propertyPath: playerRays.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -409,6 +414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026118397458260870, guid: d6e6170114cb2b34db29a7ce204b01cf,
+        type: 3}
+      propertyPath: damageDuration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9026118397458260870, guid: d6e6170114cb2b34db29a7ce204b01cf,
         type: 3}

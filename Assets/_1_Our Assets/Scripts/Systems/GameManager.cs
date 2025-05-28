@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     public FadeScreen fadeScreen;
     [SerializeField] private float rayEnableDelay = 0.5f;
     [SerializeField] private int dungeonSceneIndex = 2;
-    [SerializeField] private int victorySceneIndex = 4;
     [SerializeField] private int gameOverSceneIndex = 3;
     [SerializeField] private Color gameOverFadeColor;
 
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            FindObjectOfType<Portal>().gameObject.SetActive(true);
+            FindObjectOfType<Portal>(true).gameObject.SetActive(true);
         }
     }
 

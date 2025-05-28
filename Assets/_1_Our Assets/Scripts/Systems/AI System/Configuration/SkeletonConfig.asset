@@ -18,6 +18,7 @@ MonoBehaviour:
   maxRoamDeviation: 5
   minRoamWaitTime: 3
   maxRoamWaitTime: 6
+  roamResetTime: 3
   idleLookSpeed: 4
   maxNavMeshRefreshTime: 0.1
   minAttackWaitTime: 2
