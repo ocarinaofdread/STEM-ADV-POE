@@ -207,14 +207,14 @@ public class Player : MonoBehaviour
 
     private void ChangeManaHealths(int newIncrement)
     {
-        SetHealthsAndManasIfNull();
+        //SetHealthsAndManasIfNull();
         _rightManaSystem.AddToCurrentHealth(newIncrement);
         _leftManaSystem.AddToCurrentHealth(newIncrement);
     }
 
     private void ChangeHealths(int increment)
     {
-        SetHealthsAndManasIfNull();
+        //SetHealthsAndManasIfNull();
         _rightHealthSystem.AddToCurrentHealth(increment);
         _leftHealthSystem.AddToCurrentHealth(increment);
     }
@@ -258,9 +258,9 @@ public class Player : MonoBehaviour
     {
         SetHealthsAndManasIfNull();
         health = _maxHealth;
-        SetHealths(health);
+        ChangeHealths(_maxHealth);
         mana = _maxMana;
-        SetManaHealths(mana);
+        ChangeHealths(_maxMana);
         _isDead = false;
     }
 

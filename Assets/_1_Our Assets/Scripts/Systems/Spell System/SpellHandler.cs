@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 
 public class SpellHandler : MonoBehaviour
@@ -35,8 +36,15 @@ public class SpellHandler : MonoBehaviour
         _player ??= FindObjectOfType<Player>();
         grimoire ??= FindObjectOfType<GrimoireHandler>();
         _audioSource ??= GetComponent<AudioSource>();
+        SceneManager.sceneLoaded += OnSceneLoad;
         
         _spellPrefabList = _gameManager.GetSpellPrefabList();
+        _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
+    }
+    
+    public void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        _currentSpellPrefabIndex = 0;
         _currentSpellPrefab = _spellPrefabList[_currentSpellPrefabIndex];
     }
 
